@@ -46,8 +46,10 @@
                 </thead>
                 <tbody> 
                     <tr>
-                        <td><a href="#" onClick="editMember('this.memberID')"></a>Edit</td>
-                        <td><a href="#" onClick="deleteMember('this.memberID')"></a>Delete</td>
+                        <!-- <td><a href="#" onClick="editMember('this.memberID')"></a>Edit</td>
+                        <td><a href="#" onClick="deleteMember('this.memberID')"></a>Delete</td> -->
+                        <td><button type="button"  onClick="editMember('this.memberID')"">Edit</button></td>
+                        <td><button type="button"  onClick="deleteMember('this.memberID')"">Delete</button></td>   
                         <td>1</td>
                         <td>Philip K. Dick</td>
                         <td>philip@gmail.com</td>
@@ -57,8 +59,10 @@
                         <td>8</td>
                     </tr>
                     <tr>
-                        <td><a href="#" onClick="editMember('this.memberID')"></a>Edit</td>
-                        <td><a href="#" onClick="deleteMember('this.memberID')"></a>Delete</td>
+                        <!-- <td><a href="#" onClick="editMember('this.memberID')"></a>Edit</td>
+                        <td><a href="#" onClick="deleteMember('this.memberID')"></a>Delete</td> -->
+                        <td><button type="button"  onClick="editMember('this.memberID')"">Edit</button></td>
+                        <td><button type="button"  onClick="deleteMember('this.memberID')"">Delete</button></td>   
                         <td>2</td>
                         <td>Jules Verne</td>
                         <td>julesV@yahoo.com</td>
@@ -69,8 +73,10 @@
                         <td>2</td>
                     </tr>
                     <tr>
-                        <td><a href="#" onClick="editMember('this.memberID')"></a>Edit</td>
-                        <td><a href="#" onClick="deleteMember('this.memberID')"></a>Delete</td>
+                        <!-- <td><a href="#" onClick="editMember('this.memberID')"></a>Edit</td> -->
+                        <!-- <td><a href="#" onClick="deleteMember('this.memberID')"></a>Delete</td> -->
+                        <td><button type="button"  onClick="editMember('this.memberID')"">Edit</button></td>
+                        <td><button type="button"  onClick="deleteMember('this.memberID')"">Delete</button></td>   
                         <td>3</td>
                         <td>Brad Madbury</td>
                         <td>iluvlibraries@gmail.com</td>
@@ -96,4 +102,15 @@
             </form>
         </section>
     </main>
+    <script>
+        function editMember(member) {
+            alert('Future edits coming!');
+        }
+    </script>
+    <script>
+        function deleteMember(member) {
+            alert('Future deletion coming!');
+        }
+    </script>
+    
   </body>
