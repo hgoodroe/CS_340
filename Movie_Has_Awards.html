@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Movies_Has_Awards Subpage </title>    <link id="styleSheet" href="style.css" rel="stylesheet" type="text/css" />
+    <title>Members_Has_Movies Subpage </title>    <link id="styleSheet" href="style.css" rel="stylesheet" type="text/css" />
     <link id="styleSheet" href="style.css" rel="stylesheet" type="text/css" />
   </head>
 
@@ -40,8 +40,8 @@
                     <tr>
                         <th> </th>
                         <th> </th>
-                        <th>Movie_ID</th>
-                        <th>Award_ID</th>
+                        <th>Movie ID</th>
+                        <th>Award ID</th>
                     </tr>
                 </thead>
                 <tbody> 
@@ -64,28 +64,26 @@
                         <td>4</td>
                     </tr>
                     <tr>
-                      <td><a href="#" onClick="editMember('this.memberID')"></a>Edit</td>
-                      <td><a href="#" onClick="deleteMember('this.memberID')"></a>Delete</td>
-                      <td>4</td>
-                      <td>3</td>
-                  </tr>
+                        <td><a href="#" onClick="editMember('this.memberID')"></a>Edit</td>
+                        <td><a href="#" onClick="deleteMember('this.memberID')"></a>Delete</td>
+                        <td>4</td>
+                        <td>3</td>
+                     </tr>
                     <tr>
-                      <td><a href="#" onClick="editMember('this.memberID')"></a>Edit</td>
-                      <td><a href="#" onClick="deleteMember('this.memberID')"></a>Delete</td>
-                      <td>2</td>
-                      <td>2</td>
-                  </tr>
+                        <td><a href="#" onClick="editMember('this.memberID')"></a>Edit</td>
+                        <td><a href="#" onClick="deleteMember('this.memberID')"></a>Delete</td>
+                        <td>2</td>
+                        <td>2</td>
+                    </tr>
                 </tbody>
             </table>
 
             <form method="POST" id="addMember">
                 <fieldset>
                     <legend>Add New Member</legend>
-                    <label for="name">Name<input type="text" name="name" id="name" autofocus placeholder="Name" required></label>
+                    <label for="movie">Movie<input type="movie" name="movie" id="movie" autofocus placeholder="Movie" required></label>
 
-                    <label for="email">Email<input type="email" name="email" id="email" placeholder="Email" required></label>
-
-                    <label for="address">Address<textarea name="address" id="address" minlength="2" maxlength="300" placeholder="Please enter your mailing address" required></textarea></label>
+                    <label for="award">Award<input type="award" name="award" id="award" placeholder="Award" required></label>
 
                     <button type="submit">Submit</button>
                 </fieldset>
@@ -104,3 +102,5 @@
     </script>
     
   </body>
+
+
