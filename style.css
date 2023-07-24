@@ -74,11 +74,40 @@ li {
 }
 
 
-/* body {
-    margin: 0;
-    box-sizing: border-box;
-    overflow: hidden;
-} */
+table {
+    color: white;
+    font-size: 20pt;
+    text-align: center;
+    padding: 50px;
+    border-collapse: separate;
+    border-spacing: 50px 0;
+}
+
+form {
+    color: white;
+    font-size: 20pt;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 50px;
+    margin-right: 0 auto 50px;
+    display: block;
+
+
+}
+
+label {
+    color: white;
+    font-size: 20pt;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 50px;
+    margin-right: 0 auto 50px;
+
+
+}
+
 
 #black {
     height: 100%;
