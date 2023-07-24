@@ -31,21 +31,21 @@
 
   <body>
     <header>
-        <h1>Members</h1>
     </header>
     <main>
         <section>
-            <h2>Member Info</h2>
+          <h2>Members & their Movies</h2>
             <table>
                 <thead>
                     <tr>
                         <th> </th>
                         <th> </th>
                         <th>Member ID</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Address</th>
-                        <th>Months A Member</th>
+                        <th>Movie ID</th>
+                        <th>Overdue</th>
+                        <th>Returned</th>
+                        <th>Checked Out</th>
+                        <th>Return Date</th>
                     </tr>
                 </thead>
                 <tbody> 
@@ -53,36 +53,42 @@
                         <td><a href="edit.html"></a>Edit</td>
                         <td><a href="delete.html"></a>Delete</td>
                         <td>1</td>
-                        <td>Philip K. Dick</td>
-                        <td>philip@gmail.com</td>
-                        <td>87569 Ubik Ave.
-                        Berkeley, CA 94701
-                        </td>
-                        <td>8</td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>2023-07-23 17:30:00</td>
+                        <td>NULL</td>
                     </tr>
                     <tr>
                         <td><a href="#" onClick="editMember('this.memberID')"></a>Edit</td>
                         <td><a href="#" onClick="deleteMember('this.memberID')"></a>Delete</td>
                         <td>2</td>
-                        <td>Jules Verne</td>
-                        <td>julesV@yahoo.com</td>
-                        <td>908 Roles Rd.
-                        Paris, IL 61944
-                        Apt. B
-                        </td>
-                        <td>2</td>
+                        <td>6</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>2023-07-23 13:30:00</td>
+                        <td>NULL</td>
                     </tr>
                     <tr>
                         <td><a href="#" onClick="editMember('this.memberID')"></a>Edit</td>
                         <td><a href="#" onClick="deleteMember('this.memberID')"></a>Delete</td>
-                        <td>3</td>
-                        <td>Brad Madbury</td>
-                        <td>iluvlibraries@gmail.com</td>
-                        <td>111 Fireplace Ln.
-                        Los Angeles, CA 90001
-                        </td>
-                        <td>25</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>2023-07-23 13:30:00</td>
+                        <td>NULL</td>
                     </tr>
+                    <tr>
+                      <td><a href="#" onClick="editMember('this.memberID')"></a>Edit</td>
+                      <td><a href="#" onClick="deleteMember('this.memberID')"></a>Delete</td>
+                      <td>3</td>
+                      <td>5</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>2023-07-23 03:30:00</td>
+                      <td>NULL</td>
+                  </tr>
                 </tbody>
             </table>
 
