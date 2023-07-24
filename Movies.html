@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Project Step 3 Draft Version: Design HTML Interface + DML SQL (Group / On Ed Discussion ) </title>
+    <link id="styleSheet" href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <nav>
+    <ul>
+      <li>
+        <a href= "home.html">Home</a>
+      </li>
+      <li>
+        <a href= "Members.html">Members</a>
+      </li>
+      <li>
+        <a href= "Movies.html">Movies</a>
+      </li>
+      <li>
+        <a href= "SubGenres.html">SubGenres</a>
+      </li>
+      <li>
+        <a href= "Awards.html">Awards</a>
+      </li>
+    </ul>
+  </nav>
+
+  <body>
+    <header>
+        <h1>Movies</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Movie Inventory</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th> </th>
+                        <th> </th>
+                        <th>movie ID</th>
+                        <th>Movie Name</th>
+                        <th>Age Rating</th>
+                        <th>Year</th>
+                        <th>IMDB Rating</th>
+                        <th>Rotten Tomatoes Rating</th>
+                        <th>Number of Times Rented</th>
+                        <th>Sub Genre ID</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="edit.html"></a>Edit</td>
+                        <td><a href="delete.html"></a>Delete</td>
+                        <td>1</td>
+                        <th>The 5th Element</th>
+                        <th>PG-13</th>
+                        <th>1997</th>
+                        <th>7.6</th>
+                        <th>71</th>
+                        <th>15</th>
+                        <th>2</th>
+                    </tr>
+                    <tr>
+                        <td><a href="edit.html"></a>Edit</td>
+                        <td><a href="delete.html"></a>Delete</td>
+                        <td>2</td>
+                        <th>Star Wars: A New Hope</th>
+                        <th>PG</th>
+                        <th>1977</th>
+                        <th>8.6</th>
+                        <th>93</th>
+                        <th>76</th>
+                        <th>2</th>
+                    </tr>
+                    <tr>
+                        <td><a href="edit.html"></a>Edit</td>
+                        <td><a href="delete.html"></a>Delete</td>
+                        <td>3</td>
+                        <th>Johnny Mnemonic</th>
+                        <th>R</th>
+                        <th>1995</th>
+                        <th>5.6</th>
+                        <th>18</th>
+                        <th>2</th>
+                        <th>3</th>
+                    </tr>
+                    <tr>
+                        <td><a href="edit.html"></a>Edit</td>
+                        <td><a href="delete.html"></a>Delete</td>
+                        <td>4</td>
+                        <th>Mad Max</th>
+                        <th>R</th>
+                        <th>1979</th>
+                        <th>6.8</th>
+                        <th>91</th>
+                        <th>20</th>
+                        <th>6</th>
+                    </tr>
+                    <tr>
+                        <td><a href="edit.html"></a>Edit</td>
+                        <td><a href="delete.html"></a>Delete</td>
+                        <td>5</td>
+                        <th>Planet of the Apes</th>
+                        <th>G</th>
+                        <th>1968</th>
+                        <th>8.0</th>
+                        <th>87</th>
+                        <th>46</th>
+                        <th>6</th>
+                    </tr>
+                    <tr>
+                        <td><a href="edit.html"></a>Edit</td>
+                        <td><a href="delete.html"></a>Delete</td>
+                        <td>6</td>
+                        <th>Serenity</th>
+                        <th>PG-13</th>
+                        <th>2005</th>
+                        <th>7.8</th>
+                        <th>82</th>
+                        <th>35</th>
+                        <th>4</th>
+                    </tr>
+                </tbody>
+            </table>
+
+            <form method="POST" id="addMovie">
+                <fieldset>
+                    <legend>Add New Movie</legend>
+
+                    <label for="movieName">Movie Name<input type="text" name="name" id="name" autofocus placeholder="Movie Name" required></label>
+
+                    <label for="age">Age Rating<select name="ageRating">
+                        <option value="G">G</option>
+                        <option value="PG">PG</option>
+                        <option value="PG-13">PG-13</option>
+                        <option value="R">R</option>
+                    </select></label>
+
+                    <label for="year">Year Released<input type="text" name="year" placeholder="Year" required></label>
+
+                    <label for="IMDB">IMDB Rating<input type="text" name="IMDB"></label>
+
+                    <label for="rotten">Rotten Tomatoes Rating<input type="text" name="rotten"></label>
+
+                    <label for="subGenre">Sub-Genre<select name="subGenre">
+                        <option value="Dystopia">Dystopia</option>
+                        <option value="spaceOper">Space Opera</option>
+                        <option value="Cyberpunk">Cyberpunk</option>
+                        <option value="Apocalyptic">Apocalyptic</option>
+                        <option value="postApocalyptic">Post-Apocalyptic</option>
+                        <option value="hardScience">Hard Science Fiction</option>
+                    </select></label>
+
+                    <button type="submit">Submit</button>
+                </fieldset>
+            </form>
+        </section>
+    </main>
+  </body>
