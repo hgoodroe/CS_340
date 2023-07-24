@@ -4,6 +4,25 @@
     <meta charset="utf-8" />
     <title>Project Step 3 Draft Version: Design HTML Interface + DML SQL (Group / On Ed Discussion ) </title>
   </head>
+  <nav>
+    <ul>
+      <li>
+        <a href= "home.html">Home</a>
+      </li>
+      <li>
+        <a href= "Members.html">Members</a>
+      </li>
+      <li>
+        <a href= "Movies.html">Movies</a>
+      </li>
+      <li>
+        <a href= "SubGenres.html">SubGenres</a>
+      </li>
+      <li>
+        <a href= "Awards.html">Awards</a>
+      </li>
+    </ul>
+  </nav>
 
   <body>
     <header>
@@ -12,53 +31,55 @@
     <main>
         <section>
             <h2>Member Info</h2>
-            <thead>
-                <tr>
-                    <th> </th>
-                    <th> </th>
-                    <th>Member ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Address</th>
-                    <th>Months A Member</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><a href="#" onClick="editMember('this.memberID')"></a>Edit</td>
-                    <td><a href="#" onClick="deleteMember('this.memberID')"></a>Delete</td>
-                    <td>1</td>
-                    <td>Philip K. Dick</td>
-                    <td>philip@gmail.com</td>
-                    <td>87569 Ubik Ave.
-                    Berkeley, CA 94701
-                    </td>
-                    <td>8</td>
-                </tr>
-                <tr>
-                    <td><a href="#" onClick="editMember('this.memberID')"></a>Edit</td>
-                    <td><a href="#" onClick="deleteMember('this.memberID')"></a>Delete</td>
-                    <td>2</td>
-                    <td>Jules Verne</td>
-                    <td>julesV@yahoo.com</td>
-                    <td>908 Roles Rd.
-                    Paris, IL 61944
-                    Apt. B
-                    </td>
-                    <td>2</td>
-                </tr>
-                <tr>
-                    <td><a href="#" onClick="editMember('this.memberID')"></a>Edit</td>
-                    <td><a href="#" onClick="deleteMember('this.memberID')"></a>Delete</td>
-                    <td>3</td>
-                    <td>Brad Madbury</td>
-                    <td>iluvlibraries@gmail.com</td>
-                    <td>111 Fireplace Ln.
-                    Los Angeles, CA 90001
-                    </td>
-                    <td>25</td>
-                </tr>
-            </tbody>
+            <table>
+                <thead>
+                    <tr>
+                        <th> </th>
+                        <th> </th>
+                        <th>Member ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>Months A Member</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="#" onClick="editMember('this.memberID')"></a>Edit</td>
+                        <td><a href="#" onClick="deleteMember('this.memberID')"></a>Delete</td>
+                        <td>1</td>
+                        <td>Philip K. Dick</td>
+                        <td>philip@gmail.com</td>
+                        <td>87569 Ubik Ave.
+                        Berkeley, CA 94701
+                        </td>
+                        <td>8</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#" onClick="editMember('this.memberID')"></a>Edit</td>
+                        <td><a href="#" onClick="deleteMember('this.memberID')"></a>Delete</td>
+                        <td>2</td>
+                        <td>Jules Verne</td>
+                        <td>julesV@yahoo.com</td>
+                        <td>908 Roles Rd.
+                        Paris, IL 61944
+                        Apt. B
+                        </td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#" onClick="editMember('this.memberID')"></a>Edit</td>
+                        <td><a href="#" onClick="deleteMember('this.memberID')"></a>Delete</td>
+                        <td>3</td>
+                        <td>Brad Madbury</td>
+                        <td>iluvlibraries@gmail.com</td>
+                        <td>111 Fireplace Ln.
+                        Los Angeles, CA 90001
+                        </td>
+                        <td>25</td>
+                    </tr>
+                </tbody>
+            </table>
 
             <form method="POST" id="addMember">
                 <fieldset>
