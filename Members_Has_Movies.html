@@ -91,12 +91,20 @@
                 </tbody>
             </table>
 
-            <form method="POST" id="addMember">
+            <form method="POST" id="addMemberHasMovies">
                 <fieldset>
                     <legend>Add New Member</legend>
                     <label for="member">Member<input type="member" name="member" id="member" autofocus placeholder="Member" required></label>
 
-                    <label for="movie">movie<input type="movie" name="movie" id="movie" placeholder="Movie" required></label>
+                    <label for="movie">Movie<input type="movie" name="movie" id="movie" placeholder="Movie" required></label>
+
+                    <label for="overdue">Overdue<input type="overdue" name="overdue" id="overdue" placeholder="Yes / No" required></label>
+
+                    <label for="returned">Returned<input type="returned" name="returned" id="returned" placeholder="Yes / No" required></label>
+
+                    <label for="checked_out">Checked Out<input type="checked_out" name="checked_out" id="checked_out" placeholder="Year-Month-Date Hour:Minute:Second" required></label>
+
+                    <label for="return_date">Return Date<input type="return_date" name="return_date" id="return_date" placeholder="Year-Month-Date Hour:Minute:Second" required></label>
 
                     <button type="submit">Submit</button>
                 </fieldset>
