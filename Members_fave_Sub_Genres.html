@@ -26,6 +26,19 @@
         </li>
       </ul>
     </nav>
+    <nav>
+      <ul>
+        <li>
+          <a href= "Members_Has_Movies.html">Member's <br> Movies</a>
+        </li>
+        <li>
+          <a href= "Movies_Has_Awards">Movie <br> Awards</a>
+        </li>
+        <li>
+          <a href= "Members_fave_Sub_Genres.html">Member's Favorite <br> Sub-Genre</a>
+        </li>
+      </ul>
+    </nav>
   </headers>
 
   <body>
@@ -68,8 +81,8 @@
 
             <form method="POST" id="MembersFaves">
                 <fieldset>
-                    <legend>Add New Member's Favorites</legend>
-                    <label for="newFaves">New Member<input type="text" name="newFaves" autofocus placeholder="Enter Member ID" required></label>
+                    <legend>Add Favorites</legend>
+                    <label for="addFaves">Member<input type="text" name="addFaves" autofocus placeholder="Enter Member ID" required></label>
 
                     <p>Select your favorite Sub-Genres</p>
                     <label for="Dystopia">
@@ -105,22 +118,9 @@
                 </fieldset>
                 <fieldset>
 
-
-
-                  <legend>Modify Existing Member's Favorites</legend>
+                  <legend>Delete a Favorite</legend>
 
                   <label for="editFaves">Member<input type="text" name="editFaves" autofocus placeholder="Enter Member ID" required></label>
-
-                  <label for="addFave">Add a Favorite<select name="addFave">
-                    <option value="Dystopia">Dystopia</option>
-                    <option value="SpaceOpera">Space Opera</option>
-                    <option value="Cyberpunk">Cyberpunk</option>
-                    <option value="SpaceWestern">Space Western</option>
-                    <option value="Apocalyptic">Apocalyptic/option>
-                    <option value="PostApocalyptic">Post-Apocalyptic</option>
-                    <option value="HardScience">Hard Science Fiction</option>
-                  </select></label>
-                  <button type="submit">Submit Add Favorite</button>
 
                   <label for="removeFave">Remove a Favorite<select name="removeFave">
                     <option value="Dystopia">Dystopia</option>
@@ -131,22 +131,10 @@
                     <option value="PostApocalyptic">Post-Apocalyptic</option>
                     <option value="HardScience">Hard Science Fiction</option>
                   </select></label>
-                  <button type="submit">Submit Remove a Favorite</button>
+                  <button type="remove">Submit to Remove a Favorite</button>
                 </fieldset>
             </form>
-            <nav>
-              <ul>
-                <li>
-                  <a href= "Members_Has_Movies.html">Member's <br> Movies</a>
-                </li>
-                <li>
-                  <a href= "Movies_Has_Awards">Movie <br> Awards</a>
-                </li>
-                <li>
-                  <a href= "Members_fave_Sub_Genres.html">Member's Favorite <br> Sub-Genre</a>
-                </li>
-              </ul>
-            </nav>
+
         </section>
     </main>
   </body>
