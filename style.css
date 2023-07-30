@@ -18,11 +18,17 @@ body {
 
 }
 
-h1 {
-    background-color: #82A7A6;
-    font-size: 25pt;
-    font-family: 'Kievit';
+@font-face {
+    font-family: 'Scifi';
+    src: url('Fonts/SuperBrigade.otf');
+}
 
+#head_title {
+    background-color: #82A7A6;
+    font-size: 75pt;
+    font-family: 'Scifi';
+    color: orange;
+    padding: 40px;
 }
 
 h2 {
@@ -30,6 +36,19 @@ h2 {
     font-size: 25pt;
     font-family: 'Kievit';
     text-align: center;
+    font-style: italic;
+}
+
+#intersection_label {
+    background-color: #9ED0E6;
+    font-size: 28pt;
+    font-family: 'Kievit';
+    text-align: center;
+    font-style: bold;
+    color: black;
+    padding-right: 20px;
+    border-right: 6px solid rgb(0, 0, 0);
+    height: 100px;
 }
 
 #normal {
@@ -67,11 +86,22 @@ ul {
 li {
     list-style-type: none;
     display: list-item;
-    font-size: 25pt;
+    font-size: 23pt;
     font-family: 'Kievit';
     margin: 20px;
     text-align: center;
+    padding-top: 20px;
 
+}
+
+#header_id {
+    list-style-type: none;
+    display: list-item;
+    font-size: 23pt;
+    font-family: 'Kievit';
+    margin: 20px;
+    text-align: center;
+    padding-top: 0px;
 }
 
 
