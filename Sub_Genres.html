@@ -43,7 +43,7 @@
 
   <body>
     <header>
-        <h1>Sub-Genres</h1>
+        <!-- <h1>Sub-Genres</h1> -->
     </header>
     <main>
         <section>
@@ -90,10 +90,24 @@
             <form method="POST" id="addMember">
                 <fieldset>
                     <legend>Add New Sub-Genre</legend>
-                    <label for="subGenre">Sub-Genre<input type="text" name="subGenre" autofocus placeholder="Sub-Genre" required></label>
-
+                    <label for="subGenre">Sub-Genre  <input type="text" name="subGenre" autofocus placeholder="Sub-Genre" required></label>
                     <button type="submit">Submit</button>
                 </fieldset>
+                <br>
+                <fieldset>
+                  <legend>Select a Sub-Genre to view all movies available</legend>
+                  <label for="subGenreSelect">Sub-Genre     <select name="subGenreSelect"required>
+                          <option value="Select" disabled selected>Select your option</option>
+                          <option value="Dystopia">Dystopia</option>
+                          <option value="spaceOpera">Space Opera</option>
+                          <option value="Cyberpunk">Cyberpunk</option>
+                          <option value="spaceWestern">Space Western</option>
+                          <option value="Apocalyptic">Apocalyptic</option>
+                          <option value="postApocalyptic">Post-Apocalyptic</option>
+                          <option value="hardScience">Hard Science Fiction</option>
+                        </select></label>
+                  <button type="submit">Submit</button>
+              </fieldset>
             </form>
 
         </section>
