@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Project Step 3 Draft Version: Design HTML Interface + DML SQL (Group / On Ed Discussion ) </title>
+    <link id="styleSheet" href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <headers>
+    <nav>
+      <ul>
+        <li>
+          <a href= "Home.html">Home</a>
+        </li>
+        <li>
+          <a href= "Members.html">Members</a>
+        </li>
+        <li>
+          <a href= "Movies.html">Movies</a>
+        </li>
+        <li>
+          <a href= "Sub_Genres.html">Sub-Genres</a>
+        </li>
+        <li>
+          <a href= "Awards.html">Awards</a>
+        </li>
+      </ul>
+    </nav>
+    <nav>
+      <ul>
+        <li>
+          <a href= "Members_Has_Movies.html">Member's <br> Movies</a>
+        </li>
+        <li>
+          <a href= "Movies_Has_Awards">Movie <br> Awards</a>
+        </li>
+        <li>
+          <a href= "Members_fave_Sub_Genres.html">Member's Favorite <br> Sub-Genre</a>
+        </li>
+      </ul>
+    </nav>
+  </headers>
+
+  <body>
+    <header>
+        <!-- <h1>Sub-Genres</h1> -->
+    </header>
+    <main>
+        <section>
+            <h2>Scifi Movie Sub-Genres </h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sub-Genre ID</th>
+                        <th>Sub-Genre</th>
+                    </tr>
+                </thead>
+                <tbody> 
+                    <tr>
+                        <td>1</td>
+                        <td>Dystopia</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Space Opera</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Cyberpunk</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Space Western</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Apocalyptic</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Post-Apocalyptic</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Hard Science Fiction</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <form method="POST" id="addMember">
+                <fieldset>
+                    <legend>Add New Sub-Genre</legend>
+                    <label for="subGenre">Sub-Genre  <input type="text" name="subGenre" autofocus placeholder="Sub-Genre" required></label>
+                    <button type="submit">Submit</button>
+                </fieldset>
+                <br>
+                <fieldset>
+                  <legend>Select a Sub-Genre to view all movies available</legend>
+                  <label for="subGenreSelect">Sub-Genre     <select name="subGenreSelect"required>
+                          <option value="Select" disabled selected>Select your option</option>
+                          <option value="Dystopia">Dystopia</option>
+                          <option value="spaceOpera">Space Opera</option>
+                          <option value="Cyberpunk">Cyberpunk</option>
+                          <option value="spaceWestern">Space Western</option>
+                          <option value="Apocalyptic">Apocalyptic</option>
+                          <option value="postApocalyptic">Post-Apocalyptic</option>
+                          <option value="hardScience">Hard Science Fiction</option>
+                        </select></label>
+                  <button type="submit">Submit</button>
+              </fieldset>
+            </form>
+
+        </section>
+    </main>
+  </body>
