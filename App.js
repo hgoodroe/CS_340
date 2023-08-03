@@ -28,28 +28,28 @@ app.get('/', function (req, res) {
     res.send("The server is running for Hunter & Samantha!")
 });
 
-// app.get('/', function (req, res) {
-//     let allMovies = "SELECT * FROM Movies";                      //Define query (will show all movies)
-//     let allSub_Genres = "SELECT * FROM Sub_Genres";
-//     db.pool.query(allMovies, function (error, rows, fields) {    //Execute the query
-//         let movie = rows;
+app.get('/', function (req, res) {
+    let allMovies = "SELECT * FROM Movies";                      //Define query (will show all movies)
+    let allSub_Genres = "SELECT * FROM Sub_Genres";
+    db.pool.query(allMovies, function (error, rows, fields) {    //Execute the query
+        let movie = rows;
 
-//         db.pool.query(allSub_Genres, function (error, rows, fields) {
-//             let sub_genre = rows;
-//             let sub_genremap = {}
-//             sub_genre.map(sub_genre => {
-//                 let id = parseInt(Sub_Genres.sub_genre_ID, 10);
-//                 sub_genremap[id] = sub_genre["sub_genre"];
-//             })
+        db.pool.query(allSub_Genres, function (error, rows, fields) {
+            let sub_genre = rows;
+            let sub_genremap = {}
+            sub_genre.map(sub_genre => {
+                let id = parseInt(Sub_Genres.sub_genre_ID, 10);
+                sub_genremap[id] = sub_genre["sub_genre"];
+            })
 
-//             movie = movie.map(movie => {
-//                 return Object.assign(movie, { sub_genre: sub_genremap[movie.sub_genre] })
-//             })
-//             res.render('index', { data: movie, sub_genre: sub_genre });                  //Render index.hbs file and send data back as rows
-//         })
+            movie = movie.map(movie => {
+                return Object.assign(movie, { sub_genre: sub_genremap[movie.sub_genre] })
+            })
+            res.render('index', { data: movie, sub_genre: sub_genre });                  //Render index.hbs file and send data back as rows
+        })
 
-//     })
-// });
+    })
+});
 
 // app.get('/', function (req, res) {
 //     res.render('index');
