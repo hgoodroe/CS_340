@@ -5,15 +5,34 @@
 
 // forever start app.js.
 
+
+// Setup section- contains variables
 var express = require('express');
 var app = express();
+var db = require('./database/database_connector');
+const { engine } = require('express-handlebars');
+var exphbs = require('express-handlebars');
+app.engine('.hbs', engine({ extname: ".hbs" }));
+app.set('view engine', '.hbs');
 PORT = 4020;
 
+
+//Route section- contains paths server will respond to
 // Testing
+//app.get('/', function (req, res) {
+//    res.send("The server is running!")
+//});
+
 app.get('/', function (req, res) {
-    res.send("The server is running!")
+    let allMovies = "SELECT * FROM Movies";                      //Define query (will show all movies)
+    db.pool.query(allMovies, function (error, rows, fields) {    //Execute the query
+        res.render('index', { data: rows });                     //Render index.hbs file and send data back as rows
+    })
 });
 
+app.get('/', function (req, res) {
+    res.render('index');
+});
 
 app.get('/requested_Movies_available', async (request, response, next) => {
     try {
@@ -37,8 +56,7 @@ app.get('', () => {
 
 
 
-
-
+// Listener section- makes server work
 // Note: Don't add or change anything below this line.
 app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}...`);
