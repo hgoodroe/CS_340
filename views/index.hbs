@@ -1,0 +1,53 @@
+<h1>The server is running!</h1>
+<p>If you see this text, the server is <strong>definitely</strong> working!</p>
+
+
+<!-- 'Read' function to display all movies -->
+{{!-- Create a table --}}
+<table>
+    {{!-- Header section --}}
+    <thead>
+        {{!-- For just the first row, we print each key of the row object as a header cell so we
+        know what each column means when the page renders --}}
+        <tr>
+            {{#each data.[0]}}
+            <th>
+                {{@key}}
+            </th>
+            {{/each}}
+        </tr>
+    </thead>
+
+    {{!-- Body section --}}
+    <tbody>
+        {{!-- For each row, print each ID, movie name, age rating, release date, IMDB rating, 
+        Rottent tomatoes rating, # of times rented, sub-genre --}}
+        {{#each data}}
+        <tr>
+            <td>{{this.movie_ID}}</td>
+            <td>{{this.movie_name}}</td>
+            <td>{{this.age_rating}}</td>
+            <td>{{this.release_date}}</td>
+            <td>{{this.imdb_rating}}</td>
+            <td>{{this.rotten_rating}}</td>
+            <td>{{this.num_times_rented}}</td>
+            <td>{{this.sub_genre_ID}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+
+<!-- 'Create' function to insert new row into Members_Has_Movies table -->
+<h2>Checkout A Movie</h2>
+<p>To checkout a movie, select your name, the movie you'd like to rent and click 'Submit'</p>
+<form id="addMemberHasMoviesForm" method="POST" action="/addMemberHasMoviesForm">
+    <label for="input-member">Member </label>
+    <input type="text" name="input-member" id="input-member">
+    
+    <label for="input-movie">Movie </label>
+    <input type="text" name="input-movie" id="input-movie">
+
+
+    <input type="submit">
+</form>
