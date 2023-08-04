@@ -21,8 +21,10 @@
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "express-async-handler": "^1.2.0",
+    "express-handlebars": "^7.1.1",
     "forever": "^4.0.3",
     "node-fetch": "^3.3.2",
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.1",
+    "views": "^1.0.2"
   }
 }

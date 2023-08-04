@@ -20,7 +20,7 @@ var exphbs = require('express-handlebars');
 app.engine('.hbs', engine({ extname: ".hbs" }));
 app.set('view engine', '.hbs');
 
-PORT = 4020;
+PORT = 4021;
 
 
 //Route section- contains paths server will respond to
@@ -94,6 +94,30 @@ app.post('/addMembersHasMoviesForm', function (req, res) {
     })
 
 });
+
+app.delete('/delete-movie-ajax/', function (req, res, next) {
+    let data = req.body;
+    let movieID = parseInt(data.id);
+    let deleteMembers_Has_Movies = 'DELETE FROM Members_Has_Movies WHERE movie_ID = ?';
+    let delete_Movies = 'DELETE FROM Movies WHERE movie_ID = ?';
+
+    db.pool.query(deleteMembers_Has_Movies, [movieID], function (error, rows, fields) {
+        if (error) {
+            console.log(error);
+            res.sendStatus(400);
+        }
+        else
+        {
+            db.pool.query(deleteMovies, [movieID], function (error, rows, fields) {
+                if (error) {
+                    console.log(error);
+                    res.sendStatus(400);
+                } else {
+                    res.sendStatus(204);
+                }
+            })
+        }
+})});
 
 // Listener section- makes server work
 // Note: Don't add or change anything below this line.

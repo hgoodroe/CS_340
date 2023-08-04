@@ -4,7 +4,7 @@
 
 <!-- 'Read' function to display all movies -->
 {{!-- Create a table --}}
-<table>
+<table id="movieTable">
     {{!-- Header section --}}
     <thead>
         {{!-- For just the first row, we print each key of the row object as a header cell so we
@@ -15,6 +15,7 @@
                 {{@key}}
             </th>
             {{/each}}
+            <th>Delete</th>
         </tr>
     </thead>
 
@@ -23,7 +24,7 @@
         {{!-- For each row, print each ID, movie name, age rating, release date, IMDB rating, 
         Rottent tomatoes rating, # of times rented, sub-genre --}}
         {{#each data}}
-        <tr>
+        <tr data-value="{{this.movie_ID}}">
             <td>{{this.movie_ID}}</td>
             <td>{{this.movie_name}}</td>
             <td>{{this.age_rating}}</td>
@@ -32,10 +33,12 @@
             <td>{{this.rotten_rating}}</td>
             <td>{{this.num_times_rented}}</td>
             <td>{{this.sub_genre_ID}}</td>
+            <td><button onclick="deleteMovie({{this.movie_ID}})">Delete</button></td>
         </tr>
         {{/each}}
     </tbody>
 </table>
+<script src="./js/deleteMovie.js"></script>
 
 
 <!-- 'Create' function to insert new row into Members_Has_Movies table -->
@@ -51,3 +54,28 @@
 
     <input type="submit">
 </form>
+
+<h2>Updating A Movie's Information</h2>
+<p>To update a specific movie, click on the edit button and change the relevant info</p>
+<form id="update-person-form-ajax">
+
+    <label for="input-fullname">Full name: </label>
+    <select name="input-fullname" id="mySelect">
+        <option value="test">Select a Person</option>
+        {{#each data}}
+        <option value="{{this.id}}">{{this.fname}} {{this.lname}}</option>
+        {{/each}}
+    </select>
+
+    <label for="input-homeworld">Homeworld: </label>
+    <select name="input-homeworld" id="input-homeworld-update">
+        <option>Select a Planet</option>
+        {{#each planets}}
+        <option value="{{this.id}}">{{this.name}}</option>
+        {{/each}}
+    </select>
+    <input type="submit">
+
+</form>
+
+<script src="./js/update_person.js"></script>
