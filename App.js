@@ -34,25 +34,26 @@ app.get('/', (request, response) => {
 });
 
 
-app.get('/Movies.hbs', function (req, res) {
+app.get('/Movies', function (req, res) {
     let query1 = "SELECT * FROM Movies;";                      //Define query (will show all movies)
     let allSub_Genres = "SELECT * FROM Sub_Genres;";
     db.pool.query(query1, function (error, rows, fields) {    //Execute the query
         let movie = rows;
 
-        db.pool.query(allSub_Genres, (error, rows, fields) => {
-            let sub_genre = rows;
-            let sub_genremap = {}
-            sub_genre.map(sub_genre => {
-                let id = parseInt(Sub_Genres.sub_genre_ID, 10);
-                sub_genremap[id] = sub_genre["sub_genre"];
-            })
+        // db.pool.query(allSub_Genres, (error, rows, fields) => {
+        //     let sub_genre = rows;
+        //     let sub_genremap = {}
+        //     sub_genre.map(sub_genre => {
+        //         let id = parseInt(Sub_Genres.sub_genre_ID, 10);
+        //         sub_genremap[id] = sub_genre["sub_genre"];
+        //     })
 
-            movie = movie.map(movie => {
-                return Object.assign(movie, { sub_genre: sub_genremap[movie.sub_genre_ID] })
-            })
-            return res.render('Movies', { data: movie, sub_genre: sub_genre });                  //Render index.hbs file and send data back as rows
-        })
+        //     movie = movie.map(movie => {
+        //         return Object.assign(movie, { sub_genre: sub_genremap[movie.sub_genre_ID] })
+        //     })
+        //     return res.render('Movies', { data: movie, sub_genre: sub_genre });                  //Render index.hbs file and send data back as rows
+        // })
+        return res.render('Movies', { data: movie });                  //Render index.hbs file and send data back as rows
 
     })
 });
@@ -121,60 +122,55 @@ app.delete('/delete-movie-ajax/', function (req, res, next) {
     })
 });
 
-app.get('/Awards.hbs', function(req, res)
-{
-        return response.render('awards');
+app.get('/Awards', function (req, res) {
+    return res.render('Awards');
 });
 
-app.get('/Members_Fave_Sub_Genres.hbs', function(req, res)
-{
+app.get('/Members_Fave_Sub_Genres.hbs', function (req, res) {
     // Declare Query 1
     query1 = "SELECT * FROM Members_Fave_Sub_Genres;";
 
     // Run the 1st query
-    db.pool.query(query1, function(error, rows, fields){
+    db.pool.query(query1, function (error, rows, fields) {
         // Save the customers
         let fave_genres = rows;
-        return res.render('fave_genres', {data: fave_genres});
+        return res.render('fave_genres', { data: fave_genres });
     })
 });
 
-app.get('/Members_Has_Movies.hbs', function(req, res)
-{
+app.get('/Members_Has_Movies', function (req, res) {
     // Declare Query 1
     query1 = "SELECT * FROM Members_Has_Movies;";
 
     // Run the 1st query
-    db.pool.query(query1, function(error, rows, fields){
+    db.pool.query(query1, function (error, rows, fields) {
         // Save the customers
         let members_has_movies = rows;
-        return res.render('members_has_movies', {data: members_has_movies});
+        return res.render('Members_Has_Movies', { data: members_has_movies });
     })
 });
 
-app.get('/Members_Has_Awards.hbs', function(req, res)
-{
+app.get('/Members_Has_Awards', function (req, res) {
     // Declare Query 1
     query1 = "SELECT * FROM Members_Has_Awards;";
 
     // Run the 1st query
-    db.pool.query(query1, function(error, rows, fields){
+    db.pool.query(query1, function (error, rows, fields) {
         // Save the customers
         let members_has_movies = rows;
-        return res.render('members_has_awards', {data: members_has_awards});
+        return res.render('members_has_awards', { data: members_has_awards });
     })
 });
 
-app.get('/Sub_Genres.hbs', function(req, res)
-{
+app.get('/Sub_Genres', function (req, res) {
     // Declare Query 1
     query1 = "SELECT * FROM Sub_Genres;";
 
     // Run the 1st query
-    db.pool.query(query1, function(error, rows, fields){
+    db.pool.query(query1, function (error, rows, fields) {
         // Save the customers
         let sub_genres = rows;
-        return res.render('sub_genres', {data: sub_genres});
+        return res.render('Sub_Genres', { data: sub_genres });
     })
 });
 
