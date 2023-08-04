@@ -21,8 +21,6 @@ app.engine('.hbs', engine({ extname: ".hbs" }));
 app.set('view engine', '.hbs');
 
 PORT = 4021;
-PORT = 4021;
-
 
 // Route section - contains paths server will respond to Testing
 app.get('/', function (req, res) {
