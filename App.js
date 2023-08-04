@@ -13,6 +13,8 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static('views'))
 
+PORT = 23399;
+
 var db = require('./database/database_connector');
 
 const { engine } = require('express-handlebars');
@@ -20,7 +22,7 @@ var exphbs = require('express-handlebars');
 app.engine('.hbs', engine({ extname: ".hbs" }));
 app.set('view engine', '.hbs');
 
-PORT = 4009;
+
 
 // Route section - contains paths server will respond to Testing
 // app.get('/', function (req, res) {
@@ -28,10 +30,9 @@ PORT = 4009;
 // });
 
 app.get('/', (request, response) => {
-
     response.render('index');
-
 });
+
 
 app.get('/Movies.hbs', function (req, res) {
     let allMovies = "SELECT * FROM Movies;";                      //Define query (will show all movies)
@@ -122,15 +123,7 @@ app.delete('/delete-movie-ajax/', function (req, res, next) {
 
 app.get('/Awards.hbs', function(req, res)
 {
-    // Declare Query 1
-    query1 = "SELECT * FROM Awards;";
-
-    // Run the 1st query
-    db.pool.query(query1, function(error, rows, fields){
-        // Save the customers
-        let awardss = rows;
-        return res.render('awards', {data: awards});
-    })
+        return response.render('awards');
 });
 
 app.get('/Members_Fave_Sub_Genres.hbs', function(req, res)
