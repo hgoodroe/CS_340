@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Members_fave_Sub_Genres Subpage </title>
+    <link id="styleSheet" href="../style.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <headers>
+    <nav>
+      <ul>
+        <li id = header_id>
+          <a href= "../index.html">Home</a>
+        </li>
+        <li id = header_id>
+          <a href= "Members.html">Members</a>
+        </li>
+        <li id = header_id>
+          <a href= "Movies.html">Movies</a>
+        </li>
+        <li id = header_id>
+          <a href= "Sub_Genres.html">SubGenres</a>
+        </li>
+        <li id = header_id>
+          <a href= "Awards.html">Awards</a>
+        </li>
+      </ul>
+    </nav>
+    <nav>
+      <ul>
+        <h3 id = intersection_label>Intersection <br>
+          Tables </h3>
+
+        <li>
+          <a href= "Members_Has_Movies.html">Member's <br> Movies</a>
+        </li>
+        <li>
+          <a href= "Movies_Has_Awards">Movie <br> Awards</a>
+        </li>
+        <li>
+          <a href= "Members_fave_Sub_Genres.html">Member's Favorite <br> Sub-Genre</a>
+        </li>
+      </ul>
+    </nav>
+  </headers>
+
+  <body>
+    <header>
+        <!-- <h1>Members Favorite Sub-Genres</h1> -->
+    </header>
+    <main>
+        <section>
+            <h2>Members can pick their favorite sub-genres to get movie suggestions!</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Member</th>
+                        <th>Sub-Genre</th>
+                    </tr>
+                </thead>
+                <tbody> 
+                    <tr>
+                        <td>Philip K. Dick</td>
+                        <td>Space Opera</td>
+                    </tr>
+                    <tr>
+                        <td>Philip K. Dick</td>
+                        <td>Cyberpunk</td>
+                    </tr>
+                    <tr>
+                        <td>Jules Verne</td>
+                        <td>Space Opera</td>
+                    </tr>
+                    <tr>
+                        <td>Jules Verne</td>
+                        <td>Space Western</td>
+                    </tr>
+                    <tr>
+                      <td>Brad Madbury</td>
+                      <td>Post-Apocalyptic</td>
+                  </tr>
+                </tbody>
+            </table>
+
+            <form method="POST" id="MembersFaves">
+                <fieldset>
+                    <legend>Add Favorites</legend>
+                    <label for="addFaves">Member    <input type="text" name="addFaves" autofocus placeholder="Enter Member ID" required></label>
+
+                    <p>Select your favorite Sub-Genres</p>
+                    <label for="Dystopia">
+                      <input type="checkbox" name="Dystopia" value="Dystopia"/>
+                    Dystopia</label>
+
+                    <label for="SpaceOpera">
+                      <input type="checkbox" name="SpaceOpera" value="SpaceOpera"/>
+                      Space Opera</label>
+
+                    <label for="Cyberpunk">
+                      <input type="checkbox" name="Cyberpunk" value="Cyberpunk"/>
+                      Cyberpunk</label>
+                    
+                    <label for="SpaceWestern">
+                      <input type="checkbox" name="SpaceWestern" value="SpaceWestern"/>
+                      Space Western</label>
+
+                    <label for="Apocalyptic">
+                      <input type="checkbox" name="Apocalyptic" value="Apocalyptic"/>
+                      Apocalyptic</label>
+
+                    <label for="PostApocalyptic">
+                      <input type="checkbox" name="PostApocalyptic" value="PostApocalyptic"/>
+                      Post-Apocalyptic</label>
+
+                    <label for="HardScience">
+                      <input type="checkbox" name="HardScience" value="HardScience"/>
+                      Hard Science Fiction</label>
+
+
+                    <button type="submit">Done</button>
+                </fieldset>
+                <fieldset>
+
+                  <legend>Delete a Favorite</legend>
+
+                  <label for="editFaves">Member    <input type="text" name="editFaves" autofocus placeholder="Enter Member ID" required></label>
+
+                  <label for="removeFave">Remove a Favorite    <select name="removeFave">
+                    <option value="Dystopia">Dystopia</option>
+                    <option value="SpaceOpera">Space Opera</option>
+                    <option value="Cyberpunk">Cyberpunk</option>
+                    <option value="SpaceWestern">Space Western</option>
+                    <option value="Apocalyptic">Apocalyptic</option>
+                    <option value="PostApocalyptic">Post-Apocalyptic</option>
+                    <option value="HardScience">Hard Science Fiction</option>
+                  </select></label>
+                  <button type="remove">Submit to Remove a Favorite</button>
+                </fieldset>
+            </form>
+
+        </section>
+    </main>
+  </body>

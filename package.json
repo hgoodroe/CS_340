@@ -23,8 +23,13 @@
     "express-async-handler": "^1.2.0",
     "express-handlebars": "^7.1.1",
     "forever": "^4.0.3",
+    "mysql": "^2.18.1",
     "node-fetch": "^3.3.2",
     "nodemon": "^3.0.1",
+<<<<<<< HEAD
     "views": "^1.0.2"
+=======
+    "save": "^2.9.0"
+>>>>>>> adea819dce73bbc867ae4777ac99f5e87b1025d2
   }
 }
