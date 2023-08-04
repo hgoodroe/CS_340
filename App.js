@@ -35,9 +35,9 @@ app.get('/', (request, response) => {
 
 
 app.get('/Movies.hbs', function (req, res) {
-    let allMovies = "SELECT * FROM Movies;";                      //Define query (will show all movies)
+    let query1 = "SELECT * FROM Movies;";                      //Define query (will show all movies)
     let allSub_Genres = "SELECT * FROM Sub_Genres;";
-    db.pool.query(allMovies, function (error, rows, fields) {    //Execute the query
+    db.pool.query(query1, function (error, rows, fields) {    //Execute the query
         let movie = rows;
 
         db.pool.query(allSub_Genres, (error, rows, fields) => {
