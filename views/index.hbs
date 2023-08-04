@@ -1,81 +1,61 @@
-<h1>The server is running!</h1>
-<p>If you see this text, the server is <strong>definitely</strong> working!</p>
+<head>
+    <meta charset="utf-8" />
+    <title>Project Step 3 Final Version: Design HTML Interface (Group / On Canvas)</title>
+    <link id="styleSheet" href="style.css" rel="stylesheet" type="text/css" />
+</head>
 
+<body>
+<h1 id = head_title >Welcome to SCI-FLIX</h1>
+<h2>Your one stop shop for anything Scifi! We bring to you the best DVD selection in the galaxy from Avatar to Zathura, we have a collection you can review for your selection preferences.</h2>
+<headers>
+    <nav>
+    <ul>
+        <li id = header_id>
+        <a href= "Home.html">Home</a>
+        </li>
+        <li id = header_id>
+        <a href= "Members.html">Members</a>
+        </li>
+        <li id = header_id>
+        <a href= "Movies.html">Movies</a>
+        </li>
+        <li id = header_id>
+        <a href= "Sub_Genres.html">SubGenres</a>
+        </li>
+        <li id = header_id>
+        <a href= "Awards.html">Awards</a>
+        </li>
+    </ul>
+    </nav>
+    <nav>
+    <ul>
+        <h3 id = intersection_label>Intersection <br>
+        Tables </h3>
 
-<!-- 'Read' function to display all movies -->
-{{!-- Create a table --}}
-<table id="movieTable">
-    {{!-- Header section --}}
-    <thead>
-        {{!-- For just the first row, we print each key of the row object as a header cell so we
-        know what each column means when the page renders --}}
-        <tr>
-            {{#each data.[0]}}
-            <th>
-                {{@key}}
-            </th>
-            {{/each}}
-            <th>Delete</th>
-        </tr>
-    </thead>
+        <li>
+        <a href= "Members_Has_Movies.html">Member's <br> Movies</a>
+        </li>
+        <li>
+        <a href= "Movies_Has_Awards">Movie <br> Awards</a>
+        </li>
+        <li>
+        <a href= "Members_fave_Sub_Genres.html">Member's Favorite <br> Sub-Genre</a>
+        </li>
+    </ul>
+    </nav>
+</headers>
 
-    {{!-- Body section --}}
-    <tbody>
-        {{!-- For each row, print each ID, movie name, age rating, release date, IMDB rating, 
-        Rottent tomatoes rating, # of times rented, sub-genre --}}
-        {{#each data}}
-        <tr data-value="{{this.movie_ID}}">
-            <td>{{this.movie_ID}}</td>
-            <td>{{this.movie_name}}</td>
-            <td>{{this.age_rating}}</td>
-            <td>{{this.release_date}}</td>
-            <td>{{this.imdb_rating}}</td>
-            <td>{{this.rotten_rating}}</td>
-            <td>{{this.num_times_rented}}</td>
-            <td>{{this.sub_genre_ID}}</td>
-            <td><button onclick="deleteMovie({{this.movie_ID}})">Delete</button></td>
-        </tr>
-        {{/each}}
-    </tbody>
-</table>
-<script src="./js/deleteMovie.js"></script>
+<p id = "normal">Check out pictures of our virtual store!</p>
 
-
-<!-- 'Create' function to insert new row into Members_Has_Movies table -->
-<h2>Checkout A Movie</h2>
-<p>To checkout a movie, select your name, the movie you'd like to rent and click 'Submit'</p>
-<form id="addMemberHasMoviesForm" method="POST" action="/addMemberHasMoviesForm">
-    <label for="input-member">Member </label>
-    <input type="text" name="input-member" id="input-member">
-    
-    <label for="input-movie">Movie </label>
-    <input type="text" name="input-movie" id="input-movie">
-
-
-    <input type="submit">
-</form>
-
-<h2>Updating A Movie's Information</h2>
-<p>To update a specific movie, click on the edit button and change the relevant info</p>
-<form id="update-person-form-ajax">
-
-    <label for="input-fullname">Full name: </label>
-    <select name="input-fullname" id="mySelect">
-        <option value="test">Select a Person</option>
-        {{#each data}}
-        <option value="{{this.id}}">{{this.fname}} {{this.lname}}</option>
-        {{/each}}
-    </select>
-
-    <label for="input-homeworld">Homeworld: </label>
-    <select name="input-homeworld" id="input-homeworld-update">
-        <option>Select a Planet</option>
-        {{#each planets}}
-        <option value="{{this.id}}">{{this.name}}</option>
-        {{/each}}
-    </select>
-    <input type="submit">
-
-</form>
-
-<script src="./js/update_person.js"></script>
+<div>
+    <img src="Image_2/image_cJ8oUTk8_1690152087985_raw.jpg">
+    <img src="Image_2/image_i3Hiu7ii_1690152209117_raw.jpg">
+    <img src="Image_2/image_t2wiyIO7_1690152201449_raw.jpg">
+    <img src="Image_2/image_wHMX0f1S_1690152203938_raw.jpg">
+</div> 
+<br>
+<div id="black">
+    <div id="dvd"></div>
+</div>
+<script type="text/javascript" src="Bouncing_DVD.js"></script>
+</body>

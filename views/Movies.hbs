@@ -1,0 +1,160 @@
+<head>
+    <meta charset="utf-8" />
+    <title>Project Step 3 Draft Version: Design HTML Interface + DML SQL (Group / On Ed Discussion ) </title>
+    <link id="styleSheet" href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<headers>
+<nav>
+    <ul>
+    <li id = header_id>
+        <a href= "Home.html">Home</a>
+    </li>
+    <li id = header_id>
+        <a href= "Members.html">Members</a>
+    </li>
+    <li id = header_id>
+        <a href= "Movies.html">Movies</a>
+    </li>
+    <li id = header_id>
+        <a href= "Sub_Genres.html">SubGenres</a>
+    </li>
+    <li id = header_id>
+        <a href= "Awards.html">Awards</a>
+    </li>
+    </ul>
+</nav>
+<nav>
+    <ul>
+    <h3 id = intersection_label>Intersection <br>
+        Tables </h3>
+    <li>
+        <a href= "Members_Has_Movies.html">Member's <br> Movies</a>
+    </li>
+    <li>
+        <a href= "Movies_Has_Awards">Movie <br> Awards</a>
+    </li>
+    <li>
+        <a href= "Members_fave_Sub_Genres.html">Member's Favorite <br> Sub-Genre</a>
+    </li>
+    </ul>
+</nav>
+</headers>
+
+<body>
+<header>
+    <!-- <h1>Movies</h1> -->
+</header>
+<main>
+    <section>
+        <h2>Movie Inventory</h2>
+
+        <!-- 'Read' function to display all movies -->
+        {{!-- Create a table --}}
+        <table id="movieTable">
+        {{!-- Header section --}}
+            <thead>
+                <tr>
+                    {{#each data.[0]}}
+                    <th>
+                        {{@key}}
+                    </th>
+                    {{/each}}
+                    <th>Delete</th>
+                </tr>
+            </thead>
+
+{{!-- Body section --}}
+            <tbody>
+                {{!-- For each row, print each ID, movie name, age rating, release date, IMDB rating, 
+                Rottent tomatoes rating, # of times rented, sub-genre --}}
+                {{#each data}}
+                <tr data-value="{{this.movie_ID}}">
+                    <td>{{this.movie_ID}}</td>
+                    <td>{{this.movie_name}}</td>
+                    <td>{{this.age_rating}}</td>
+                    <td>{{this.release_date}}</td>
+                    <td>{{this.imdb_rating}}</td>
+                    <td>{{this.rotten_rating}}</td>
+                    <td>{{this.num_times_rented}}</td>
+                    <td>{{this.sub_genre_ID}}</td>
+                    <td><button onclick="deleteMovie({{this.movie_ID}})">Delete</button></td>
+                </tr>
+                {{/each}}
+            </tbody>
+        <table/>
+        <script src="./js/deleteMovie.js"></script>
+    <section/>
+        
+        <form method="POST" id="addMovie">
+            <fieldset style = "width:75%; 
+            display: inline-block;
+            box-sizing: border-box;">
+                <legend>Add New Movie</legend>
+
+                <label for="movieName">Movie Name    <input type="text" name="movieName" required></label>
+
+                <label for="ageRating">Age Rating    <select name="ageRating">
+                    <option value="G">G</option>
+                    <option value="PG">PG</option>
+                    <option value="PG-13">PG-13</option>
+                    <option value="R">R</option>
+                </select></label>
+
+                <label for="releaseDate">Release Date    <input type="text" name="releaseDate" placeholder= "Year-Month-Day"></label>
+                <br>
+                <label for="IMDB">IMDB Rating    <input type="text" name="IMDB"></label>
+
+                <label for="rotten">Rotten Tomatoes Rating    <input type="text" name="rotten"></label>
+
+                <label for="subGenre">Sub-Genre    <select name="subGenre">
+                    <option value="Dystopia">Dystopia</option>
+                    <option value="spaceOpera">Space Opera</option>
+                    <option value="Cyberpunk">Cyberpunk</option>
+                    <option value="spaceWestern">Space Western</option>
+                    <option value="Apocalyptic">Apocalyptic</option>
+                    <option value="postApocalyptic">Post-Apocalyptic</option>
+                    <option value="hardScience">Hard Science Fiction</option>
+                </select></label>
+                <button type="submit">Submit</button>
+            </fieldset>
+        </form>
+        <form>
+            <fieldset style ="
+            width:25%; 
+            display: inline-block;
+            box-sizing: border-box;">
+            <legend>Movie Availability</legend>
+            <button type = "submit">Submit</button>
+            </fieldset>
+        </form>
+
+    </section>
+    
+    <section>
+    <h2>Updating A Movie's Information</h2>
+    <p>To update a specific movie, click on the edit button and change the relevant info</p>
+<form id="update-movie-form">
+
+<label for="input-moviename">Movie name: </label>
+<select name="input-moviename" id="mySelect">
+    <option value="test">Select a Movie</option>
+    {{#each data}}
+    <option value="{{this.id}}">{{this.movie_name}}</option>
+    {{/each}}
+</select>
+
+<label for="input-sub_genre">Homeworld: </label>
+<select name="input-sub_genre" id="input-sub_genre-update">
+    <option>Select a Sub-Genre</option>
+    {{#each sub_genre}}
+    <option value="{{this.id}}">{{this.sub_genre}}</option>
+    {{/each}}
+</select>
+<input type="submit">
+</section>
+</form>
+
+<script src="./js/update_movie.js"></script>
+</main>
+</body>

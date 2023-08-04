@@ -1,0 +1,135 @@
+<head>
+    <meta charset="utf-8" />
+    <title>Members_Has_Movies Subpage </title>    <link id="styleSheet" href="style.css" rel="stylesheet" type="text/css" />
+    <link id="styleSheet" href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <headers>
+    <nav>
+      <ul>
+        <li id = header_id>
+          <a href= "Home.html">Home</a>
+        </li>
+        <li id = header_id>
+          <a href= "Members.html">Members</a>
+        </li>
+        <li id = header_id>
+          <a href= "Movies.html">Movies</a>
+        </li>
+        <li id = header_id>
+          <a href= "Sub_Genres.html">SubGenres</a>
+        </li>
+        <li id = header_id>
+          <a href= "Awards.html">Awards</a>
+        </li>
+      </ul>
+    </nav>
+    <nav>
+      <ul>
+        <h3 id = intersection_label>Intersection <br>
+          Tables </h3>
+
+        <li>
+          <a href= "Members_Has_Movies.html">Member's <br> Movies</a>
+        </li>
+        <li>
+          <a href= "Movies_Has_Awards">Movie <br> Awards</a>
+        </li>
+        <li>
+          <a href= "Members_fave_Sub_Genres.html">Member's Favorite <br> Sub-Genre</a>
+        </li>
+      </ul>
+    </nav>
+  </headers>
+
+  <body>
+    <header>
+    </header>
+    <main>
+        <section>
+          <h2>Movies Members have checked out!</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th> </th>
+                        <th> </th>
+                        <th>Member</th>
+                        <th>Movie</th>
+                        <th>Overdue</th>
+                        <th>Returned</th>
+                        <th>Checked Out</th>
+                        <th>Return Date</th>
+                    </tr>
+                </thead>
+                <tbody> 
+                    <tr>
+                        <td><a href="edit.html"></a>Edit</td>
+                        <td><a href="delete.html"></a>Delete</td>
+                        <td>Philip K. Dick</td>
+                        <td>The 5th Element</td>
+                        <td>No</td>
+                        <td>No</td>
+                        <td>2023-07-23 17:30:00</td>
+                        <td>NULL</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#" onClick="editMember('this.memberID')"></a>Edit</td>
+                        <td><a href="#" onClick="deleteMember('this.memberID')"></a>Delete</td>
+                        <td>Jules Verne</td>
+                        <td>Serenity</td>
+                        <td>No</td>
+                        <td>No</td>
+                        <td>2023-07-23 13:30:00</td>
+                        <td>NULL</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#" onClick="editMember('this.memberID')"></a>Edit</td>
+                        <td><a href="#" onClick="deleteMember('this.memberID')"></a>Delete</td>
+                        <td>Jules Verne</td>
+                        <td>Star Wars: A New Hope</td>
+                        <td>No</td>
+                        <td>No</td>
+                        <td>2023-07-23 13:30:00</td>
+                        <td>NULL</td>
+                    </tr>
+                    <tr>
+                      <td><a href="#" onClick="editMember('this.memberID')"></a>Edit</td>
+                      <td><a href="#" onClick="deleteMember('this.memberID')"></a>Delete</td>
+                      <td>Bray Madbury</td>
+                      <td>Planet of the Apes</td>
+                      <td>No</td>
+                      <td>No</td>
+                      <td>2023-07-23 03:30:00</td>
+                      <td>NULL</td>
+                  </tr>
+                </tbody>
+            </table>
+
+            <!-- 'Create' function to insert new row into Members_Has_Movies table -->
+            <h2>Checkout A Movie</h2>
+            <p>To checkout a movie, select your name, the movie you'd like to rent and click 'Submit'</p>
+            <form id="addMemberHasMoviesForm" method="POST" action="/addMemberHasMoviesForm">
+                <label for="input-member">Member </label>
+                <input type="text" name="input-member" id="input-member">
+                
+                <label for="input-movie">Movie </label>
+                <input type="text" name="input-movie" id="input-movie">
+
+
+                <input type="submit">
+            </form>
+
+        </section>
+    </main>
+    <script>
+        function editMember(member) {
+            alert('Future edits coming!');
+        }
+    </script>
+    <script>
+        function deleteMember(member) {
+            alert('Future deletion coming!');
+        }
+    </script>
+    
+  </body>
