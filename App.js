@@ -39,7 +39,7 @@ app.get('/Movies.hbs', function (req, res) {
     db.pool.query(allMovies, function (error, rows, fields) {    //Execute the query
         let movie = rows;
 
-        db.pool.query(allSub_Genres, function (error, rows, fields) {
+        db.pool.query(allSub_Genres, (error, rows, fields) => {
             let sub_genre = rows;
             let sub_genremap = {}
             sub_genre.map(sub_genre => {
@@ -48,17 +48,14 @@ app.get('/Movies.hbs', function (req, res) {
             })
 
             movie = movie.map(movie => {
-                return Object.assign(movie, { sub_genre: sub_genremap[movie.sub_genre] })
+                return Object.assign(movie, { sub_genre: sub_genremap[movie.sub_genre_ID] })
             })
-            res.render('index', { data: movie, sub_genre: sub_genre });                  //Render index.hbs file and send data back as rows
+            return res.render('Movies', { data: movie, sub_genre: sub_genre });                  //Render index.hbs file and send data back as rows
         })
 
     })
 });
 
-// app.get('/', function (req, res) {
-//     res.render('index');
-// });
 
 // app.get('/requested_Movies_available', async (request, response, next) => {
 //     try {
