@@ -120,6 +120,71 @@ app.delete('/delete-movie-ajax/', function (req, res, next) {
     })
 });
 
+app.get('/Awards.hbs', function(req, res)
+{
+    // Declare Query 1
+    query1 = "SELECT * FROM Awards;";
+
+    // Run the 1st query
+    db.pool.query(query1, function(error, rows, fields){
+        // Save the customers
+        let awardss = rows;
+        return res.render('awards', {data: awards});
+    })
+});
+
+app.get('/Members_Fave_Sub_Genres.hbs', function(req, res)
+{
+    // Declare Query 1
+    query1 = "SELECT * FROM Members_Fave_Sub_Genres;";
+
+    // Run the 1st query
+    db.pool.query(query1, function(error, rows, fields){
+        // Save the customers
+        let fave_genres = rows;
+        return res.render('fave_genres', {data: fave_genres});
+    })
+});
+
+app.get('/Members_Has_Movies.hbs', function(req, res)
+{
+    // Declare Query 1
+    query1 = "SELECT * FROM Members_Has_Movies;";
+
+    // Run the 1st query
+    db.pool.query(query1, function(error, rows, fields){
+        // Save the customers
+        let members_has_movies = rows;
+        return res.render('members_has_movies', {data: members_has_movies});
+    })
+});
+
+app.get('/Members_Has_Awards.hbs', function(req, res)
+{
+    // Declare Query 1
+    query1 = "SELECT * FROM Members_Has_Awards;";
+
+    // Run the 1st query
+    db.pool.query(query1, function(error, rows, fields){
+        // Save the customers
+        let members_has_movies = rows;
+        return res.render('members_has_awards', {data: members_has_awards});
+    })
+});
+
+app.get('/Sub_Genres.hbs', function(req, res)
+{
+    // Declare Query 1
+    query1 = "SELECT * FROM Sub_Genres;";
+
+    // Run the 1st query
+    db.pool.query(query1, function(error, rows, fields){
+        // Save the customers
+        let sub_genres = rows;
+        return res.render('sub_genres', {data: sub_genres});
+    })
+});
+
 // Listener section- makes server work
 // Note: Don't add or change anything below this line.
 app.listen(PORT, () => {
