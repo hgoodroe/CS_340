@@ -11,7 +11,7 @@ var express = require('express');
 var app = express();
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-app.use(express.static('public'))
+app.use(express.static('views'))
 
 var db = require('./database/database_connector');
 
@@ -20,11 +20,17 @@ var exphbs = require('express-handlebars');
 app.engine('.hbs', engine({ extname: ".hbs" }));
 app.set('view engine', '.hbs');
 
-PORT = 4021;
+PORT = 4009;
 
 // Route section - contains paths server will respond to Testing
-app.get('/', function (req, res) {
-    res.send("The server is running for Hunter & Samantha!")
+// app.get('/', function (req, res) {
+//     res.send("The server is running for Hunter & Samantha!")
+// });
+
+app.get('/', (request, response) => {
+
+    response.render('index');
+
 });
 
 app.get('/Movies', function (req, res) {
@@ -104,8 +110,7 @@ app.delete('/delete-movie-ajax/', function (req, res, next) {
             console.log(error);
             res.sendStatus(400);
         }
-        else
-        {
+        else {
             db.pool.query(deleteMovies, [movieID], function (error, rows, fields) {
                 if (error) {
                     console.log(error);
@@ -115,7 +120,8 @@ app.delete('/delete-movie-ajax/', function (req, res, next) {
                 }
             })
         }
-})});
+    })
+});
 
 // Listener section- makes server work
 // Note: Don't add or change anything below this line.
