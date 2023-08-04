@@ -33,7 +33,7 @@ app.get('/', (request, response) => {
 
 });
 
-app.get('/Movies', function (req, res) {
+app.get('/Movies.hbs', function (req, res) {
     let allMovies = "SELECT * FROM Movies";                      //Define query (will show all movies)
     let allSub_Genres = "SELECT * FROM Sub_Genres";
     db.pool.query(allMovies, function (error, rows, fields) {    //Execute the query
