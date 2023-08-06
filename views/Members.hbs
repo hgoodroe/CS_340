@@ -1,13 +1,15 @@
 <!-- Refer to README for reference -->
 
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Members Subpage </title>    <link id="styleSheet" href="style.css" rel="stylesheet" type="text/css" />
-    <link id="styleSheet" href="../style.css" rel="stylesheet" type="text/css" />
-  </head>
 
-  <body>
+<head>
+    <meta charset="utf-8" />
+    <title>Members Subpage </title>
+    <link id="styleSheet" href="style.css" rel="stylesheet" type="text/css" />
+    <link id="styleSheet" href="../style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
     <header>
         <!-- <h1>Members</h1> -->
     </header>
@@ -15,7 +17,7 @@
         <section>
             <h2>Member Info</h2>
             <table id="MemberTable">
-                    {{!-- Header section --}}
+                {{!-- Header section --}}
                 <thead>
                     <tr>
                         {{#each data.[0]}}
@@ -38,18 +40,21 @@
                     </tr>
                     {{/each}}
                 </tbody>
-    
+
             </table>
-            <section/>
+            <section />
 
             <form method="POST" id="addMember">
                 <fieldset>
                     <legend>Add New Member</legend>
-                    <label for="name">Name<input type="text" name="name" id="name" autofocus placeholder="Name" required></label>
+                    <label for="name">Name<input type="text" name="name" id="name" autofocus placeholder="Name"
+                            required></label>
 
-                    <label for="email">Email<input type="email" name="email" id="email" placeholder="Email" required></label>
+                    <label for="email">Email<input type="email" name="email" id="email" placeholder="Email"
+                            required></label>
 
-                    <label for="address">Address<textarea name="address" id="address" minlength="2" maxlength="300" placeholder="Please enter your mailing address" required></textarea></label>
+                    <label for="address">Address<textarea name="address" id="address" minlength="2" maxlength="300"
+                            placeholder="Please enter your mailing address" required></textarea></label>
 
                     <button type="submit">Submit</button>
                 </fieldset>
@@ -67,5 +72,5 @@
             alert('Future deletion coming!');
         }
     </script>
-    
-  </body>
+
+</body>

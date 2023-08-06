@@ -12,13 +12,13 @@
 </headers>
 
 <body>
-<header>
-    <!-- <h1>Members Favorite Sub-Genres</h1> -->
-</header>
-<main>
-    <section>
-        <h2>Members can pick their favorite sub-genres to get movie suggestions!</h2>
-        <table id="favesTable">
+    <header>
+        <!-- <h1>Members Favorite Sub-Genres</h1> -->
+    </header>
+    <main>
+        <section>
+            <h2>Members can pick their favorite sub-genres to get movie suggestions!</h2>
+            <table id="favesTable">
                 {{!-- Header section --}}
                 <thead>
                     <tr>
@@ -42,64 +42,66 @@
                     </tr>
                     {{/each}}
                 </tbody>
-        <table />
+                <table />
 
-        <form method="POST" id="MembersFaves">
-            <fieldset>
-                <legend>Add Favorites</legend>
-                <label for="addFaves">Member    <input type="text" name="addFaves" autofocus placeholder="Enter Member ID" required></label>
+                <form method="POST" id="MembersFaves">
+                    <fieldset>
+                        <legend>Add Favorites</legend>
+                        <label for="addFaves">Member <input type="text" name="addFaves" autofocus
+                                placeholder="Enter Member ID" required></label>
 
-                <p>Select your favorite Sub-Genres</p>
-                <label for="Dystopia">
-                    <input type="checkbox" name="Dystopia" value="Dystopia"/>
-                Dystopia</label>
+                        <p>Select your favorite Sub-Genres</p>
+                        <label for="Dystopia">
+                            <input type="checkbox" name="Dystopia" value="Dystopia" />
+                            Dystopia</label>
 
-                <label for="SpaceOpera">
-                    <input type="checkbox" name="SpaceOpera" value="SpaceOpera"/>
-                    Space Opera</label>
+                        <label for="SpaceOpera">
+                            <input type="checkbox" name="SpaceOpera" value="SpaceOpera" />
+                            Space Opera</label>
 
-                <label for="Cyberpunk">
-                    <input type="checkbox" name="Cyberpunk" value="Cyberpunk"/>
-                    Cyberpunk</label>
-                
-                <label for="SpaceWestern">
-                    <input type="checkbox" name="SpaceWestern" value="SpaceWestern"/>
-                    Space Western</label>
+                        <label for="Cyberpunk">
+                            <input type="checkbox" name="Cyberpunk" value="Cyberpunk" />
+                            Cyberpunk</label>
 
-                <label for="Apocalyptic">
-                    <input type="checkbox" name="Apocalyptic" value="Apocalyptic"/>
-                    Apocalyptic</label>
+                        <label for="SpaceWestern">
+                            <input type="checkbox" name="SpaceWestern" value="SpaceWestern" />
+                            Space Western</label>
 
-                <label for="PostApocalyptic">
-                    <input type="checkbox" name="PostApocalyptic" value="PostApocalyptic"/>
-                    Post-Apocalyptic</label>
+                        <label for="Apocalyptic">
+                            <input type="checkbox" name="Apocalyptic" value="Apocalyptic" />
+                            Apocalyptic</label>
 
-                <label for="HardScience">
-                    <input type="checkbox" name="HardScience" value="HardScience"/>
-                    Hard Science Fiction</label>
+                        <label for="PostApocalyptic">
+                            <input type="checkbox" name="PostApocalyptic" value="PostApocalyptic" />
+                            Post-Apocalyptic</label>
+
+                        <label for="HardScience">
+                            <input type="checkbox" name="HardScience" value="HardScience" />
+                            Hard Science Fiction</label>
 
 
-                <button type="submit">Done</button>
-            </fieldset>
-            <fieldset>
+                        <button type="submit">Done</button>
+                    </fieldset>
+                    <fieldset>
 
-                <legend>Delete a Favorite</legend>
+                        <legend>Delete a Favorite</legend>
 
-                <label for="editFaves">Member    <input type="text" name="editFaves" autofocus placeholder="Enter Member ID" required></label>
+                        <label for="editFaves">Member <input type="text" name="editFaves" autofocus
+                                placeholder="Enter Member ID" required></label>
 
-                <label for="removeFave">Remove a Favorite    <select name="removeFave">
-                <option value="Dystopia">Dystopia</option>
-                <option value="SpaceOpera">Space Opera</option>
-                <option value="Cyberpunk">Cyberpunk</option>
-                <option value="SpaceWestern">Space Western</option>
-                <option value="Apocalyptic">Apocalyptic</option>
-                <option value="PostApocalyptic">Post-Apocalyptic</option>
-                <option value="HardScience">Hard Science Fiction</option>
-                </select></label>
-                <button type="remove">Submit to Remove a Favorite</button>
-            </fieldset>
-        </form>
+                        <label for="removeFave">Remove a Favorite <select name="removeFave">
+                                <option value="Dystopia">Dystopia</option>
+                                <option value="SpaceOpera">Space Opera</option>
+                                <option value="Cyberpunk">Cyberpunk</option>
+                                <option value="SpaceWestern">Space Western</option>
+                                <option value="Apocalyptic">Apocalyptic</option>
+                                <option value="PostApocalyptic">Post-Apocalyptic</option>
+                                <option value="HardScience">Hard Science Fiction</option>
+                            </select></label>
+                        <button type="remove">Submit to Remove a Favorite</button>
+                    </fieldset>
+                </form>
 
-    </section>
-</main>
+        </section>
+    </main>
 </body>
