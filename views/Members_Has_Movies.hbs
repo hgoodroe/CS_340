@@ -1,3 +1,5 @@
+<!-- Refer to README for reference -->
+
 <head>
     <meta charset="utf-8" />
     <title>Members_Has_Movies Subpage </title>    <link id="styleSheet" href="style.css" rel="stylesheet" type="text/css" />
@@ -5,43 +7,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   </head>
 
-  <headers>
-    <nav>
-    <ul>
-    <li id = header_id>
-        <a href= "/">Home</a>
-    </li>
-    <li id = header_id>
-        <a href= "Members.hbs">Members</a>
-    </li>
-    <li id = header_id>
-        <a href= "Movies.hbs">Movies</a>
-    </li>
-    <li id = header_id>
-        <a href= "Sub_Genres.hbs">SubGenres</a>
-    </li>
-    <li id = header_id>
-        <a href= "Awards.hbs">Awards</a>
-    </li>
-    </ul>
-</nav>
-<nav>
-    <ul>
-    <h3 id = intersection_label>Intersection <br>
-        Tables </h3>
 
-    <li>
-        <a href= "Members_Has_Movies.hbs">Member's <br> Movies</a>
-    </li>
-    <li>
-        <a href= "Movies_Has_Awards.hbs">Movie <br> Awards</a>
-    </li>
-    <li>
-        <a href= "Members_fave_Sub_Genres.hbs">Member's Favorite <br> Sub-Genre</a>
-    </li>
-    </ul>
-</nav>
-  </headers>
 
   <body>
     <header>
@@ -49,62 +15,35 @@
     <main>
         <section>
           <h2>Movies Members have checked out!</h2>
-            <table>
+            <table id="membersHasMoviesTable">
+                {{!-- Header section --}}
                 <thead>
                     <tr>
-                        <th> </th>
-                        <th> </th>
-                        <th>Member</th>
-                        <th>Movie</th>
-                        <th>Overdue</th>
-                        <th>Returned</th>
-                        <th>Checked Out</th>
-                        <th>Return Date</th>
+                        {{#each data.[0]}}
+                        <th>
+                            {{@key}}
+                        </th>
+                        {{/each}}
+                        <th>Delete</th>
                     </tr>
                 </thead>
-                <tbody> 
+
+                {{!-- Body section --}}
+                <tbody>
+                    {{!-- For each row, print each ID, movie name, age rating, release date, IMDB rating,
+                    Rottent tomatoes rating, # of times rented, sub-genre --}}
+                    {{#each data}}
                     <tr>
-                        <td><a href="edit.html"></a>Edit</td>
-                        <td><a href="delete.html"></a>Delete</td>
-                        <td>Philip K. Dick</td>
-                        <td>The 5th Element</td>
-                        <td>No</td>
-                        <td>No</td>
-                        <td>2023-07-23 17:30:00</td>
-                        <td>NULL</td>
+                        <td>{{this.member_ID}}</td>
+                        <td>{{this.movie_ID}}</td>
+                        <td>{{this.overdue}}</td>
+                        <td>{{this.returned}}</td>
+                        <td>{{this.checked_out}}</td>
+                        <td>{{this.returned_date}}</td>
                     </tr>
-                    <tr>
-                        <td><a href="#" onClick="editMember('this.memberID')"></a>Edit</td>
-                        <td><a href="#" onClick="deleteMember('this.memberID')"></a>Delete</td>
-                        <td>Jules Verne</td>
-                        <td>Serenity</td>
-                        <td>No</td>
-                        <td>No</td>
-                        <td>2023-07-23 13:30:00</td>
-                        <td>NULL</td>
-                    </tr>
-                    <tr>
-                        <td><a href="#" onClick="editMember('this.memberID')"></a>Edit</td>
-                        <td><a href="#" onClick="deleteMember('this.memberID')"></a>Delete</td>
-                        <td>Jules Verne</td>
-                        <td>Star Wars: A New Hope</td>
-                        <td>No</td>
-                        <td>No</td>
-                        <td>2023-07-23 13:30:00</td>
-                        <td>NULL</td>
-                    </tr>
-                    <tr>
-                      <td><a href="#" onClick="editMember('this.memberID')"></a>Edit</td>
-                      <td><a href="#" onClick="deleteMember('this.memberID')"></a>Delete</td>
-                      <td>Bray Madbury</td>
-                      <td>Planet of the Apes</td>
-                      <td>No</td>
-                      <td>No</td>
-                      <td>2023-07-23 03:30:00</td>
-                      <td>NULL</td>
-                  </tr>
+                    {{/each}}
                 </tbody>
-            </table>
+                <table />
 
             <!-- 'Create' function to insert new row into Members_Has_Movies table -->
             <h2>Checkout A Movie</h2>

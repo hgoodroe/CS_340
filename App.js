@@ -11,7 +11,7 @@ var express = require('express');
 var app = express();
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-app.use(express.static('views'))
+app.use(express.static('views'))  //if doesnt work change to views
 
 PORT = 23399;
 
@@ -35,27 +35,12 @@ app.get('/', (request, response) => {
 
 
 app.get('/Movies', function (req, res) {
-    let query1 = "SELECT * FROM Movies;";                      //Define query (will show all movies)
-    let allSub_Genres = "SELECT * FROM Sub_Genres;";
-    db.pool.query(query1, function (error, rows, fields) {    //Execute the query
-        let movie = rows;
+    let query1 = "SELECT * FROM Movies;";               // Define our query
 
-        // db.pool.query(allSub_Genres, (error, rows, fields) => {
-        //     let sub_genre = rows;
-        //     let sub_genremap = {}
-        //     sub_genre.map(sub_genre => {
-        //         let id = parseInt(Sub_Genres.sub_genre_ID, 10);
-        //         sub_genremap[id] = sub_genre["sub_genre"];
-        //     })
+    db.pool.query(query1, function (error, rows, fields) {    // Execute the query
 
-        //     movie = movie.map(movie => {
-        //         return Object.assign(movie, { sub_genre: sub_genremap[movie.sub_genre_ID] })
-        //     })
-        //     return res.render('Movies', { data: movie, sub_genre: sub_genre });                  //Render index.hbs file and send data back as rows
-        // })
-        return res.render('Movies', { data: movie });                  //Render index.hbs file and send data back as rows
-
-    })
+        res.render('Movies', { data: rows });                  // Render the index.hbs file, and also send the renderer
+    })                                                      // an object where 'data' is equal to the 'rows' we
 });
 
 
@@ -123,10 +108,66 @@ app.delete('/delete-movie-ajax/', function (req, res, next) {
 });
 
 app.get('/Awards', function (req, res) {
-    return res.render('Awards');
+    // Declare Query 1
+    query1 = "SELECT * FROM Awards;";
+
+    // Run the 1st query
+    db.pool.query(query1, function (error, rows, fields) {
+        // Save the customers
+        let awards = rows;
+        return res.render('Awards', { data: awards });
+    })
 });
 
-app.get('/Members_Fave_Sub_Genres.hbs', function (req, res) {
+app.get('/Members', function (req, res) {
+    // Declare Query 1
+    query1 = "SELECT * FROM Members;";
+
+    // Run the 1st query
+    db.pool.query(query1, function (error, rows, fields) {
+        // Save the customers
+        let members = rows;
+        return res.render('Members', { data: members });
+    })
+});
+
+app.post('/add-movie-form', function (req, res) {
+    let data = req.body;
+
+    // Capture NULL values
+    //let homeworld = parseInt(data['input-homeworld']);
+    //if (isNaN(homeworld))
+    // {
+    //    homeworld = 'NULL'
+    //}
+
+    //let age = parseInt(data['input-age']);
+    //if (isNaN(age))
+    //{
+    //    age = 'NULL'
+    //}
+
+    // Create the query and run it on the database
+    query1 = `INSERT INTO Movies(movie_name, age_rating, release_date, IMDB_rating, rotten_rating, sub_genre) VALUES ('${data['input-movie_name']}', '${data['input-age_rating']}', '${data['input-release_date']}', '${data['input-imdb']}', '${data['input-rotten']}', '${data['input-sub_genre']}'`;
+    db.pool.query(query1, function (error, rows, fields) {
+
+        // Check to see if there was an error
+        if (error) {
+
+            // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
+            console.log(error)
+            res.sendStatus(400);
+        }
+
+        // If there was no error, we redirect back to our root route, which automatically runs the SELECT * FROM bsg_people and
+        // presents it on the screen
+        else {
+            res.redirect('/Movies');
+        }
+    })
+})
+
+app.get('/Members_Fave_Sub_Genres', function (req, res) {
     // Declare Query 1
     query1 = "SELECT * FROM Members_Fave_Sub_Genres;";
 
@@ -134,7 +175,7 @@ app.get('/Members_Fave_Sub_Genres.hbs', function (req, res) {
     db.pool.query(query1, function (error, rows, fields) {
         // Save the customers
         let fave_genres = rows;
-        return res.render('fave_genres', { data: fave_genres });
+        return res.render('Members_Fave_Sub_Genres', { data: fave_genres });
     })
 });
 
@@ -150,15 +191,15 @@ app.get('/Members_Has_Movies', function (req, res) {
     })
 });
 
-app.get('/Members_Has_Awards', function (req, res) {
+app.get('/Movies_Has_Awards', function (req, res) {
     // Declare Query 1
-    query1 = "SELECT * FROM Members_Has_Awards;";
+    query1 = "SELECT * FROM Movies_Has_Awards;";
 
     // Run the 1st query
     db.pool.query(query1, function (error, rows, fields) {
         // Save the customers
-        let members_has_movies = rows;
-        return res.render('members_has_awards', { data: members_has_awards });
+        let movies_has_awards = rows;
+        return res.render('Movies_Has_Awards', { data: movies_has_awards });
     })
 });
 

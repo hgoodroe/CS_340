@@ -1,3 +1,5 @@
+<!-- Refer to README for reference -->
+
 <head>
     <meta charset="utf-8" />
     <title>Project Step 3 Draft Version: Design HTML Interface + DML SQL (Group / On Ed Discussion ) </title>
@@ -5,43 +7,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </head>
 
-<headers>
-<nav>
-    <ul>
-    <li id = header_id>
-        <a href= "/">Home</a>
-    </li>
-    <li id = header_id>
-        <a href= "Members.hbs">Members</a>
-    </li>
-    <li id = header_id>
-        <a href= "Movies.hbs">Movies</a>
-    </li>
-    <li id = header_id>
-        <a href= "Sub_Genres.hbs">SubGenres</a>
-    </li>
-    <li id = header_id>
-        <a href= "Awards.hbs">Awards</a>
-    </li>
-    </ul>
-</nav>
-<nav>
-    <ul>
-    <h3 id = intersection_label>Intersection <br>
-        Tables </h3>
 
-    <li>
-        <a href= "Members_Has_Movies.hbs">Member's <br> Movies</a>
-    </li>
-    <li>
-        <a href= "Movies_Has_Awards.hbs">Movie <br> Awards</a>
-    </li>
-    <li>
-        <a href= "Members_fave_Sub_Genres.hbs">Member's Favorite <br> Sub-Genre</a>
-    </li>
-    </ul>
-</nav>
-</headers>
 
 <body>
 <header>
@@ -50,44 +16,31 @@
 <main>
     <section>
         <h2>Scifi Movie Sub-Genres </h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Sub-Genre ID</th>
-                    <th>Sub-Genre</th>
-                </tr>
-            </thead>
-            <tbody> 
-                <tr>
-                    <td>1</td>
-                    <td>Dystopia</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Space Opera</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Cyberpunk</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>Space Western</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>Apocalyptic</td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>Post-Apocalyptic</td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td>Hard Science Fiction</td>
-                </tr>
-            </tbody>
-        </table>
+        <table id="sub_genreTable">
+                {{!-- Header section --}}
+                <thead>
+                    <tr>
+                        {{#each data.[0]}}
+                        <th>
+                            {{@key}}
+                        </th>
+                        {{/each}}
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+
+                {{!-- Body section --}}
+                <tbody>
+                    {{!-- For each row, print each ID, movie name, age rating, release date, IMDB rating,
+                    Rottent tomatoes rating, # of times rented, sub-genre --}}
+                    {{#each data}}
+                    <tr data-value="{{this.sub_genre_ID}}">
+                        <td>{{this.sub_genre_ID}}</td>
+                        <td>{{this.sub_genre}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+                <table />
 
         <form method="POST" id="addMember">
             <fieldset>
