@@ -2,19 +2,20 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Members_Has_Movies Subpage </title>    <link id="styleSheet" href="style.css" rel="stylesheet" type="text/css" />
+    <title>Members_Has_Movies Subpage </title>
+    <link id="styleSheet" href="style.css" rel="stylesheet" type="text/css" />
     <link id="styleSheet" href="style.css" rel="stylesheet" type="text/css" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  </head>
+</head>
 
 
 
-  <body>
+<body>
     <header>
     </header>
     <main>
         <section>
-          <h2>Movies Members have checked out!</h2>
+            <h2>Movies Members have checked out!</h2>
             <table id="membersHasMoviesTable">
                 {{!-- Header section --}}
                 <thead>
@@ -45,19 +46,19 @@
                 </tbody>
                 <table />
 
-            <!-- 'Create' function to insert new row into Members_Has_Movies table -->
-            <h2>Checkout A Movie</h2>
-            <p>To checkout a movie, select your name, the movie you'd like to rent and click 'Submit'</p>
-            <form id="addMemberHasMoviesForm" method="POST" action="/addMemberHasMoviesForm">
-                <label for="input-member">Member </label>
-                <input type="text" name="input-member" id="input-member">
-                
-                <label for="input-movie">Movie </label>
-                <input type="text" name="input-movie" id="input-movie">
+                <!-- 'Create' function to insert new row into Members_Has_Movies table -->
+                <h2>Checkout A Movie</h2>
+                <p>To checkout a movie, select your name, the movie you'd like to rent and click 'Submit'</p>
+                <form id="addMemberHasMoviesForm" method="POST" action="/addMemberHasMoviesForm">
+                    <label for="input-member">Member </label>
+                    <input type="text" name="input-member" id="input-member">
+
+                    <label for="input-movie">Movie </label>
+                    <input type="text" name="input-movie" id="input-movie">
 
 
-                <input type="submit">
-            </form>
+                    <input type="submit">
+                </form>
 
         </section>
     </main>
@@ -71,5 +72,5 @@
             alert('Future deletion coming!');
         }
     </script>
-    
-  </body>
+
+</body>
