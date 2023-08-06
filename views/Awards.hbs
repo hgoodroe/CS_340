@@ -6,41 +6,7 @@
 </head>
   
 <headers>
-<nav>
-    <ul>
-    <li id = header_id>
-        <a href= "/">Home</a>
-    </li>
-    <li id = header_id>
-        <a href= "Members.hbs">Members</a>
-    </li>
-    <li id = header_id>
-        <a href= "Movies.hbs">Movies</a>
-    </li>
-    <li id = header_id>
-        <a href= "Sub_Genres.hbs">SubGenres</a>
-    </li>
-    <li id = header_id>
-        <a href= "Awards.hbs">Awards</a>
-    </li>
-    </ul>
-</nav>
-<nav>
-    <ul>
-    <h3 id = intersection_label>Intersection <br>
-        Tables </h3>
 
-    <li>
-        <a href= "Members_Has_Movies.hbs">Member's <br> Movies</a>
-    </li>
-    <li>
-        <a href= "Movies_Has_Awards.hbs">Movie <br> Awards</a>
-    </li>
-    <li>
-        <a href= "Members_fave_Sub_Genres.hbs">Member's Favorite <br> Sub-Genre</a>
-    </li>
-    </ul>
-</nav>
 </headers>
 
 <body>
@@ -50,59 +16,32 @@
     <main>
         <section>
             <h2>Awards Info</h2>
-            <table>
+            <table id="awardTable">
+                {{!-- Header section --}}
                 <thead>
                     <tr>
-                        <th> </th>
-                        <th> </th>
-                        <th>Award ID </th>
-                        <th>Award</th>
-                        <th>Ceremony</th>
+                        {{#each data.[0]}}
+                        <th>
+                            {{@key}}
+                        </th>
+                        {{/each}}
+                        <th>Delete</th>
                     </tr>
                 </thead>
-                <tbody> 
-                    <tr>
-                        <td><a href="edit.html"></a>Edit</td>
-                        <td><a href="delete.html"></a>Delete</td>
-                        <td>1</td>
-                        <td>Nominee: Best Costume Design</td>
-                        <td>Oscars: 1969</td>
-                        </td>
+
+                {{!-- Body section --}}
+                <tbody>
+                    {{!-- For each row, print each ID, movie name, age rating, release date, IMDB rating,
+                    Rottent tomatoes rating, # of times rented, sub-genre --}}
+                    {{#each data}}
+                    <tr data-value="{{this.award_ID}}">
+                        <td>{{this.award_ID}}</td>
+                        <td>{{this.award}}</td>
+                        <td>{{this.ceremony}}</td>
                     </tr>
-                    <tr>
-                        <td><a href="#" onClick="editMember('this.memberID')"></a>Edit</td>
-                        <td><a href="#" onClick="deleteMember('this.memberID')"></a>Delete</td>
-                        <td>2</td>
-                        <td>Winner</td>
-                        <td>National Film Registry: 1989</td>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><a href="#" onClick="editMember('this.memberID')"></a>Edit</td>
-                        <td><a href="#" onClick="deleteMember('this.memberID')"></a>Delete</td>
-                        <td>3</td>
-                        <td>Best Original Music Score</td>
-                        <td>AFI Award: 1979</td>
-                        </td>
-                    </tr>
-                    <tr>
-                    <td><a href="#" onClick="editMember('this.memberID')"></a>Edit</td>
-                    <td><a href="#" onClick="deleteMember('this.memberID')"></a>Delete</td>
-                    <td>4</td>
-                    <td>Best Sound</td>
-                    <td>BAFTA Film Award: 1979</td>
-                    </td>
-                    </tr>
-                    <tr>
-                    <td><a href="#" onClick="editMember('this.memberID')"></a>Edit</td>
-                    <td><a href="#" onClick="deleteMember('this.memberID')"></a>Delete</td>
-                    <td>5</td>
-                    <td>Special Award Winner</td>
-                    <td>Science Fiction and Fantasy Writers of America</td>
-                    </td>
-                    </tr>
+                    {{/each}}
                 </tbody>
-            </table>
+                <table />
 
             <form method="POST" id="addMember">
                 <fieldset>
