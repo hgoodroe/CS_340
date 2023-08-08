@@ -34,16 +34,35 @@ app.get('/', (request, response) => {
 });
 
 
-app.get('/Movies', function(req, res)
-    {  
-        let query1 = "SELECT * FROM Movies;";               // Define our query
+app.get('/Movies', function (req, res) {
+    let query1 = "SELECT * FROM Movies;"; 
+    let query2 = "SELECT * FROM Sub_Genres;";
 
-        db.pool.query(query1, function(error, rows, fields){    // Execute the query
+    db.pool.query(query1, function(error, rows, fields){
 
-            res.render('Movies', {data: rows});                  // Render the index.hbs file, and also send the renderer
-        })                                                      // an object where 'data' is equal to the 'rows' we
-    });  
+        let movies = rows;
+            
+        // Run the second query
+        db.pool.query(query2, (error, rows, fields) => {
 
+            let sub_genres = rows;
+
+            let sub_genre_map = {}
+            sub_genres.forEach(sub_genre => {
+                let id = parseInt(sub_genre.sub_genre_id, 10);
+
+                sub_genre_map[id] = sub_genre.sub_genre;
+            })
+
+            // Overwrite the author ID with the name of the author in the book object
+            movies = movies.map(movie => {
+                return Object.assign(movie, {sub_genre_ID: sub_genre_map[movie.sub_genre_ID]})
+            })
+
+            return res.render('Movies', {data: movies, sub_genres: sub_genres});
+        })
+    })
+});
 
 // app.get('/requested_Movies_available', async (request, response, next) => {
 //     try {
@@ -84,19 +103,19 @@ app.get('/Movies', function(req, res)
 
 
 
-app.delete('/delete-movie-ajax/', function (req, res, next) {
+app.delete('/delete-movie-ajax', function (req, res, next) {
     let data = req.body;
-    let movieID = parseInt(data.id);
-    let deleteMembers_Has_Movies = 'DELETE FROM Members_Has_Movies WHERE movie_ID = ?';
-    let delete_Movies = 'DELETE FROM Movies WHERE movie_ID = ?';
+    let movie_ID = parseInt(data.id);
+    let deleteMembers_Has_Movies = `DELETE FROM Members_Has_Movies WHERE movie_ID = ?`;
+    let deleteMovies = `DELETE FROM Movies WHERE movie_ID = ?`;
 
-    db.pool.query(deleteMembers_Has_Movies, [movieID], function (error, rows, fields) {
+    db.pool.query(deleteMembers_Has_Movies, [movie_ID], function (error, rows, fields) {
         if (error) {
             console.log(error);
             res.sendStatus(400);
         }
         else {
-            db.pool.query(deleteMovies, [movieID], function (error, rows, fields) {
+            db.pool.query(deleteMovies, [movie_ID], function (error, rows, fields) {
                 if (error) {
                     console.log(error);
                     res.sendStatus(400);
