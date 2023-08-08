@@ -8,6 +8,10 @@ p {
     color: white;
 }
 
+legend {
+    color: white;
+}
+
 body {
     display: flex;
     flex-direction: column;

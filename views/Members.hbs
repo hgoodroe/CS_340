@@ -1,13 +1,14 @@
 <!-- Refer to README for reference -->
 
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Members Subpage </title>    <link id="styleSheet" href="style.css" rel="stylesheet" type="text/css" />
-    <link id="styleSheet" href="../style.css" rel="stylesheet" type="text/css" />
-  </head>
 
-  <body>
+<head>
+    <meta charset="utf-8" />
+    <title>Members Subpage </title>
+    <link id="styleSheet" href="../style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
     <header>
         <!-- <h1>Members</h1> -->
     </header>
@@ -15,7 +16,7 @@
         <section>
             <h2>Member Info</h2>
             <table id="MemberTable">
-                    {{!-- Header section --}}
+                {{!-- Header section --}}
                 <thead>
                     <tr>
                         {{#each data.[0]}}
@@ -38,20 +39,22 @@
                     </tr>
                     {{/each}}
                 </tbody>
-    
+
             </table>
-            <section/>
+            <section />
             <h2>Add a new member to our service!</h2>
             <p>Enter in your information and click 'Submit' below</p>
             <form id="add-member-form" method="POST" action="/add-member-form">
                 <label for="input_name">Name
-                <input type="text" name="input_name" id="input_name" autofocus placeholder="Enter Your Name"></label>
+                    <input type="text" name="input_name" id="input_name" autofocus
+                        placeholder="Enter Your Name"></label>
 
                 <label for="input-email">Email
-                <input type="email" name="input_email" id="input_email" placeholder="Email Address"></label>
+                    <input type="email" name="input_email" id="input_email" placeholder="Email Address"></label>
 
                 <label for="input_address">Address
-                <textarea name="input_address" id="input_address" minlength="2" maxlength="300" placeholder="Please enter your mailing address"></textarea></label>
+                    <textarea name="input_address" id="input_address" minlength="2" maxlength="300"
+                        placeholder="Please enter your mailing address"></textarea></label>
 
                 <input type="submit">
             </form>
@@ -68,5 +71,5 @@
             alert('Future deletion coming!');
         }
     </script>
-    
-  </body>
+
+</body>
