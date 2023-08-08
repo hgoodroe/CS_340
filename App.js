@@ -34,14 +34,15 @@ app.get('/', (request, response) => {
 });
 
 
-app.get('/Movies', function (req, res) {
-    let query1 = "SELECT * FROM Movies;";               // Define our query
+app.get('/Movies', function(req, res)
+    {  
+        let query1 = "SELECT * FROM Movies;";               // Define our query
 
-    db.pool.query(query1, function (error, rows, fields) {    // Execute the query
+        db.pool.query(query1, function(error, rows, fields){    // Execute the query
 
-        res.render('Movies', { data: rows });                  // Render the index.hbs file, and also send the renderer
-    })                                                      // an object where 'data' is equal to the 'rows' we
-});
+            res.render('Movies', {data: rows});                  // Render the index.hbs file, and also send the renderer
+        })                                                      // an object where 'data' is equal to the 'rows' we
+    });  
 
 
 // app.get('/requested_Movies_available', async (request, response, next) => {
@@ -131,25 +132,13 @@ app.get('/Members', function (req, res) {
     })
 });
 
-app.post('/add-movie-form', function (req, res) {
+app.post('/add-member-form', function(req, res){
+    // Capture the incoming data and parse it back to a JS object
     let data = req.body;
 
-    // Capture NULL values
-    //let homeworld = parseInt(data['input-homeworld']);
-    //if (isNaN(homeworld))
-    // {
-    //    homeworld = 'NULL'
-    //}
 
-    //let age = parseInt(data['input-age']);
-    //if (isNaN(age))
-    //{
-    //    age = 'NULL'
-    //}
-
-    // Create the query and run it on the database
-    query1 = `INSERT INTO Movies(movie_name, age_rating, release_date, IMDB_rating, rotten_rating, sub_genre) VALUES ('${data['input-movie_name']}', '${data['input-age_rating']}', '${data['input-release_date']}', '${data['input-imdb']}', '${data['input-rotten']}', '${data['input-sub_genre']}'`;
-    db.pool.query(query1, function (error, rows, fields) {
+    query1 = `INSERT INTO Members (name, email, address) VALUES ('${data['input_name']}', '${data['input_email']}', '${data['input_address']}')`;
+    db.pool.query(query1, function(error, rows, fields){
 
         // Check to see if there was an error
         if (error) {
@@ -161,11 +150,53 @@ app.post('/add-movie-form', function (req, res) {
 
         // If there was no error, we redirect back to our root route, which automatically runs the SELECT * FROM bsg_people and
         // presents it on the screen
-        else {
-            res.redirect('/Movies');
+        else
+        {
+            res.redirect('/Members');
         }
     })
 })
+
+
+app.post('/add-movie-form', async (req, res) => {
+    try {
+       const {
+            input_movie_name,
+            input_age_rating,
+            input_imdb,
+            input_rotten,
+            input_sub_genre
+        } = req.body;
+
+
+        const query = `
+            INSERT INTO Movies(movie_name, age_rating, IMDB_rating, rotten_rating, sub_genre_ID)
+            VALUES (?, ?, ?, ?, ?)
+        `;
+
+        const values = [
+            input_movie_name,
+            input_age_rating,
+            input_imdb,
+            input_rotten,
+            input_sub_genre
+        ];
+
+        console.log(values)
+
+        db.pool.query(query, values, function (error, rows, fields) {
+            let movies = rows;
+            return res.render('Movies', { data: movies });
+        })
+
+        res.redirect('/Movies')
+
+    } catch (error) {
+        console.error(error);
+        res.sendStatus(500); // Internal Server Error
+    }
+});
+
 
 app.get('/Members_Fave_Sub_Genres', function (req, res) {
     // Declare Query 1
