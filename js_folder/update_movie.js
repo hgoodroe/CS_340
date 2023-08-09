@@ -3,7 +3,7 @@ let updateMovieForm = document.getElementById('update-movie-form');
 
 // Modify the objects we need
 updateMovieForm.addEventListener("submit", function (e) {
-   
+
     // Prevent the form from submitting
     e.preventDefault();
 
@@ -13,13 +13,12 @@ updateMovieForm.addEventListener("submit", function (e) {
 
     // Get the values from the form fields
     let movieNameValue = inputMovieName.value;
-    let sub_GenreValue = inputSub_Genre.value;
-    
+    let sub_GenreValue = inputSubGenre.value;
+
     // currently the database table for bsg_people does not allow updating values to NULL
     // so we must abort if being bassed NULL for homeworld
 
-    if (isNaN(sub_GenreValue)) 
-    {
+    if (isNaN(sub_GenreValue)) {
         return;
     }
 
@@ -29,7 +28,7 @@ updateMovieForm.addEventListener("submit", function (e) {
         movieName: movieNameValue,
         sub_genre: sub_genreValue,
     }
-    
+
     // Setup our AJAX request
     var xhttp = new XMLHttpRequest();
     xhttp.open("PUT", "/put-movie-ajax", true);
@@ -54,15 +53,15 @@ updateMovieForm.addEventListener("submit", function (e) {
 })
 
 
-function updateRow(data, personID){
+function updateRow(data, personID) {
     let parsedData = JSON.parse(data);
-    
+
     let table = document.getElementById("movieTable");
 
     for (let i = 0, row; row = table.rows[i]; i++) {
-       //iterate through rows
-       //rows would be accessed using the "row" variable assigned in the for loop
-       if (table.rows[i].getAttribute("data-value") == movieID) {
+        //iterate through rows
+        //rows would be accessed using the "row" variable assigned in the for loop
+        if (table.rows[i].getAttribute("data-value") == movieID) {
 
             // Get the location of the row where we found the matching person ID
             let updateRowIndex = table.getElementsByTagName("tr")[i];
@@ -71,7 +70,7 @@ function updateRow(data, personID){
             let td = updateRowIndex.getElementsByTagName("td")[3];
 
             // Reassign homeworld to our value we updated to
-            td.innerHTML = parsedData[0].name; 
-       }
+            td.innerHTML = parsedData[0].name;
+        }
     }
 }
