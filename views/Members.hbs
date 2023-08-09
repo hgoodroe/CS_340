@@ -1,12 +1,10 @@
 <!-- Refer to README for reference -->
-
-<html lang="en">
-
 <head>
     <meta charset="utf-8" />
     <title>Members Subpage </title>
     <link id="styleSheet" href="../style.css" rel="stylesheet" type="text/css" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="./js_folder/delete_member.js"></script>
 </head>
 
 <body>
@@ -38,7 +36,7 @@
                         <td>{{this.email}}</td>
                         <td>{{this.address}}</td>
                         <td>{{this.months_a_member}}</td>
-                        <td><button onclick="deleteMember({{this.member_ID}})">Delete</button></td>
+                        <td><button onClick="deleteMember({{ this.member_ID }})">Delete</button></td>
                     </tr>
                     {{/each}}
                 </tbody>
@@ -73,6 +71,6 @@
     <!--<script>
         function deleteMember(member_ID) {}
     </script> -->
-    <script src="./js_folder/delete_member.js"></script>
+
 
 </body>

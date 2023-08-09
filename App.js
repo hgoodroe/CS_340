@@ -11,7 +11,8 @@ var express = require('express');
 var app = express();
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-app.use(express.static('views'))  //if doesnt work change to views
+app.use(express.static('views')) 
+app.use(express.static('js_folder')) 
 
 PORT = 23400;
 
