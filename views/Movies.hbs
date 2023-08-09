@@ -102,14 +102,16 @@
                         </select>
 
                         <label for="input-sub_genre">Sub-Genre: </label>
-                        <select name="input-sub_genre" id="input-sub_genre-update">
-                            <input type="number" name="input-sub_genre"></label>
+                        {{!-- <select name="input-sub_genre" id="input-sub_genre-update"> --}}
+                            <name="input-sub_genre" id="input-sub_genre-update">
 
-                            <option>Select a Sub-Genre</option>
-                            {{#each sub_genres}}
-                            <option value="{{this.sub_genre_id}}">{{this.sub_genre}}</option>
-                            {{/each}}
-                        </select>
+                                <input type="number" name="input-sub_genre"></label>
+
+                                {{!-- <option>Select a Sub-Genre</option>
+                                {{#each sub_genres}}
+                                <option value="{{this.sub_genre_id}}">{{this.sub_genre}}</option>
+                                {{/each}}
+                        </select> --}}
                         <input type="submit">
                     </form>
                 </section>
