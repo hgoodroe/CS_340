@@ -6,6 +6,7 @@
     <meta charset="utf-8" />
     <title>Members Subpage </title>
     <link id="styleSheet" href="../style.css" rel="stylesheet" type="text/css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -15,7 +16,7 @@
     <main>
         <section>
             <h2>Member Info</h2>
-            <table id="MemberTable">
+            <table id="memberTable">
                 {{!-- Header section --}}
                 <thead>
                     <tr>
@@ -24,6 +25,7 @@
                             {{@key}}
                         </th>
                         {{/each}}
+                        <th>delete</th>
                     </tr>
                 </thead>
 
@@ -36,11 +38,13 @@
                         <td>{{this.email}}</td>
                         <td>{{this.address}}</td>
                         <td>{{this.months_a_member}}</td>
+                        <td><button onclick="deleteMember({{this.member_ID}})">Delete</button></td>
                     </tr>
                     {{/each}}
                 </tbody>
-
             </table>
+            
+
             <section />
             <h2>Add a new member to our service!</h2>
             <p>Enter in your information and click 'Submit' below</p>
@@ -66,10 +70,9 @@
             alert('Future edits coming!');
         }
     </script>
-    <script>
-        function deleteMember(member) {
-            alert('Future deletion coming!');
-        }
-    </script>
+    <!--<script>
+        function deleteMember(member_ID) {}
+    </script> -->
+    <script src="./js_folder/delete_member.js"></script>
 
 </body>

@@ -127,6 +127,52 @@ app.delete('/delete-movie-ajax', function (req, res, next) {
     })
 });
 
+
+app.delete('/delete-member-ajax/', function (req, res, next) {
+    let data = req.body;
+    let member_ID = parseInt(data.member_ID);
+    let deleteMembers_Has_Movies = `DELETE FROM Members_Has_Movies WHERE member_ID = ?`;
+    let deleteMembers_Fave_Sub_Genres = `DELETE FROM Members_Fave_Sub_Genres WHERE member_ID = ?`;
+    let deleteMember = `DELETE FROM Members WHERE member_ID = ?`;
+  
+  
+    // Run the 1st query
+    db.pool.query(deleteMembers_Has_Movies, [member_ID], function (error, rows, fields) {
+        if (error) {
+  
+            // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
+            console.log(error);
+            res.sendStatus(400);
+        }
+  
+        else {
+            db.pool.query(deleteMembers_Fave_Sub_Genres, [member_ID], function (error, rows, fields) {
+                if (error) {
+        
+                    // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
+                    console.log(error);
+                    res.sendStatus(400);
+                }
+        
+                else {
+
+                    // Run the second query
+                    db.pool.query(deleteMember, [member_ID], function (error, rows, fields) {
+  
+                        if (error) {
+                            console.log(error);
+                            res.sendStatus(400);
+                        } else {
+                            res.sendStatus(204);
+                        }
+                    })
+                }
+            })
+        }
+    })
+});
+  
+
 app.get('/Awards', function (req, res) {
     // Declare Query 1
     query1 = "SELECT * FROM Awards;";
