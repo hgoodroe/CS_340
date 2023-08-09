@@ -17,13 +17,13 @@
                 <thead>
                     <tr>
                         {{#each data.[0]}}
-                        {{#unless @last}}
+                        {{!-- {{#unless @last}} --}}
                         <th>
                             {{@key}}
                         </th>
-                        {{/unless}}
+                        {{!-- {{/unless}} --}}
                         {{/each}}
-                        <th>sub_genre name</th>
+                        {{!-- <th>sub_genre_name</th> --}}
                         <th>Delete</th>
                     </tr>
                 </thead>
@@ -41,6 +41,7 @@
                         <td>{{this.imdb_rating}}</td>
                         <td>{{this.rotten_rating}}</td>
                         <td>{{this.num_times_rented}}</td>
+                        <td>{{this.sub_genre_ID}}</td>
                         <td>{{this.sub_genre_ID}}</td>
                         <td><button onclick="deleteMovies({{this.movie_ID}})">Delete</button></td>
                     </tr>
@@ -74,13 +75,15 @@
                     <label for="input_rotten" id="input_rotten">Rotten Tomatoes Rating
                         <input type="number" name="input_rotten"></label>
 
-                    <label for="input-sub_genre">Sub-Genre: </label>
-                    <select name="input-sub_genre" id="input-sub_genre-update">
-                        <option>Select a Sub-Genre</option>
-                        {{#each sub_genres}}
-                        <option value="{{this.sub_genre_id}}">{{this.sub_genre}}</option>
-                        {{/each}}
-                    </select>
+                    <label for="input-sub_genre" id="input_sub_genre">Sub-Genre: </label>
+                    {{!-- <select name="input-sub_genre" id="input-sub_genre-update"> --}}
+                        <input type="number" name="input_sub_genre"></label>
+                        {{!-- </select> --}}
+                    {{!-- <option>Select a Sub-Genre</option>
+                    {{#each sub_genres}}
+                    <option value="{{this.sub_genre_id}}">{{this.sub_genre}}</option>
+                    {{/each}} --}}
+                    {{!-- --}}
 
                     <input type="submit">
                 </form>
@@ -100,6 +103,8 @@
 
                         <label for="input-sub_genre">Sub-Genre: </label>
                         <select name="input-sub_genre" id="input-sub_genre-update">
+                            <input type="number" name="input-sub_genre"></label>
+
                             <option>Select a Sub-Genre</option>
                             {{#each sub_genres}}
                             <option value="{{this.sub_genre_id}}">{{this.sub_genre}}</option>
@@ -110,6 +115,6 @@
                 </section>
 
 
-                <script src="./js/update_movie.js"></script>
+                <script src="../js_folder/update_movie.js"></script>
     </main>
 </body>

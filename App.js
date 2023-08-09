@@ -55,7 +55,7 @@ app.get('/Movies', function (req, res) {
 
             // Overwrite the author ID with the name of the author in the book object
             movies = movies.map(movie => {
-                return Object.assign(movie, { sub_genre_ID: sub_genre_map[movie.sub_genre_ID] });
+                return Object.assign(movie, { sub_genre_name: sub_genre_map[movie.sub_genre_name] });
             });
 
             return res.render('Movies', { data: movies, sub_genres: sub_genres });
@@ -219,6 +219,18 @@ app.post('/add-member-form', function (req, res) {
         }
     })
 })
+
+app.put('/put-movie-ajax', async (req, res) => {
+    try {
+        const {
+            //to update
+        } = req.body;
+    } catch (error) {
+        console.error(error);
+        res.sendStatus(500); // Internal Server Error
+    }
+});
+
 
 
 app.post('/add-movie-form', async (req, res) => {
