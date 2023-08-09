@@ -11,8 +11,7 @@ var express = require('express');
 var app = express();
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-app.use(express.static('views')) 
-app.use(express.static('js_folder')) 
+app.use(express.static('views'))  //if doesnt work change to views
 
 PORT = 23400;
 
@@ -45,20 +44,19 @@ app.get('/Movies', function (req, res) {
 
         // Run the second query
         db.pool.query(query2, (error, rows, fields) => {
-
             let sub_genres = rows;
 
             let sub_genre_map = {}
             sub_genres.forEach(sub_genre => {
-                let id = parseInt(sub_genre.sub_genre_id, 10);
-
+                let id = parseInt(sub_genre.sub_genre_ID, 10);
                 sub_genre_map[id] = sub_genre.sub_genre;
+                console.info(sub_genre_map)
             })
 
             // Overwrite the author ID with the name of the author in the book object
             movies = movies.map(movie => {
-                return Object.assign(movie, { sub_genre_ID: sub_genre_map[movie.sub_genre_ID] })
-            })
+                return Object.assign(movie, { sub_genre_ID: sub_genre_map[movie.sub_genre_ID] });
+            });
 
             return res.render('Movies', { data: movies, sub_genres: sub_genres });
         })
