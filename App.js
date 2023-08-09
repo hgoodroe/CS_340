@@ -13,7 +13,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static('views'))  //if doesnt work change to views
 
-PORT = 23399;
+PORT = 23400;
 
 var db = require('./database/database_connector');
 
@@ -35,13 +35,13 @@ app.get('/', (request, response) => {
 
 
 app.get('/Movies', function (req, res) {
-    let query1 = "SELECT * FROM Movies;"; 
+    let query1 = "SELECT * FROM Movies;";
     let query2 = "SELECT * FROM Sub_Genres;";
 
-    db.pool.query(query1, function(error, rows, fields){
+    db.pool.query(query1, function (error, rows, fields) {
 
         let movies = rows;
-            
+
         // Run the second query
         db.pool.query(query2, (error, rows, fields) => {
 
@@ -56,10 +56,10 @@ app.get('/Movies', function (req, res) {
 
             // Overwrite the author ID with the name of the author in the book object
             movies = movies.map(movie => {
-                return Object.assign(movie, {sub_genre_ID: sub_genre_map[movie.sub_genre_ID]})
+                return Object.assign(movie, { sub_genre_ID: sub_genre_map[movie.sub_genre_ID] })
             })
 
-            return res.render('Movies', {data: movies, sub_genres: sub_genres});
+            return res.render('Movies', { data: movies, sub_genres: sub_genres });
         })
     })
 });
@@ -134,31 +134,31 @@ app.delete('/delete-member-ajax/', function (req, res, next) {
     let deleteMembers_Has_Movies = `DELETE FROM Members_Has_Movies WHERE member_ID = ?`;
     let deleteMembers_Fave_Sub_Genres = `DELETE FROM Members_Fave_Sub_Genres WHERE member_ID = ?`;
     let deleteMember = `DELETE FROM Members WHERE member_ID = ?`;
-  
-  
+
+
     // Run the 1st query
     db.pool.query(deleteMembers_Has_Movies, [member_ID], function (error, rows, fields) {
         if (error) {
-  
+
             // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
             console.log(error);
             res.sendStatus(400);
         }
-  
+
         else {
             db.pool.query(deleteMembers_Fave_Sub_Genres, [member_ID], function (error, rows, fields) {
                 if (error) {
-        
+
                     // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
                     console.log(error);
                     res.sendStatus(400);
                 }
-        
+
                 else {
 
                     // Run the second query
                     db.pool.query(deleteMember, [member_ID], function (error, rows, fields) {
-  
+
                         if (error) {
                             console.log(error);
                             res.sendStatus(400);
@@ -171,7 +171,7 @@ app.delete('/delete-member-ajax/', function (req, res, next) {
         }
     })
 });
-  
+
 
 app.get('/Awards', function (req, res) {
     // Declare Query 1
@@ -197,13 +197,13 @@ app.get('/Members', function (req, res) {
     })
 });
 
-app.post('/add-member-form', function(req, res){
+app.post('/add-member-form', function (req, res) {
     // Capture the incoming data and parse it back to a JS object
     let data = req.body;
 
 
     query1 = `INSERT INTO Members (name, email, address) VALUES ('${data['input_name']}', '${data['input_email']}', '${data['input_address']}')`;
-    db.pool.query(query1, function(error, rows, fields){
+    db.pool.query(query1, function (error, rows, fields) {
 
         // Check to see if there was an error
         if (error) {
@@ -215,8 +215,7 @@ app.post('/add-member-form', function(req, res){
 
         // If there was no error, we redirect back to our root route, which automatically runs the SELECT * FROM bsg_people and
         // presents it on the screen
-        else
-        {
+        else {
             res.redirect('/Members');
         }
     })
@@ -225,7 +224,7 @@ app.post('/add-member-form', function(req, res){
 
 app.post('/add-movie-form', async (req, res) => {
     try {
-       const {
+        const {
             input_movie_name,
             input_age_rating,
             input_imdb,
@@ -265,7 +264,7 @@ app.post('/add-movie-form', async (req, res) => {
 
 app.get('/Members_Fave_Sub_Genres', function (req, res) {
     // Declare Query 1
-    query1 = "SELECT * FROM Members_Fave_Sub_Genres;";
+    query1 = "SELECT * FROM Members_fave_Sub_Genres;";
 
     // Run the 1st query
     db.pool.query(query1, function (error, rows, fields) {
