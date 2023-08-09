@@ -276,7 +276,7 @@ app.get('/Members_Fave_Sub_Genres', function (req, res) {
 
 app.get('/Members_Has_Movies', function (req, res) {
     // Declare Query 1
-    query1 = "SELECT * FROM Members_Has_Movies;";
+    query1 = "SELECT * FROM Members_has_Movies;";
 
     // Run the 1st query
     db.pool.query(query1, function (error, rows, fields) {
@@ -288,7 +288,7 @@ app.get('/Members_Has_Movies', function (req, res) {
 
 app.get('/Movies_Has_Awards', function (req, res) {
     // Declare Query 1
-    query1 = "SELECT * FROM Movies_Has_Awards;";
+    query1 = "SELECT * FROM Movies_has_Awards;";
 
     // Run the 1st query
     db.pool.query(query1, function (error, rows, fields) {
