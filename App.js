@@ -55,7 +55,7 @@ app.get('/Movies', function (req, res) {
 
             // Overwrite the author ID with the name of the author in the book object
             movies = movies.map(movie => {
-                return Object.assign(movie, { sub_genre_name: sub_genre_map[movie.sub_genre_name] });
+                return Object.assign(movie, { sub_genre_ID: sub_genre_map[movie.sub_genre_ID] });
             });
 
             return res.render('Movies', { data: movies, sub_genres: sub_genres });
