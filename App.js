@@ -231,6 +231,25 @@ app.put('/put-movie-ajax', async (req, res) => {
     }
 });
 
+app.put('/put-member-ajax', function(req,res,next){
+    let data = req.body;
+  
+    let name = parseInt(data.name);
+    let email = parseInt(data.email);
+    let address = parseInt(data.address);
+  
+    let queryUpdateMember = `UPDATE Members SET email = ?, address = ? WHERE Members.member_id = ?`;
+  
+          // Run the 1st query
+          db.pool.query(queryUpdateMember, [name, email, address], function(error, rows, fields){
+              if (error) {
+  
+              // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
+              console.log(error);
+              res.sendStatus(400);
+              }
+  })});
+
 
 
 app.post('/add-movie-form', async (req, res) => {
