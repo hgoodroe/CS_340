@@ -13,7 +13,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static('views'))  //if doesnt work change to views
 
-PORT = 23399;
+PORT = 23400;
 
 var db = require('./database/database_connector');
 
@@ -21,6 +21,8 @@ const { engine } = require('express-handlebars');
 var exphbs = require('express-handlebars');
 app.engine('.hbs', engine({ extname: ".hbs" }));
 app.set('view engine', '.hbs');
+
+
 
 
 
@@ -108,22 +110,22 @@ app.delete('/delete-movie-ajax/', function (req, res, next) {
     //let deleteMembers_Has_Movies = `DELETE FROM Members_has_Movies WHERE movie_ID = ?`;
     let deleteMovies = `DELETE FROM Movies WHERE movie_ID = ?`;
 
-   // db.pool.query(deleteMembers_Has_Movies, [movie_ID], function (error, rows, fields) {
-   //     if (error) {
-   //         console.log(error);
-   //         res.sendStatus(400);
-   //     }
-   //     else {
-            db.pool.query(deleteMovies, [movie_ID], function (error, rows, fields) {
-                if (error) {
-                    console.log(error);
-                    res.sendStatus(400);
-                } else {
-                    res.sendStatus(204);
-                }
-            })
-       // }
-   // })
+    // db.pool.query(deleteMembers_Has_Movies, [movie_ID], function (error, rows, fields) {
+    //     if (error) {
+    //         console.log(error);
+    //         res.sendStatus(400);
+    //     }
+    //     else {
+    db.pool.query(deleteMovies, [movie_ID], function (error, rows, fields) {
+        if (error) {
+            console.log(error);
+            res.sendStatus(400);
+        } else {
+            res.sendStatus(204);
+        }
+    })
+    // }
+    // })
 });
 
 
@@ -221,14 +223,25 @@ app.post('/add-member-form', function (req, res) {
 })
 
 app.put('/put-movie-ajax', async (req, res) => {
-    try {
-        const {
-            //to update
-        } = req.body;
-    } catch (error) {
-        console.error(error);
-        res.sendStatus(500); // Internal Server Error
+    let data = req.body
+
+    let movie = parseInt(data.movie_id)
+    let sub_genre = parseInt(data.sub_genre_ID)
+
+    if (isNaN(sub_genre) || isNaN(movie)) {
+        res.status(400).send("Invalid sub_genre or movie_id.");
+        return;
     }
+    // queryUpdateMovie = "UPDATE Movies SET movie_name = :movie_nameInput, sub_genre = :sub_genreInput WHERE movie_ID = :movie_ID_Input;";
+    queryUpdateMovie = "UPDATE Movies SET  movie_id = ? WHERE sub_genre_ID = ?;";
+    selectGenre = "SELECT * FROM sub_genre_ID where id = ?;";
+
+    db.pool.query(queryUpdateMovie, [movie, sub_genre], function (error, rows, fields) {
+        if (error) {
+            console.log(error);
+            res.sendStatus(400);
+        }
+    })
 });
 
 

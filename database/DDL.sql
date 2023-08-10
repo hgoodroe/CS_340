@@ -69,7 +69,9 @@ CREATE TABLE IF NOT EXISTS `Movies` (
   `num_times_rented` INT NOT NULL DEFAULT 0,
   `sub_genre_ID` INT NOT NULL,
   PRIMARY KEY (`movie_ID`),
-  FOREIGN KEY (`sub_genre_ID`) REFERENCES `Sub_Genres` (`sub_genre_ID`) ON DELETE CASCADE
+  FOREIGN KEY (`sub_genre_ID`) REFERENCES `Sub_Genres` (`sub_genre_ID`) 
+  ON UPDATE CASCADE
+  ON DELETE CASCADE
     );
 
 
@@ -84,8 +86,12 @@ CREATE TABLE IF NOT EXISTS `Members_has_Movies` (
   `checked_out` DATETIME NOT NULL,
   `return_date` DATETIME NULL DEFAULT NULL,
    PRIMARY KEY (`member_ID`, `movie_ID`),
-   FOREIGN KEY (`member_ID`) REFERENCES `Members` (`member_ID`)ON DELETE CASCADE ,
-   FOREIGN KEY (`movie_ID`) REFERENCES `Movies` (`movie_ID`) ON DELETE CASCADE
+   FOREIGN KEY (`member_ID`) REFERENCES `Members` (`member_ID`)
+   ON UPDATE CASCADE
+   ON DELETE CASCADE ,
+   FOREIGN KEY (`movie_ID`) REFERENCES `Movies` (`movie_ID`)   
+   ON UPDATE CASCADE
+   ON DELETE CASCADE
     );
 
 

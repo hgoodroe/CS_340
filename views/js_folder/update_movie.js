@@ -10,28 +10,32 @@ updateMovieForm.addEventListener("submit", function (e) {
     // Get form fields we need to get data from
     let inputMovieName = document.getElementById("mySelect");
     let inputSubGenre = document.getElementById("input-sub_genre-update");
+    console.log(inputMovieName)
 
     // Get the values from the form fields
     let movieNameValue = inputMovieName.value;
     let sub_GenreValue = inputSubGenre.value;
+    console.log(movieNameValue)
+    console.log(sub_GenreValue)
 
     // currently the database table for bsg_people does not allow updating values to NULL
     // so we must abort if being bassed NULL for homeworld
 
     if (isNaN(sub_GenreValue)) {
+        console.log("Error here - sub_GenreValue is NAN")
         return;
     }
 
 
     // Put our data we want to send in a javascript object
     let data = {
-        movieName: movieNameValue,
-        sub_genre: sub_GenreValue,
+        movie_id: movieNameValue,
+        sub_genre_ID: sub_GenreValue,
     }
 
     // Setup our AJAX request
     var xhttp = new XMLHttpRequest();
-    xhttp.open("PUT", "/put-movie-ajax", true);
+    xhttp.open("PUT", '/put-movie-ajax', true);
     xhttp.setRequestHeader("Content-type", "application/json");
 
     // Tell our AJAX request how to resolve
@@ -39,7 +43,7 @@ updateMovieForm.addEventListener("submit", function (e) {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
 
             // Add the new data to the table
-            updateRow(xhttp.response, movieNameValue);
+            updateRow(xhttp.response, sub_GenreValue);
 
         }
         else if (xhttp.readyState == 4 && xhttp.status != 200) {
@@ -67,10 +71,10 @@ function updateRow(data, movieNameValue) {
             let updateRowIndex = table.getElementsByTagName("tr")[i];
 
             // Get td of homeworld value
-            let td = updateRowIndex.getElementsByTagName("td")[3];
+            let td = updateRowIndex.getElementsByTagName("td")[7];
 
             // Reassign homeworld to our value we updated to
-            td.innerHTML = parsedData[0].sub_genre;
+            td.innerHTML = parsedData[0].sub_genre_ID;
         }
     }
 }

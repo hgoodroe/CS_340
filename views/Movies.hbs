@@ -31,7 +31,7 @@
                 {{!-- Body section --}}
                 <tbody>
                     {{!-- For each row, print each ID, movie name, age rating, release date, IMDB rating,
-                    Rottent tomatoes rating, # of times rented, sub-genre --}}
+                    Rotten tomatoes rating, # of times rented, sub-genre --}}
                     {{#each data}}
                     <tr data-value="{{this.movie_ID}}">
                         <td>{{this.movie_ID}}</td>
@@ -86,33 +86,30 @@
                     {{!-- --}}
 
                     <input type="submit">
-                </form>
+                </form onsubmit="setTimeout(function(){window.location.reload();},10);">
 
                 <section>
                     <h2>Updating A Movie's Information</h2>
                     <p>To update a specific movie, click on the edit button and change the relevant info</p>
                     <form id="update-movie-form">
-
                         <label for="input-moviename">Movie name: </label>
                         <select name="input-moviename" id="mySelect">
                             <option value="test">Select a Movie</option>
                             {{#each data}}
-                            <option value="{{this.id}}">{{this.movie_name}}</option>
+                            <option value="{{this.movie_ID}}">{{this.movie_ID}}</option>
                             {{/each}}
                         </select>
 
                         <label for="input-sub_genre">Sub-Genre: </label>
                         {{!-- <select name="input-sub_genre" id="input-sub_genre-update"> --}}
-                            <name="input-sub_genre" id="input-sub_genre-update">
-
-                                <input type="number" name="input-sub_genre"></label>
-
-                                {{!-- <option>Select a Sub-Genre</option>
+                            <select name="input-sub_genre" id="input-sub_genre-update">
+                                {{!-- <input type="number" name="input-sub_genre"></label> --}}
+                                <option>Select a Sub-Genre</option>
                                 {{#each sub_genres}}
-                                <option value="{{this.sub_genre_id}}">{{this.sub_genre}}</option>
+                                <option value="{{this.sub_genre_ID}}">{{this.sub_genre}}</option>
                                 {{/each}}
-                        </select> --}}
-                        <input type="submit">
+                            </select>
+                            <input type="submit">
                     </form>
                 </section>
 
