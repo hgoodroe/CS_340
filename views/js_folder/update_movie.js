@@ -7,6 +7,8 @@ updateMovieForm.addEventListener("submit", function (e) {
     // Prevent the form from submitting
     e.preventDefault();
 
+    location.reload();
+
     // Get form fields we need to get data from
     let inputMovieName = document.getElementById("mySelect");
     let inputSubGenre = document.getElementById("input-sub_genre-update");
@@ -29,8 +31,9 @@ updateMovieForm.addEventListener("submit", function (e) {
 
     // Put our data we want to send in a javascript object
     let data = {
-        movie_id: movieNameValue,
         sub_genre_ID: sub_GenreValue,
+        movie_id: movieNameValue,
+
     }
 
     // Setup our AJAX request

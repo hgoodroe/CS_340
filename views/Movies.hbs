@@ -77,7 +77,13 @@
 
                     <label for="input-sub_genre" id="input_sub_genre">Sub-Genre: </label>
                     {{!-- <select name="input-sub_genre" id="input-sub_genre-update"> --}}
-                        <input type="number" name="input_sub_genre"></label>
+                        <select  name="input_sub_genre"></label>
+                            <option>Select a Sub-Genre</option>
+                                {{#each sub_genres}}
+                                <option value="{{this.sub_genre_ID}}">{{this.sub_genre}}</option>
+                                {{/each}}
+                        </select>
+                        <input type="submit">
                         {{!-- </select> --}}
                     {{!-- <option>Select a Sub-Genre</option>
                     {{#each sub_genres}}
@@ -85,7 +91,6 @@
                     {{/each}} --}}
                     {{!-- --}}
 
-                    <input type="submit">
                 </form onsubmit="setTimeout(function(){window.location.reload();},10);">
 
                 <section>

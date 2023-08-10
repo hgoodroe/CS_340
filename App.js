@@ -233,10 +233,10 @@ app.put('/put-movie-ajax', async (req, res) => {
         return;
     }
     // queryUpdateMovie = "UPDATE Movies SET movie_name = :movie_nameInput, sub_genre = :sub_genreInput WHERE movie_ID = :movie_ID_Input;";
-    queryUpdateMovie = "UPDATE Movies SET  movie_id = ? WHERE sub_genre_ID = ?;";
-    selectGenre = "SELECT * FROM sub_genre_ID where id = ?;";
+    queryUpdateMovie = "UPDATE Movies SET sub_genre_ID = ? WHERE movie_id = ?;";
+    selectGenre = "SELECT * FROM sub_genre_ID WHERE id = ?;";
 
-    db.pool.query(queryUpdateMovie, [movie, sub_genre], function (error, rows, fields) {
+    db.pool.query(queryUpdateMovie, [sub_genre, movie], function (error, rows, fields) {
         if (error) {
             console.log(error);
             res.sendStatus(400);
@@ -244,24 +244,25 @@ app.put('/put-movie-ajax', async (req, res) => {
     })
 });
 
-app.put('/put-member-ajax', function(req,res,next){
+app.put('/put-member-ajax', function (req, res, next) {
     let data = req.body;
-  
+
     let name = parseInt(data.name);
     let email = parseInt(data.email);
     let address = parseInt(data.address);
-  
+
     let queryUpdateMember = `UPDATE Members SET email = ?, address = ? WHERE Members.member_id = ?`;
-  
-          // Run the 1st query
-          db.pool.query(queryUpdateMember, [name, email, address], function(error, rows, fields){
-              if (error) {
-  
-              // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
-              console.log(error);
-              res.sendStatus(400);
-              }
-  })});
+
+    // Run the 1st query
+    db.pool.query(queryUpdateMember, [name, email, address], function (error, rows, fields) {
+        if (error) {
+
+            // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
+            console.log(error);
+            res.sendStatus(400);
+        }
+    })
+});
 
 
 
