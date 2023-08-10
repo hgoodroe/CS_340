@@ -62,11 +62,33 @@
             </form>
 
         </section>
+        <section>
+            <h2>Updating A Member's Info</h2>
+            <p>To update a specific member's personal information, select their name enter in the updated information</p>
+            <form id="update-member-form-ajax">
+
+                <label for="input-name">Name: </label>
+                <select name="input-name" id="mySelect">
+                    <option value="test">Select Member</option>
+                    {{#each data}}
+                    <option value="{{this.member_ID}}">{{this.name}}</option>
+                    {{/each}}
+                </select>
+
+                <label for="input-email-update">Update Email:
+                <input type="text" name="input-email-update" id="input-email-update"
+                        placeholder="Enter Updated Email"></label>
+
+                <label for="input-address-update">Update Mailing Address:
+                <textarea name="input-address-update" id="input-address-update" minlength="2" maxlength="300"
+                        placeholder="Please enter new mailing address"></textarea></label>
+                <input type="submit">
+
+            </form>
+
+
+        </section>
     </main>
-    <script>
-        function editMember(member) {
-            alert('Future edits coming!');
-        }
-    </script>
+    <script src="./js_folder/update_member.js"></script>
 
 </body>
