@@ -13,7 +13,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static('views'))  //if doesnt work change to views
 
-PORT = 23400;
+PORT = 23399;
 
 var db = require('./database/database_connector');
 
