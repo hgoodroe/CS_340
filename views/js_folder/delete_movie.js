@@ -1,12 +1,12 @@
 function deleteMovies(movie_ID) {
     // Put our data we want to send in a javascript object
     let data = {
-        id: movie_ID
+        movie_id: movie_ID
     };
 
     // Setup our AJAX request
     var xhttp = new XMLHttpRequest();
-    xhttp.open("DELETE", "/delete-movie-ajax", true);
+    xhttp.open("DELETE", "/delete-movie-ajax/", true);
     xhttp.setRequestHeader("Content-type", "application/json");
 
     // Tell our AJAX request how to resolve

@@ -102,18 +102,18 @@ app.get('/Movies', function (req, res) {
 
 
 
-app.delete('/delete-movie-ajax', function (req, res, next) {
+app.delete('/delete-movie-ajax/', function (req, res, next) {
     let data = req.body;
     let movie_ID = parseInt(data.id);
-    let deleteMembers_Has_Movies = `DELETE FROM Members_Has_Movies WHERE movie_ID = ?`;
+    //let deleteMembers_Has_Movies = `DELETE FROM Members_has_Movies WHERE movie_ID = ?`;
     let deleteMovies = `DELETE FROM Movies WHERE movie_ID = ?`;
 
-    db.pool.query(deleteMembers_Has_Movies, [movie_ID], function (error, rows, fields) {
-        if (error) {
-            console.log(error);
-            res.sendStatus(400);
-        }
-        else {
+   // db.pool.query(deleteMembers_Has_Movies, [movie_ID], function (error, rows, fields) {
+   //     if (error) {
+   //         console.log(error);
+   //         res.sendStatus(400);
+   //     }
+   //     else {
             db.pool.query(deleteMovies, [movie_ID], function (error, rows, fields) {
                 if (error) {
                     console.log(error);
@@ -122,16 +122,16 @@ app.delete('/delete-movie-ajax', function (req, res, next) {
                     res.sendStatus(204);
                 }
             })
-        }
-    })
+       // }
+   // })
 });
 
 
 app.delete('/delete-member-ajax/', function (req, res, next) {
     let data = req.body;
     let member_ID = parseInt(data.member_ID);
-    let deleteMembers_Has_Movies = `DELETE FROM Members_Has_Movies WHERE member_ID = ?`;
-    let deleteMembers_Fave_Sub_Genres = `DELETE FROM Members_Fave_Sub_Genres WHERE member_ID = ?`;
+    let deleteMembers_Has_Movies = `DELETE FROM Members_has_Movies WHERE member_ID = ?`;
+    let deleteMembers_Fave_Sub_Genres = `DELETE FROM Members_fave_Sub_Genres WHERE member_ID = ?`;
     let deleteMember = `DELETE FROM Members WHERE member_ID = ?`;
 
 

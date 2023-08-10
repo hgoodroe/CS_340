@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `Members` (
   `months_a_member` INT NULL DEFAULT NULL,
   PRIMARY KEY (`member_ID`)
   );
-  
+
 
 -- -----------------------------------------------------
 -- Table `Sub_Genres`
@@ -55,7 +55,6 @@ CREATE TABLE IF NOT EXISTS `Members_fave_Sub_Genres` (
    FOREIGN KEY (`member_ID`) REFERENCES `Members` (`member_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
    FOREIGN KEY (`sub_genre_ID`) REFERENCES `Sub_Genres` (`sub_genre_ID`) ON DELETE CASCADE ON UPDATE CASCADE
     );
-
 
 -- -----------------------------------------------------
 -- Table `Movies`
