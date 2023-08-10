@@ -3,7 +3,7 @@
 -- Matthew Goodroe and Samantha Affarano
 
 
---SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=0;
 --SET AUTOCOMMIT = 0;
 
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
@@ -88,7 +88,7 @@ CREATE TABLE IF NOT EXISTS `Members_has_Movies` (
    PRIMARY KEY (`member_ID`, `movie_ID`),
    FOREIGN KEY (`member_ID`) REFERENCES `Members` (`member_ID`)
    ON UPDATE CASCADE
-   ON DELETE CASCADE ,
+   ON DELETE CASCADE,
    FOREIGN KEY (`movie_ID`) REFERENCES `Movies` (`movie_ID`)   
    ON UPDATE CASCADE
    ON DELETE CASCADE
