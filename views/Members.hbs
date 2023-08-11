@@ -63,9 +63,9 @@
 
         </section>
         <section>
-            <h2>Updating A Member's Info</h2>
-            <p>To update a specific member's personal information, select their name enter in the updated information</p>
-            <form id="update-member-form-ajax">
+            <h2>Updating an Email Address</h2>
+            <p>To update a specific member's email address, select their name and enter in the updated information</p>
+            <form id="update-email-form">
 
                 <label for="input-name">Name: </label>
                 <select name="input-name" id="mySelect">
@@ -75,13 +75,9 @@
                     {{/each}}
                 </select>
 
-                <label for="input-email-update">Update Email:
-                <input type="text" name="input-email-update" id="input-email-update"
+                <label for="input_email_update">Update Email:
+                <input type="text" name="input_email_update" id="input_email_update"
                         placeholder="Enter Updated Email"></label>
-
-                <label for="input-address-update">Update Mailing Address:
-                <textarea name="input-address-update" id="input-address-update" minlength="2" maxlength="300"
-                        placeholder="Please enter new mailing address"></textarea></label>
                 <input type="submit">
 
             </form>
@@ -89,6 +85,6 @@
 
         </section>
     </main>
-    <script src="./js_folder/update_member.js"></script>
+    <script src="./js_folder/update_member_email.js"></script>
 
 </body>
