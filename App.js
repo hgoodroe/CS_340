@@ -271,20 +271,22 @@ app.post('/add-movie-form', async (req, res) => {
         const {
             input_movie_name,
             input_age_rating,
+            input_release_year,
             input_imdb,
             input_rotten,
             input_sub_genre
+
         } = req.body;
 
-
         const query = `
-            INSERT INTO Movies(movie_name, age_rating, IMDB_rating, rotten_rating, sub_genre_ID)
-            VALUES (?, ?, ?, ?, ?)
+            INSERT INTO Movies(movie_name, age_rating,release_year,IMDB_rating, rotten_rating, sub_genre_ID)
+            VALUES (?,?,?,?,?,?)
         `;
 
         const values = [
             input_movie_name,
             input_age_rating,
+            input_release_year,
             input_imdb,
             input_rotten,
             input_sub_genre

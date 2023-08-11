@@ -63,7 +63,7 @@ CREATE TABLE IF NOT EXISTS `Movies` (
   `movie_ID` INT NOT NULL AUTO_INCREMENT,
   `movie_name` VARCHAR(45) NOT NULL,
   `age_rating` VARCHAR(5) NULL DEFAULT NULL,
-  `release_date` DATE NOT NULL,
+  `release_year` INT NOT NULL,
   `imdb_rating` DECIMAL(3,1) NULL DEFAULT NULL,
   `rotten_rating` INT NULL DEFAULT NULL,
   `num_times_rented` INT NOT NULL DEFAULT 0,
@@ -122,13 +122,13 @@ values (1, 1, 0, 0,'2023-7-23 17:30:00', NULL),
 (2, 2, 0, 0,'2023-7-23 13:30:00', NULL),
 (3, 5, 0, 0,'2023-7-23 03:30:00', NULL);
 
-insert into Movies (movie_name, age_rating, release_date, imdb_rating, rotten_rating, num_times_rented, sub_genre_ID)
-values ("The 5th Element", "PG-13", '1997-05-09', 7.6, 71, 15, 2), 
-("Star Wars: A New Hope", "PG", '1977-05-27', 8.6, 93, 76, 2), 
-("Johnny Mnemonic", "R", '1995-05-26', 5.6, 18, 2, 3), 
-("Mad Max", "R", '1980-02-15', 6.8, 91, 20, 6),
-("Planet of the Apes", "G", '1968-03-27', 8.0, 87, 46, 6),
-("Serenity", "PG-13", '2005-09-30', 7.8, 82, 35, 4);
+insert into Movies (movie_name, age_rating, release_year, imdb_rating, rotten_rating, num_times_rented, sub_genre_ID)
+values ("The 5th Element", "PG-13", 1997, 7.6, 71, 15, 2), 
+("Star Wars: A New Hope", "PG", 1977, 8.6, 93, 76, 2), 
+("Johnny Mnemonic", "R", 1995, 5.6, 18, 2, 3), 
+("Mad Max", "R", 1980, 6.8, 91, 20, 6),
+("Planet of the Apes", "G", 1968, 8.0, 87, 46, 6),
+("Serenity", "PG-13", 2005, 7.8, 82, 35, 4);
 
 insert into Movies_has_Awards (movie_ID, award_ID)
 values (5,1), 
