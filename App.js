@@ -368,14 +368,61 @@ app.post('/add-member-fave-form', function (req, res) {
 app.get('/Members_Has_Movies', function (req, res) {
     // Declare Query 1
     query1 = "SELECT * FROM Members_has_Movies;";
+    query2 = "SELECT * FROM Members;";
+    query3 = "SELECT * FROM Movies;";
 
     // Run the 1st query
     db.pool.query(query1, function (error, rows, fields) {
         // Save the customers
         let members_has_movies = rows;
-        return res.render('Members_Has_Movies', { data: members_has_movies });
+
+        db.pool.query(query2, function (error, rows, fields) {
+
+            let members = rows;
+
+            db.pool.query(query3, (error, rows, fields) => {
+
+                let movies = rows;
+
+        return res.render('Members_Has_Movies',
+            {
+                members_has_movies: members_has_movies,
+                members: members,
+                movies: movies
+            });
+            })
+        })
     })
 });
+
+
+app.post('/add-movie-rental-form', function (req, res) {
+    // Capture the incoming data and parse it back to a JS object
+    let data = req.body;
+
+    let member_ID = parseInt(data.input_name);
+    let movie_ID = parseInt(data.input_movie);
+
+
+    query1 = `INSERT INTO Members_has_Movies (member_ID, movie_ID) VALUES (${member_ID}, ${movie_ID})`;
+    db.pool.query(query1, function (error, rows, fields) {
+
+        // Check to see if there was an error
+        if (error) {
+
+            // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
+            console.log(error)
+            res.sendStatus(400);
+        }
+
+        // If there was no error, we redirect back to our root route, which automatically runs the SELECT * FROM bsg_people and
+        // presents it on the screen
+        else {
+            res.redirect('/Members_Has_Movies');
+        }
+    })
+})
+
 
 app.get('/Movies_Has_Awards', function (req, res) {
     // Declare Query 1

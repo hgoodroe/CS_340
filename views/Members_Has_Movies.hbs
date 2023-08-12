@@ -20,12 +20,11 @@
                 {{!-- Header section --}}
                 <thead>
                     <tr>
-                        {{#each data.[0]}}
+                        {{#each members_has_movies.[0]}}
                         <th>
                             {{@key}}
                         </th>
                         {{/each}}
-                        <th>Delete</th>
                     </tr>
                 </thead>
 
@@ -33,7 +32,7 @@
                 <tbody>
                     {{!-- For each row, print each ID, movie name, age rating, release date, IMDB rating,
                     Rottent tomatoes rating, # of times rented, sub-genre --}}
-                    {{#each data}}
+                    {{#each members_has_movies}}
                     <tr>
                         <td>{{this.member_ID}}</td>
                         <td>{{this.movie_ID}}</td>
@@ -49,15 +48,26 @@
                 <!-- 'Create' function to insert new row into Members_Has_Movies table -->
                 <h2>Checkout A Movie</h2>
                 <p>To checkout a movie, select your name, the movie you'd like to rent and click 'Submit'</p>
-                <form id="addMemberHasMoviesForm" method="POST" action="/addMemberHasMoviesForm">
-                    <label for="input-member">Member </label>
-                    <input type="text" name="input-member" id="input-member">
 
-                    <label for="input-movie">Movie </label>
-                    <input type="text" name="input-movie" id="input-movie">
+                <form id="add-movie-rental-form" method="POST" action="/add-movie-rental-form">
 
+                    <label for="input_name">Name: </label>
+                    <select name="input_name" id="input_name">
+                    <option>Select Member</option>
+                    {{#each members}}
+                    <option value="{{this.member_ID}}">{{this.name}}</option>
+                    {{/each}}
+                    </select>
 
+                    <label for="input_movie">Movie: </label>
+                    <select name="input_movie" id="input_movie">
+                    <option>Pick Out a Movie</option>
+                    {{#each movies}}
+                    <option value="{{this.movie_ID}}">{{this.movie_name}}</option>
+                    {{/each}}
+                    </select>
                     <input type="submit">
+
                 </form>
 
         </section>
