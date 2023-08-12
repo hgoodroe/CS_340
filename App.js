@@ -225,16 +225,16 @@ app.post('/add-member-form', function (req, res) {
 app.put('/put-movie-ajax', async (req, res) => {
     let data = req.body
 
-    let movie = parseInt(data.movie_id)
+    let movie = parseInt(data.movie_ID)
     let sub_genre = parseInt(data.sub_genre_ID)
 
     if (isNaN(sub_genre) || isNaN(movie)) {
-        res.status(400).send("Invalid sub_genre or movie_id.");
+        res.status(400).send("Invalid sub_genre or movie_ID.");
         return;
     }
     // queryUpdateMovie = "UPDATE Movies SET movie_name = :movie_nameInput, sub_genre = :sub_genreInput WHERE movie_ID = :movie_ID_Input;";
-    queryUpdateMovie = "UPDATE Movies SET sub_genre_ID = ? WHERE movie_id = ?;";
-    selectGenre = "SELECT * FROM sub_genre_ID WHERE id = ?;";
+    queryUpdateMovie = "UPDATE Movies SET sub_genre_ID = ? WHERE movie_ID = ?;";
+    selectGenre = "SELECT * FROM sub_genre_ID WHERE sub_genre_ID = ?;";
 
     db.pool.query(queryUpdateMovie, [sub_genre, movie], function (error, rows, fields) {
         if (error) {
@@ -253,7 +253,7 @@ app.put('/put-email-ajax', async (req, res, next) => {
     queryUpdateEmail = `UPDATE Members SET email = ? WHERE member_id = ?`;
 
     // Run the 1st query
-    db.pool.query(queryUpdateEmail, [name , email], function (error, rows, fields) {
+    db.pool.query(queryUpdateEmail, [name, email], function (error, rows, fields) {
         if (error) {
 
             // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
@@ -319,19 +319,19 @@ app.get('/Members_Fave_Sub_Genres', function (req, res) {
         let fave_genres = rows;
 
         db.pool.query(query2, function (error, rows, fields) {
-            
+
             let members = rows;
 
             db.pool.query(query3, (error, rows, fields) => {
 
                 let sub_genres = rows;
-            
-            return res.render('Members_Fave_Sub_Genres',
-                {
-                    fave_genres: fave_genres,
-                    members: members,
-                    sub_genres: sub_genres
-                });
+
+                return res.render('Members_Fave_Sub_Genres',
+                    {
+                        fave_genres: fave_genres,
+                        members: members,
+                        sub_genres: sub_genres
+                    });
             })
         })
     })
