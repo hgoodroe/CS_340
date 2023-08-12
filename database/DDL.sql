@@ -154,13 +154,13 @@ values (1, 'Dystopia'),
 (7, 'Hard Science Fiction');
 
 
-insert into Awards (award, ceremony)
+insert into Awards (award_ID, award, ceremony)
 values 
-("Nominee: Best Costume Design", "Oscars: 1969"), 
-("Winner","National Film Registry: 1989"), 
-("Best Original Music Score","AFI Award: 1979"),
-("Best Sound", "BAFTA Film Award: 1979"),
-("Special Award Winner","Science Fiction and Fantasy Writers of America: 1978");
+(1, "Nominee: Best Costume Design", "Oscars: 1969"), 
+(2, "Winner","National Film Registry: 1989"), 
+(3, "Best Original Music Score","AFI Award: 1979"),
+(4, "Best Sound", "BAFTA Film Award: 1979"),
+(5, "Special Award Winner","Science Fiction and Fantasy Writers of America: 1978");
 
 
 --- Report for Normalization:

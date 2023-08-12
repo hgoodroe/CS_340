@@ -180,7 +180,7 @@ app.get('/Awards', function (req, res) {
 
     // Run the 1st query
     db.pool.query(query1, function (error, rows, fields) {
-        // Save the customers
+
         let awards = rows;
         return res.render('Awards', { data: awards });
     })
@@ -354,6 +354,26 @@ app.get('/Sub_Genres', function (req, res) {
         return res.render('Sub_Genres', { data: sub_genres });
     })
 });
+
+app.post('/add-sub_genre-form', function (req, res) {
+    // Capture the incoming data and parse it back to a JS object
+    let data = req.body;
+
+
+    query1 = `INSERT INTO Sub_Genres (sub_genre) VALUES ('${data['input_sub_genre']}')`;
+    db.pool.query(query1, function (error, rows, fields) {
+
+        if (error) {
+
+            console.log(error)
+            res.sendStatus(400);
+        }
+
+        else {
+            res.redirect('/Sub_Genres');
+        }
+    })
+})
 
 // Listener section- makes server work
 // Note: Don't add or change anything below this line.

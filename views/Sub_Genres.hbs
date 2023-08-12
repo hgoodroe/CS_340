@@ -25,7 +25,6 @@
                             {{@key}}
                         </th>
                         {{/each}}
-                        <th>Delete</th>
                     </tr>
                 </thead>
 
@@ -42,29 +41,31 @@
                 </tbody>
                 <table />
 
-                <form method="POST" id="addMember">
-                    <fieldset>
-                        <legend>Add New Sub-Genre</legend>
-                        <label for="subGenre">Sub-Genre <input type="text" name="subGenre" autofocus
-                                placeholder="Sub-Genre" required></label>
-                        <button type="submit">Submit</button>
-                    </fieldset>
-                    <br>
-                    <fieldset>
-                        <legend>Select a Sub-Genre to view all movies available</legend>
-                        <label for="subGenreSelect">Sub-Genre <select name="subGenreSelect" required>
-                                <option value="Select" disabled selected>Select your option</option>
-                                <option value="Dystopia">Dystopia</option>
-                                <option value="spaceOpera">Space Opera</option>
-                                <option value="Cyberpunk">Cyberpunk</option>
-                                <option value="spaceWestern">Space Western</option>
-                                <option value="Apocalyptic">Apocalyptic</option>
-                                <option value="postApocalyptic">Post-Apocalyptic</option>
-                                <option value="hardScience">Hard Science Fiction</option>
-                            </select></label>
-                        <button type="submit">Submit</button>
-                    </fieldset>
-                </form>
+                <h2>Add a new sub-genre</h2>
+            <form id="add-sub_genre-form" method="POST" action="/add-sub_genre-form">
+                <label for="input_sub_genre">Sub-Genre:
+                    <input type="text" name="input_sub_genre" id="input_sub_genre" autofocus
+                        placeholder="Enter Sub-Genre"></label>
+
+                <input type="submit">
+
+            </form>
+            <form>
+                <fieldset>
+                    <legend>Select a Sub-Genre to view all movies available</legend>
+                    <label for="subGenreSelect">Sub-Genre <select name="subGenreSelect" required>
+                            <option value="Select" disabled selected>Select your option</option>
+                            <option value="Dystopia">Dystopia</option>
+                            <option value="spaceOpera">Space Opera</option>
+                            <option value="Cyberpunk">Cyberpunk</option>
+                            <option value="spaceWestern">Space Western</option>
+                            <option value="Apocalyptic">Apocalyptic</option>
+                            <option value="postApocalyptic">Post-Apocalyptic</option>
+                            <option value="hardScience">Hard Science Fiction</option>
+                        </select></label>
+                    <button type="submit">Submit</button>
+                </fieldset>
+            </form>
 
         </section>
     </main>
