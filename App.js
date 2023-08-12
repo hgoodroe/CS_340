@@ -308,16 +308,62 @@ app.post('/add-movie-form', async (req, res) => {
 
 
 app.get('/Members_Fave_Sub_Genres', function (req, res) {
-    // Declare Query 1
+    // Declare Query 1, Query 2 and Query 3
     query1 = "SELECT * FROM Members_fave_Sub_Genres;";
+    query2 = "SELECT * FROM Members;";
+    query3 = "SELECT * FROM Sub_Genres;";
 
     // Run the 1st query
     db.pool.query(query1, function (error, rows, fields) {
         // Save the customers
         let fave_genres = rows;
-        return res.render('Members_Fave_Sub_Genres', { data: fave_genres });
+
+        db.pool.query(query2, function (error, rows, fields) {
+            
+            let members = rows;
+
+            db.pool.query(query3, (error, rows, fields) => {
+
+                let sub_genres = rows;
+            
+            return res.render('Members_Fave_Sub_Genres',
+                {
+                    fave_genres: fave_genres,
+                    members: members,
+                    sub_genres: sub_genres
+                });
+            })
+        })
     })
 });
+
+app.post('/add-member-fave-form', function (req, res) {
+    // Capture the incoming data and parse it back to a JS object
+    let data = req.body;
+
+    let member_ID = parseInt(data.input_name);
+    let sub_genre_ID = parseInt(data.input_sub_genre);
+
+
+    query1 = `INSERT INTO Members_fave_Sub_Genres (member_ID, sub_genre_ID) VALUES (${member_ID}, ${sub_genre_ID})`;
+    db.pool.query(query1, function (error, rows, fields) {
+
+        // Check to see if there was an error
+        if (error) {
+
+            // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
+            console.log(error)
+            res.sendStatus(400);
+        }
+
+        // If there was no error, we redirect back to our root route, which automatically runs the SELECT * FROM bsg_people and
+        // presents it on the screen
+        else {
+            res.redirect('/Members_Fave_Sub_Genres');
+        }
+    })
+})
+
 
 app.get('/Members_Has_Movies', function (req, res) {
     // Declare Query 1

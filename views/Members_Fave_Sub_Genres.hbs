@@ -22,12 +22,11 @@
                 {{!-- Header section --}}
                 <thead>
                     <tr>
-                        {{#each data.[0]}}
+                        {{#each fave_genres.[0]}}
                         <th>
                             {{@key}}
                         </th>
                         {{/each}}
-                        <th>Delete</th>
                     </tr>
                 </thead>
 
@@ -35,7 +34,7 @@
                 <tbody>
                     {{!-- For each row, print each ID, movie name, age rating, release date, IMDB rating,
                     Rottent tomatoes rating, # of times rented, sub-genre --}}
-                    {{#each data}}
+                    {{#each fave_genres}}
                     <tr>
                         <td>{{this.member_ID}}</td>
                         <td>{{this.sub_genre_ID}}</td>
@@ -44,45 +43,28 @@
                 </tbody>
                 <table />
 
-                <form method="POST" id="MembersFaves">
-                    <fieldset>
-                        <legend>Add Favorites</legend>
-                        <label for="addFaves">Member <input type="text" name="addFaves" autofocus
-                                placeholder="Enter Member ID" required></label>
+                <form id="add-member-fave-form" method="POST" action="/add-member-fave-form">
 
-                        <p>Select your favorite Sub-Genres</p>
-                        <label for="Dystopia">
-                            <input type="checkbox" name="Dystopia" value="Dystopia" />
-                            Dystopia</label>
+                    <label for="input_name">Name: </label>
+                    <select name="input_name" id="input_name">
+                    <option>Select Member</option>
+                    {{#each members}}
+                    <option value="{{this.member_ID}}">{{this.name}}</option>
+                    {{/each}}
+                    </select>
 
-                        <label for="SpaceOpera">
-                            <input type="checkbox" name="SpaceOpera" value="SpaceOpera" />
-                            Space Opera</label>
+                    <label for="input_sub_genre">Sub-Genre: </label>
+                        <select name="input_sub_genre" id="input_sub_genre">
+                            <option>Add a Sub-Genre</option>
+                            {{#each sub_genres}}
+                            <option value="{{this.sub_genre_ID}}">{{this.sub_genre}}</option>
+                            {{/each}}
+                        </select>
+                        <input type="submit">
 
-                        <label for="Cyberpunk">
-                            <input type="checkbox" name="Cyberpunk" value="Cyberpunk" />
-                            Cyberpunk</label>
-
-                        <label for="SpaceWestern">
-                            <input type="checkbox" name="SpaceWestern" value="SpaceWestern" />
-                            Space Western</label>
-
-                        <label for="Apocalyptic">
-                            <input type="checkbox" name="Apocalyptic" value="Apocalyptic" />
-                            Apocalyptic</label>
-
-                        <label for="PostApocalyptic">
-                            <input type="checkbox" name="PostApocalyptic" value="PostApocalyptic" />
-                            Post-Apocalyptic</label>
-
-                        <label for="HardScience">
-                            <input type="checkbox" name="HardScience" value="HardScience" />
-                            Hard Science Fiction</label>
+                </form>
 
 
-                        <button type="submit">Done</button>
-                    </fieldset>
-                    <fieldset>
 
                         <legend>Delete a Favorite</legend>
 
