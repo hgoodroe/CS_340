@@ -2,7 +2,7 @@
 <head>
     <meta charset="utf-8" />
     <title>Members Subpage </title>
-    <link id="styleSheet" href="../style.css" rel="stylesheet" type="text/css" />
+    <link id="styleSheet" href="./style.css" rel="stylesheet" type="text/css" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="./js_folder/delete_member.js"></script>
 </head>
@@ -23,7 +23,7 @@
                             {{@key}}
                         </th>
                         {{/each}}
-                        <th>delete</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
 
@@ -32,10 +32,10 @@
                     {{#each data}}
                     <tr data-value="{{this.member_ID}}">
                         <td>{{this.member_ID}}</td>
-                        <td>{{this.name}}</td>
-                        <td>{{this.email}}</td>
-                        <td>{{this.address}}</td>
-                        <td>{{this.months_a_member}}</td>
+                        <td>{{this.Name}}</td>
+                        <td>{{this.Email}}</td>
+                        <td>{{this.Address}}</td>
+                        <td>{{this.Months_a_Member}}</td>
                         <td><button onClick="deleteMember({{ this.member_ID }})">Delete</button></td>
                     </tr>
                     {{/each}}

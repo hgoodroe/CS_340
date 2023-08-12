@@ -20,7 +20,7 @@
                 {{!-- Header section --}}
                 <thead>
                     <tr>
-                        {{#each members_has_movies.[0]}}
+                        {{#each members_movies.[0]}}
                         <th>
                             {{@key}}
                         </th>
@@ -32,14 +32,14 @@
                 <tbody>
                     {{!-- For each row, print each ID, movie name, age rating, release date, IMDB rating,
                     Rottent tomatoes rating, # of times rented, sub-genre --}}
-                    {{#each members_has_movies}}
+                    {{#each members_movies}}
                     <tr>
-                        <td>{{this.member_ID}}</td>
-                        <td>{{this.movie_ID}}</td>
-                        <td>{{this.overdue}}</td>
-                        <td>{{this.returned}}</td>
-                        <td>{{this.checked_out}}</td>
-                        <td>{{this.returned_date}}</td>
+                        <td>{{this.Member}}</td>
+                        <td>{{this.Movie}}</td>
+                        <td>{{this.Overdue}}</td>
+                        <td>{{this.Returned}}</td>
+                        <td>{{this.Checked_Out_Date}}</td>
+                        <td>{{this.Returned_Date}}</td>
                     </tr>
                     {{/each}}
                 </tbody>

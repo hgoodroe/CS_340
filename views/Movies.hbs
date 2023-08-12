@@ -35,13 +35,13 @@
                     {{#each data}}
                     <tr data-value="{{this.movie_ID}}">
                         <td>{{this.movie_ID}}</td>
-                        <td>{{this.movie_name}}</td>
-                        <td>{{this.age_rating}}</td>
-                        <td>{{this.release_year}}</td>
-                        <td>{{this.imdb_rating}}</td>
-                        <td>{{this.rotten_rating}}</td>
+                        <td>{{this.Title}}</td>
+                        <td>{{this.Age_Rating}}</td>
+                        <td>{{this.Year}}</td>
+                        <td>{{this.IMDB_Rating}}</td>
+                        <td>{{this.Rotten_Tomatoes_Rating}}</td>
                         <td>{{this.num_times_rented}}</td>
-                        <td>{{this.sub_genre_ID}}</td>
+                        <td>{{this.Sub_Genre}}</td>
                         {{!-- <td>{{this.sub_genre_ID}}</td> --}}
                         <td><button onclick="deleteMovies({{this.movie_ID}})">Delete</button></td>
                     </tr>

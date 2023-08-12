@@ -20,12 +20,11 @@
                 {{!-- Header section --}}
                 <thead>
                     <tr>
-                        {{#each data.[0]}}
+                        {{#each movies_awards.[0]}}
                         <th>
                             {{@key}}
                         </th>
                         {{/each}}
-                        <th>Delete</th>
                     </tr>
                 </thead>
 
@@ -33,26 +32,34 @@
                 <tbody>
                     {{!-- For each row, print each ID, movie name, age rating, release date, IMDB rating,
                     Rottent tomatoes rating, # of times rented, sub-genre --}}
-                    {{#each data}}
+                    {{#each movies_awards}}
                     <tr>
-                        <td>{{this.movie_ID}}</td>
-                        <td>{{this.award_ID}}</td>
+                        <td>{{this.Movie}}</td>
+                        <td>{{this.Award}}</td>
                     </tr>
                     {{/each}}
                 </tbody>
                 <table />
 
-                <form method="POST" id="addMovieHasAward">
-                    <fieldset>
-                        <legend>Add New Award to Movie</legend>
-                        <label for="movie">Movie <input type="movie" name="movie" id="movie" autofocus
-                                placeholder="Movie" required></label>
+                <form id="add-movie-award-form" method="POST" action="/add-movie-award-form">
 
-                        <label for="award">Award <input type="award" name="award" id="award" placeholder="Award"
-                                required></label>
+                    <label for="input_movie">Movie: </label>
+                    <select name="input_movie" id="input_movie">
+                    <option>Select Movie</option>
+                    {{#each movies}}
+                    <option value="{{this.movie_ID}}">{{this.movie_name}}</option>
+                    {{/each}}
+                    </select>
 
-                        <button type="submit">Submit</button>
-                    </fieldset>
+                    <label for="input_award">Award: </label>
+                    <select name="input_award" id="input_award">
+                    <option>Add an Award</option>
+                    {{#each awards}}
+                    <option value="{{this.award_ID}}">{{this.award}}</option>
+                    {{/each}}
+                    </select>
+                    <input type="submit">
+
                 </form>
 
         </section>

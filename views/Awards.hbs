@@ -25,7 +25,6 @@
                             {{@key}}
                         </th>
                         {{/each}}
-                        <th>Delete</th>
                     </tr>
                 </thead>
 
@@ -36,25 +35,25 @@
                     {{#each data}}
                     <tr data-value="{{this.award_ID}}">
                         <td>{{this.award_ID}}</td>
-                        <td>{{this.award}}</td>
-                        <td>{{this.ceremony}}</td>
+                        <td>{{this.Award}}</td>
+                        <td>{{this.Ceremony}}</td>
                     </tr>
                     {{/each}}
                 </tbody>
                 <table />
 
-                <form method="POST" id="addMember">
-                    <fieldset>
-                        <legend>Add New Award</legend>
-                        <label for="award">Award <input type="text" name="award" id="award" autofocus
-                                placeholder="Award" required></label>
+                <h2>Add a new award</h2>
+                <form id="add-award-form" method="POST" action="/add-award-form">
 
-                        <label for="ceremony">Ceremony <input type="text" name="ceremony" id="ceremony"
-                                placeholder="Ceremony" required></label>
+                <label for="input_award">Award:
+                <input type="text" name="input_award" id="input_award" autofocus
+                placeholder="Enter Award Name"></label>
 
-                        <button type="submit">Submit </button>
-                    </fieldset>
-                </form>
+                <label for="input_ceremony">Ceremony:
+                <input type="text" name="input_ceremony" id="input_ceremony"
+                placeholder="Enter Ceremony"></label>
+
+                <input type="submit">
 
         </section>
     </main>
