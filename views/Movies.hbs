@@ -56,17 +56,18 @@
                 <p>Enter the information about the new movie and hit 'Submit'</p>
                 <form id="add-movie-form" method="POST" action="/add-movie-form">
 
-                    <label for="input_movie_name" id="input_movie_name" autofocus Placeholder="Enter Movie Name"> Movie Name: 
-                        <input type="text" name="input_movie_name" >
+                    <label for="input_movie_name" id="input_movie_name" autofocus Placeholder="Enter Movie Name"> Movie
+                        Name:
+                        <input type="text" name="input_movie_name">
                     </label>
 
-                    <label for="input_age_rating">Age Rating 
-                    <select name="input_age_rating" id="input_age_rating">
-                        <option value="G">G</option>
-                        <option value="PG">PG</option>
-                        <option value="PG-13">PG-13</option>
-                        <option value="R">R</option>
-                    </select></label>
+                    <label for="input_age_rating">Age Rating
+                        <select name="input_age_rating" id="input_age_rating">
+                            <option value="G">G</option>
+                            <option value="PG">PG</option>
+                            <option value="PG-13">PG-13</option>
+                            <option value="R">R</option>
+                        </select></label>
 
                     <label for="input_release_year" id="input_release_year">Release Date
                         <input type="number" name="input_release_year" placeholder="yyyy">
@@ -81,12 +82,12 @@
                     </label>
 
                     <label for="input-sub_genre" id="input_sub_genre">Sub-Genre:
-                    <select name="input_sub_genre">
-                        <option>Select a Sub-Genre</option>
-                        {{#each sub_genres}}
-                        <option value="{{this.sub_genre_ID}}">{{this.sub_genre}}</option>
-                        {{/each}}
-                    </select></label>
+                        <select name="input_sub_genre">
+                            <option>Select a Sub-Genre</option>
+                            {{#each sub_genres}}
+                            <option value="{{this.sub_genre_ID}}">{{this.sub_genre}}</option>
+                            {{/each}}
+                        </select></label>
 
                     <input type="submit">
 
@@ -99,8 +100,8 @@
                         <label for="update-movie_name">Movie name: </label>
                         <select name="update-movie_name" id="mySelect">
                             <option value="test">Select a Movie</option>
-                            {{#each movies}}
-                            <option value="{{this.movie_ID}}">{{this.movie_name}}</option>
+                            {{#each data}}
+                            <option value="{{this.movie_ID}}">{{this.Title}}</option>
                             {{/each}}
                         </select>
 
