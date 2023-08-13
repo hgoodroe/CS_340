@@ -241,7 +241,7 @@ app.put('/put-movie-ajax', async (req, res) => {
     let sub_genre = parseInt(data.sub_genre_ID)
 
     if (isNaN(sub_genre) || isNaN(movie)) {
-        res.status(400).send("Invalid sub_genre or movie_ID.");
+        res.status(400).send("Invalid sub_genre or movie_ID");
         return;
     }
     // queryUpdateMovie = "UPDATE Movies SET movie_name = :movie_nameInput, sub_genre = :sub_genreInput WHERE movie_ID = :movie_ID_Input;";
