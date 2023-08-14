@@ -1,7 +1,8 @@
 <!-- Refer to README for reference -->
+
 <head>
     <meta charset="utf-8" />
-    <title>Members Subpage </title>
+    <title>Members Sub-page </title>
     <link id="styleSheet" href="./style.css" rel="stylesheet" type="text/css" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="./js_folder/delete_member.js"></script>
@@ -9,7 +10,7 @@
 
 <body>
     <header>
-        <!-- <h1>Members</h1> -->
+        <h1>CREATE Members</h1>
     </header>
     <main>
         <section>
@@ -41,11 +42,11 @@
                     {{/each}}
                 </tbody>
             </table>
-            
 
-            <section/>
+            {{!--
+            <section /> --}}
             <h2>Add a new member to our service!</h2>
-            <p>Enter in your information and click 'Submit' below</p>
+            {{!-- <p>Enter in your information and click 'Submit' below.</p> --}}
             <form id="add-member-form" method="POST" action="/add-member-form">
                 <label for="input_name">Name
                     <input type="text" name="input_name" id="input_name" autofocus
@@ -60,23 +61,24 @@
 
                 <input type="submit">
             </form>
-
+            {{!--
         </section>
-        <section>
+        <section> --}}
             <h2>Updating an Email Address</h2>
-            <p>To update a specific member's email address, select their name and enter in the updated information</p>
+            {{!-- <p>To update a specific member's email address, select their name and enter in the updated information
+            </p> --}}
             <form id="update-email-form">
 
                 <label for="input-name">Name: </label>
                 <select name="input-name" id="mySelect">
                     <option value="test">Select Member</option>
                     {{#each data}}
-                    <option value="{{this.member_ID}}">{{this.name}}</option>
+                    <option value="{{this.member_ID}}">{{this.Name}}</option>
                     {{/each}}
                 </select>
 
                 <label for="input_email_update">Update Email:
-                <input type="text" name="input_email_update" id="input_email_update"
+                    <input type="text" name="input_email_update" id="input_email_update"
                         placeholder="Enter Updated Email"></label>
                 <input type="submit">
             </form>

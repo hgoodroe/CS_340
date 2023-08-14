@@ -246,7 +246,7 @@ app.put('/put-movie-ajax', async (req, res) => {
     }
     // queryUpdateMovie = "UPDATE Movies SET movie_name = :movie_nameInput, sub_genre = :sub_genreInput WHERE movie_ID = :movie_ID_Input;";
     queryUpdateMovie = "UPDATE Movies SET sub_genre_ID = ? WHERE movie_ID = ?;";
-    selectGenre = "SELECT * FROM sub_genre_ID WHERE sub_genre_ID = ?;";
+    // selectGenre = "SELECT * FROM sub_genre_ID WHERE sub_genre_ID = ?;";
 
     db.pool.query(queryUpdateMovie, [sub_genre, movie], function (error, rows, fields) {
         if (error) {
@@ -353,19 +353,19 @@ app.get('/Members_Has_Movies', function (req, res) {
                     movies_map[Movie.movie_ID] = Movie.movie_name;
                 })
 
-        members_movies = members_movies.map (hasMovie => {
-            return Object.assign(hasMovie, {
-                Member: members_map[hasMovie.Member],
-                Movie: movies_map[hasMovie.Movie]
-            });
-})
+                members_movies = members_movies.map(hasMovie => {
+                    return Object.assign(hasMovie, {
+                        Member: members_map[hasMovie.Member],
+                        Movie: movies_map[hasMovie.Movie]
+                    });
+                })
 
-        return res.render('Members_Has_Movies',
-            {
-                members_movies: members_movies,
-                members: members,
-                movies: movies
-            });
+                return res.render('Members_Has_Movies',
+                    {
+                        members_movies: members_movies,
+                        members: members,
+                        movies: movies
+                    });
             })
         })
     })
@@ -420,6 +420,12 @@ app.get('/Movies_Has_Awards', function (req, res) {
                 movies_map[Movie.movie_ID] = Movie.movie_name;
             })
 
+            let movie_id = rows;
+            let movies_id_map = {}
+            movies.forEach(Movie_ID => {
+                movies_id_map[Movie_ID.movie_ID] = Movie_ID.movie_ID;
+            })
+
             db.pool.query(query3, (error, rows, fields) => {
 
                 let awards = rows;
@@ -427,19 +433,21 @@ app.get('/Movies_Has_Awards', function (req, res) {
                 awards.forEach(Award => {
                     awards_map[Award.award_ID] = Award.award;
                 })
-        
-        movies_awards = movies_awards.map(hasAward => {
-            return Object.assign(hasAward, {
-                Movie: movies_map[hasAward.Movie],
-                Award: awards_map[hasAward.Award]
-            })
-        })
 
-        return res.render('Movies_Has_Awards',
-            {
-                movies_awards: movies_awards,
-                movies: movies,
-                awards: awards
+                movies_awards = movies_awards.map(hasAward => {
+                    return Object.assign(hasAward, {
+                        Movie: movies_map[hasAward.Movie],
+                        Award: awards_map[hasAward.Award],
+                        Movie_ID: movies_id_map[hasAward.Movie_ID]
+                    })
+                })
+
+                return res.render('Movies_Has_Awards',
+                    {
+                        movies_awards: movies_awards,
+                        movies: movies,
+                        awards: awards,
+                        movie_id: movie_id
                     });
             })
         })
@@ -470,6 +478,40 @@ app.post('/add-movie-award-form', function (req, res) {
     })
 })
 
+app.put('/put-movie_awards-ajax', async (req, res) => {
+    let data = req.body
+    let award_ID = parseInt(data.award_ID)
+    let movie = parseInt(data.movie_ID)
+
+    if (isNaN(movie) || isNaN(award_ID)) {
+        res.status(400).send("Invalid sub_genre or movie_ID");
+        return;
+    }
+    // queryUpdateMovie = "UPDATE Movies SET movie_name = :movie_nameInput, sub_genre = :sub_genreInput WHERE movie_ID = :movie_ID_Input;";
+    queryUpdateMovieAward = "UPDATE Movies_has_Awards SET award_ID = ? WHERE movie_ = ?;";
+    // selectGenre = "SELECT * FROM sub_genre_ID WHERE sub_genre_ID = ?;";
+
+    db.pool.query(queryUpdateMovieAward, [award_ID, movie], function (error, rows, fields) {
+        if (error) {
+            console.log(error);
+            res.sendStatus(400);
+        }
+    })
+});
+
+//Sub-Genre Routes
+app.get('/Sub_Genres', function (req, res) {
+    // Declare Query 1
+    query1 = "SELECT * FROM Sub_Genres;";
+
+    // Run the 1st query
+    db.pool.query(query1, function (error, rows, fields) {
+        // Save the customers
+        let sub_genres = rows;
+        return res.render('Sub_Genres', { data: sub_genres });
+    })
+});
+
 
 //Members_Fave_Sub_Genres Routes
 app.get('/Members_Fave_Sub_Genres', function (req, res) {
@@ -498,20 +540,20 @@ app.get('/Members_Fave_Sub_Genres', function (req, res) {
                 sub_genres.forEach(Sub_Genre => {
                     sub_genres_map[Sub_Genre.sub_genre_ID] = Sub_Genre.sub_genre;
                 })
-            
-        fave_genres = fave_genres.map(faveGenre => {
-            return Object.assign(faveGenre, {
-                Member: members_map[faveGenre.Member],
-                Sub_Genre: sub_genres_map[faveGenre.Sub_Genre]
-            });
-})
 
-        return res.render('Members_Fave_Sub_Genres',
-            {
-                fave_genres: fave_genres,
-                members: members,
-                sub_genres: sub_genres
-            });
+                fave_genres = fave_genres.map(faveGenre => {
+                    return Object.assign(faveGenre, {
+                        Member: members_map[faveGenre.Member],
+                        Sub_Genre: sub_genres_map[faveGenre.Sub_Genre]
+                    });
+                })
+
+                return res.render('Members_Fave_Sub_Genres',
+                    {
+                        fave_genres: fave_genres,
+                        members: members,
+                        sub_genres: sub_genres
+                    });
             })
         })
     })

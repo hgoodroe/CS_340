@@ -40,6 +40,14 @@ body {
     padding: 40px;
 }
 
+h1 {
+    color: #785964;
+    font-size: 40pt;
+    font-family: 'Kievit';
+    text-align: center;
+    font-style: italic;
+}
+
 h2 {
     background-color: #785964;
     font-size: 25pt;
@@ -50,24 +58,25 @@ h2 {
 }
 
 th {
-
     font-size: 25pt;
     color: #9ED0E6;
     text-align: center;
     font-style: italic;
+    padding: 35px;
+
 }
 
 
 #intersection_label {
     background-color: #9ED0E6;
-    font-size: 28pt;
+    font-size: 25pt;
     font-family: 'Kievit';
-    text-align: center;
+    text-align: justify;
     font-style: bold;
     color: black;
-    padding-right: 20px;
+    padding-right: 15px;
     border-right: 6px solid rgb(0, 0, 0);
-    height: 100px;
+    height: 60px;
 }
 
 #normal {
@@ -83,7 +92,6 @@ img {
     padding: 5px;
 }
 
-
 nav {
     padding-top: 25px;
     padding-bottom: 10px;
@@ -97,7 +105,7 @@ ul {
     max-width: 2000px;
     margin: 0 auto 50px;
     background-color: #9ED0E6;
-    font-size: 25pt;
+    font-size: 18pt;
     font-family: 'Kievit';
 
 }
@@ -105,18 +113,20 @@ ul {
 li {
     list-style-type: none;
     display: list-item;
-    font-size: 23pt;
+    font-size: 18pt;
     font-family: 'Kievit';
     margin: 20px;
     text-align: center;
-    padding-top: 20px;
+    font-style: bold;
+
+    /* padding-top: 15px; */
 
 }
 
 #header_id {
     list-style-type: none;
     display: list-item;
-    font-size: 23pt;
+    font-size: 18pt;
     font-family: 'Kievit';
     margin: 20px;
     text-align: center;
@@ -150,7 +160,7 @@ form {
     text-align: center;
     margin-right: auto;
     margin-left: auto;
-    padding: 50px;
+    /* padding: 50px; */
     margin-right: 0 auto 50px;
     display: block;
 

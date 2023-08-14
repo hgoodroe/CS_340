@@ -2,16 +2,14 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Project Step 3 Draft Version: Design HTML Interface + DML SQL (Group / On Ed Discussion ) </title>
+    <title>Sub-Genre Sub-page</title>
     <link id="styleSheet" href="style.css" rel="stylesheet" type="text/css" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </head>
 
-
-
 <body>
     <header>
-        <!-- <h1>Sub-Genres</h1> -->
+        <h1>CREATE Sub-Genres</h1>
     </header>
     <main>
         <section>
@@ -43,30 +41,30 @@
 
                 <h2>Add a new sub-genre</h2>
                 <form id="add-sub_genre-form" method="POST" action="/add-sub_genre-form">
-                
-                <label for="input_sub_genre">Sub-Genre:
-                <input type="text" name="input_sub_genre" id="input_sub_genre" autofocus
-                placeholder="Enter Sub-Genre"></label>
 
-                <input type="submit">
+                    <label for="input_sub_genre">Sub-Genre:
+                        <input type="text" name="input_sub_genre" id="input_sub_genre" autofocus
+                            placeholder="Enter Sub-Genre"></label>
 
-            <!--</form>
-            <form>
-                <fieldset>
-                    <legend>Select a Sub-Genre to view all movies available</legend>
-                    <label for="subGenreSelect">Sub-Genre <select name="subGenreSelect" required>
-                            <option value="Select" disabled selected>Select your option</option>
-                            <option value="Dystopia">Dystopia</option>
-                            <option value="spaceOpera">Space Opera</option>
-                            <option value="Cyberpunk">Cyberpunk</option>
-                            <option value="spaceWestern">Space Western</option>
-                            <option value="Apocalyptic">Apocalyptic</option>
-                            <option value="postApocalyptic">Post-Apocalyptic</option>
-                            <option value="hardScience">Hard Science Fiction</option>
-                        </select></label>
-                    <button type="submit">Submit</button>
-                </fieldset>
-            </form> -->
+                    <input type="submit">
+
+                </form>
+                {{!-- <form>
+                    <fieldset>
+                        <legend>Select a Sub-Genre to view all movies available</legend>
+                        <label for="subGenreSelect">Sub-Genre <select name="subGenreSelect" required>
+                                <option value="Select" disabled selected>Select your option</option>
+                                <option value="Dystopia">Dystopia</option>
+                                <option value="spaceOpera">Space Opera</option>
+                                <option value="Cyberpunk">Cyberpunk</option>
+                                <option value="spaceWestern">Space Western</option>
+                                <option value="Apocalyptic">Apocalyptic</option>
+                                <option value="postApocalyptic">Post-Apocalyptic</option>
+                                <option value="hardScience">Hard Science Fiction</option>
+                            </select></label>
+                        <button type="submit">Submit</button>
+                    </fieldset>
+                </form> --}}
 
         </section>
     </main>

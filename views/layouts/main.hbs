@@ -5,7 +5,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Example App</title>
+    <title>SCI-FLIX Database</title>
     <link id="stylesheet" href="css/style.css" rel="stylesheet" type="text/css" />
 
 
@@ -15,19 +15,23 @@
         <li id=header_id> <a href="/">Home</a></li>
         <li id=header_id><a href="/Members">Members</a></li>
         <li id=header_id><a href="/Movies">Movies</a></li>
-        <li id=header_id> <a href="/Sub_Genres">SubGenres</a></li>
+        <li id=header_id> <a href="/Sub_Genres">Sub-Genres</a></li>
         <li id=header_id><a href="/Awards">Awards</a></li>
+        {{!-- <h3 id=intersection_label>Intersection <br>
+            Tables </h3> --}}
+
+        <li><a href="/Members_Has_Movies">Member's <br> Movies</a></li>
+        <li><a href="/Movies_Has_Awards">Movie <br> Awards</a></li>
+        <li><a href="/Members_fave_Sub_Genres">Member's Favorite <br> Sub-Genre</a></li>
     </ul>
-</nav>
-<nav>
-    <ul>
+    {{!-- <ul>
         <h3 id=intersection_label>Intersection <br>
             Tables </h3>
 
         <li><a href="/Members_Has_Movies">Member's <br> Movies</a></li>
         <li><a href="/Movies_Has_Awards">Movie <br> Awards</a></li>
         <li><a href="/Members_fave_Sub_Genres">Member's Favorite <br> Sub-Genre</a></li>
-    </ul>
+    </ul> --}}
 </nav>
 
 <body>

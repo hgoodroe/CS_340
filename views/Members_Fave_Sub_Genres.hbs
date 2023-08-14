@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Members_fave_Sub_Genres Subpage </title>
+    <title>Members_fave_Sub_Genres Sub-page </title>
     <link id="styleSheet" href="style.css" rel="stylesheet" type="text/css" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </head>
@@ -13,7 +13,7 @@
 
 <body>
     <header>
-        <!-- <h1>Members Favorite Sub-Genres</h1> -->
+        <h1>CREATE Favorite Sub-Genres for Members</h1>
     </header>
     <main>
         <section>
@@ -41,48 +41,55 @@
                     </tr>
                     {{/each}}
                 </tbody>
-                <table/>
-
+                <table />
+                <h2>Add a favorite Sub-Genre for a Member</h2>
                 <form id="add-member-fave-form" method="POST" action="/add-member-fave-form">
 
                     <label for="input_name">Name: </label>
                     <select name="input_name" id="input_name">
-                    <option>Select Member</option>
-                    {{#each members}}
-                    <option value="{{this.member_ID}}">{{this.name}}</option>
-                    {{/each}}
+                        <option>Select Member</option>
+                        {{#each members}}
+                        <option value="{{this.member_ID}}">{{this.name}}</option>
+                        {{/each}}
                     </select>
 
                     <label for="input_sub_genre">Sub-Genre: </label>
-                        <select name="input_sub_genre" id="input_sub_genre">
-                            <option>Add a Sub-Genre</option>
-                            {{#each sub_genres}}
-                            <option value="{{this.sub_genre_ID}}">{{this.sub_genre}}</option>
-                            {{/each}}
-                        </select>
-                        <input type="submit">
+                    <select name="input_sub_genre" id="input_sub_genre">
+                        <option>Add a Sub-Genre</option>
+                        {{#each sub_genres}}
+                        <option value="{{this.sub_genre_ID}}">{{this.sub_genre}}</option>
+                        {{/each}}
+                    </select>
+                    <input type="submit">
 
                 </form>
 
 
 
-                       <!-- <legend>Delete a Favorite</legend>
+                {{!-- <legend>Delete a Favorite</legend> --}}
+                <h2>Remove a favorite Sub-Genre for a Member</h2>
 
-                        <label for="editFaves">Member <input type="text" name="editFaves" autofocus
-                                placeholder="Enter Member ID" required></label>
+                {{!-- <label for="editFaves">Member <input type="text" name="editFaves" autofocus --}} <label
+                        for="input_name">Name: </label>
+                <select name="input_name" id="input_name">
+                    <option>Select Member</option>
+                    {{#each members}}
+                    <option value="{{this.member_ID}}">{{this.name}}</option>
+                    {{/each}}
+                </select>
 
-                        <label for="removeFave">Remove a Favorite <select name="removeFave">
-                                <option value="Dystopia">Dystopia</option>
-                                <option value="SpaceOpera">Space Opera</option>
-                                <option value="Cyberpunk">Cyberpunk</option>
-                                <option value="SpaceWestern">Space Western</option>
-                                <option value="Apocalyptic">Apocalyptic</option>
-                                <option value="PostApocalyptic">Post-Apocalyptic</option>
-                                <option value="HardScience">Hard Science Fiction</option>
-                            </select></label>
-                        <button type="remove">Submit to Remove a Favorite</button>
-                    </fieldset>
-                </form> -->
+                <label for="removeFave">Remove a Favorite <select name="removeFave">
+                        <option value="Dystopia">Dystopia</option>
+                        <option value="SpaceOpera">Space Opera</option>
+                        <option value="Cyberpunk">Cyberpunk</option>
+                        <option value="SpaceWestern">Space Western</option>
+                        <option value="Apocalyptic">Apocalyptic</option>
+                        <option value="PostApocalyptic">Post-Apocalyptic</option>
+                        <option value="HardScience">Hard Science Fiction</option>
+                    </select></label>
+                <button type="remove">Submit to Remove a Favorite</button>
+                </fieldset>
+                </form>
 
         </section>
     </main>
