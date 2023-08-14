@@ -1,4 +1,5 @@
 <!-- Refer to README for reference -->
+
 <head>
     <meta charset="utf-8" />
     <title>Members Subpage </title>
@@ -41,9 +42,9 @@
                     {{/each}}
                 </tbody>
             </table>
-            
 
-            <section/>
+
+            <section />
             <h2>Add a new member to our service!</h2>
             <p>Enter in your information and click 'Submit' below</p>
             <form id="add-member-form" method="POST" action="/add-member-form">
@@ -71,12 +72,12 @@
                 <select name="input-name" id="mySelect">
                     <option value="test">Select Member</option>
                     {{#each data}}
-                    <option value="{{this.member_ID}}">{{this.name}}</option>
+                    <option value="{{this.member_ID}}">{{this.Name}}</option>
                     {{/each}}
                 </select>
 
                 <label for="input_email_update">Update Email:
-                <input type="text" name="input_email_update" id="input_email_update"
+                    <input type="text" name="input_email_update" id="input_email_update"
                         placeholder="Enter Updated Email"></label>
                 <input type="submit">
             </form>
