@@ -1,7 +1,6 @@
 <head>
     <meta charset="utf-8" />
-    <title>Project Step 3 Draft Version: Design HTML Interface + DML SQL (Group / On Ed Discussion ) </title>
-    <link id="styleSheet" href="style.css" rel="stylesheet" type="text/css" />
+    <title>Movies sub-page</title>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </head>
 
@@ -98,7 +97,7 @@
                     <p>To update a specific movie, click on the edit button and change the relevant info</p>
                     <form id="update-movie-form">
                         <label for="update-movie_name">Movie name: </label>
-                        <select name="update-movie_name" id="mySelect">
+                        <select name="update-movie_name" id="update-movie-name">
                             <option value="test">Select a Movie</option>
                             {{#each data}}
                             <option value="{{this.movie_ID}}">{{this.Title}}</option>
@@ -116,6 +115,8 @@
                     </form>
                 </section>
 
+                {{!--
+                <script src="../js_folder/update_movie.js"></script> --}}
 
                 <script src="../js_folder/update_movie.js"></script>
     </main>

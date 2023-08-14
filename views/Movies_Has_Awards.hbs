@@ -2,9 +2,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Members_Has_Movies Subpage </title>
-    <link id="styleSheet" href="style.css" rel="stylesheet" type="text/css" />
-    <link id="styleSheet" href="style.css" rel="stylesheet" type="text/css" />
+    <title>Movies sub-page</title>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </head>
 
@@ -36,6 +34,8 @@
                     <tr>
                         <td>{{this.Movie}}</td>
                         <td>{{this.Award}}</td>
+                        <td>{{this.Movie_ID}}</td>
+
                     </tr>
                     {{/each}}
                 </tbody>
@@ -45,34 +45,60 @@
 
                     <label for="input_movie">Movie: </label>
                     <select name="input_movie" id="input_movie">
-                    <option>Select Movie</option>
-                    {{#each movies}}
-                    <option value="{{this.movie_ID}}">{{this.movie_name}}</option>
-                    {{/each}}
+                        <option>Select Movie</option>
+                        {{#each movies}}
+                        <option value="{{this.movie_ID}}">{{this.movie_name}}</option>
+                        {{/each}}
                     </select>
 
                     <label for="input_award">Award: </label>
                     <select name="input_award" id="input_award">
-                    <option>Add an Award</option>
-                    {{#each awards}}
-                    <option value="{{this.award_ID}}">{{this.award}}</option>
-                    {{/each}}
+                        <option>Add an Award</option>
+                        {{#each awards}}
+                        <option value="{{this.award_ID}}">{{this.award}}</option>
+                        {{/each}}
                     </select>
                     <input type="submit">
 
                 </form>
+        </section>
+        <section>
+            <h2>Updating A Movie's Awards </h2>
+            <p>To update a specific movie's awards, click on the edit button and change the relevant info</p>
+            <form id="update-movie_awards-form">
+                <label for="update-movie">Movie: </label>
+                <select name="update-movie" id="input-movie-update">
+                    <option value="test">Select a Movie</option>
+                    {{#each movies_awards}}
+                    <option value="{{this.Movie_ID}}">{{this.Movie}}</option>
+                    {{/each}}
+                </select>
 
+                <label for="input-movie_awards-update">Award: </label>
+                <select name="input-movie_awards-update" id="input-movie_awards-update">
+                    <option>Select an Award</option>
+                    {{#each awards}}
+                    <option value="{{this.award_ID}}">{{this.award}}</option>
+                    {{/each}}
+                </select>
+                <input type="submit">
+            </form>
         </section>
     </main>
+    {{!--
     <script>
         function editMember(member) {
             alert('Future edits coming!');
         }
-    </script>
+    </script> --}}
+    {{!--
     <script>
         function deleteMember(member) {
             alert('Future deletion coming!');
         }
-    </script>
+    </script> --}}
+
+    <script src="./js_folder/update_movie_has_awards.js"></script>
+
 
 </body>

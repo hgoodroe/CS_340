@@ -50,18 +50,18 @@
 
                     <label for="input_name">Name: </label>
                     <select name="input_name" id="input_name">
-                    <option>Select Member</option>
-                    {{#each members}}
-                    <option value="{{this.member_ID}}">{{this.name}}</option>
-                    {{/each}}
+                        <option>Select Member</option>
+                        {{#each members}}
+                        <option value="{{this.member_ID}}">{{this.name}}</option>
+                        {{/each}}
                     </select>
 
                     <label for="input_movie">Movie: </label>
                     <select name="input_movie" id="input_movie">
-                    <option>Pick Out a Movie</option>
-                    {{#each movies}}
-                    <option value="{{this.movie_ID}}">{{this.movie_name}}</option>
-                    {{/each}}
+                        <option>Pick Out a Movie</option>
+                        {{#each movies}}
+                        <option value="{{this.movie_ID}}">{{this.movie_name}}</option>
+                        {{/each}}
                     </select>
                     <input type="submit">
 
