@@ -71,9 +71,9 @@ th {
     text-align: center;
     font-style: bold;
     color: black;
-    padding-right: 20px;
+    padding-right: 15px;
     border-right: 6px solid rgb(0, 0, 0);
-    height: 100px;
+    height: 60px;
 }
 
 #normal {
@@ -114,14 +114,14 @@ li {
     font-family: 'Kievit';
     margin: 20px;
     text-align: center;
-    padding-top: 20px;
+    padding-top: 15px;
 
 }
 
 #header_id {
     list-style-type: none;
     display: list-item;
-    font-size: 23pt;
+    font-size: 18pt;
     font-family: 'Kievit';
     margin: 20px;
     text-align: center;
@@ -146,7 +146,7 @@ form {
     text-align: center;
     margin-right: auto;
     margin-left: auto;
-    padding: 50px;
+    /* padding: 50px; */
     margin-right: 0 auto 50px;
     display: block;
 

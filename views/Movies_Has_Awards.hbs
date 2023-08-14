@@ -42,6 +42,8 @@
                 </tbody>
                 <table />
 
+                <h2>Add a new Award to a Movie</h2>
+
                 <form id="add-movie-award-form" method="POST" action="/add-movie-award-form">
 
                     <label for="input_movie">Movie: </label>
@@ -62,10 +64,11 @@
                     <input type="submit">
 
                 </form>
+                {{!--
         </section>
-        <section>
+        <section> --}}
             <h2>Updating A Movie's Awards </h2>
-            <p>To update a specific movie's awards, click on the edit button and change the relevant info</p>
+            {{!-- <p>To update a specific movie's awards, click on the edit button and change the relevant info</p> --}}
             <form id="update-movie_awards-form">
                 <label for="update-movie">Movie: </label>
                 <select name="update-movie" id="input-movie-update">
