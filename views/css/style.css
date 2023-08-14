@@ -63,7 +63,6 @@ th {
     text-align: center;
     font-style: italic;
     padding: 35px;
-
 }
 
 
@@ -144,13 +143,11 @@ table {
     max-width: fit-content;
 
 }
-th {
-    padding: 8px;
-    font-size: 23pt;
-}
 
 td {
     padding: 8px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
