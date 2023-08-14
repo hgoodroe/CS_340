@@ -68,7 +68,7 @@ th {
     background-color: #9ED0E6;
     font-size: 25pt;
     font-family: 'Kievit';
-    text-align: center;
+    text-align: justify;
     font-style: bold;
     color: black;
     padding-right: 15px;
@@ -114,7 +114,9 @@ li {
     font-family: 'Kievit';
     margin: 20px;
     text-align: center;
-    padding-top: 15px;
+    font-style: bold;
+
+    /* padding-top: 15px; */
 
 }
 

@@ -35,7 +35,7 @@
                     <tr>
                         <td>{{this.Movie}}</td>
                         <td>{{this.Award}}</td>
-                        <td>{{this.Movie_ID}}</td>
+                        {{!-- <td>{{this.movie_ID}}</td> --}}
 
                     </tr>
                     {{/each}}
@@ -73,8 +73,8 @@
                 <label for="update-movie">Movie: </label>
                 <select name="update-movie" id="input-movie-update">
                     <option value="test">Select a Movie</option>
-                    {{#each movies_awards}}
-                    <option value="{{this.Movie_ID}}">{{this.Movie}}</option>
+                    {{#each movies}}
+                    <option value="{{this.movie_ID}}">{{this.movie_name}}</option>
                     {{/each}}
                 </select>
 

@@ -43,9 +43,10 @@
                 </tbody>
             </table>
 
-            <section />
+            {{!--
+            <section /> --}}
             <h2>Add a new member to our service!</h2>
-            <p>Enter in your information and click 'Submit' below.</p>
+            {{!-- <p>Enter in your information and click 'Submit' below.</p> --}}
             <form id="add-member-form" method="POST" action="/add-member-form">
                 <label for="input_name">Name
                     <input type="text" name="input_name" id="input_name" autofocus
@@ -60,11 +61,12 @@
 
                 <input type="submit">
             </form>
-
+            {{!--
         </section>
-        <section>
+        <section> --}}
             <h2>Updating an Email Address</h2>
-            <p>To update a specific member's email address, select their name and enter in the updated information</p>
+            {{!-- <p>To update a specific member's email address, select their name and enter in the updated information
+            </p> --}}
             <form id="update-email-form">
 
                 <label for="input-name">Name: </label>
