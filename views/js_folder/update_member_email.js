@@ -7,6 +7,9 @@ updateEmailForm.addEventListener("submit", function (e) {
     // Prevent the form from submitting
     e.preventDefault();
 
+    // Force page refresh
+    location.reload(true);
+
     // Get form fields we need to get data from
     let inputName = document.getElementById("mySelect");
     let inputEmail = document.getElementById("input_email_update");
@@ -59,7 +62,7 @@ function updateRow(data, nameValue) {
             let updateRowIndex = table.getElementsByTagName("tr")[i];
 
             // Get td of homeworld value
-            let td = updateRowIndex.getElementsByTagName("td")[3];
+            let td = updateRowIndex.getElementsByTagName("td")[2];
 
             // Reassign homeworld to our value we updated to
             td.innerHTML = parsedData[0].email;
