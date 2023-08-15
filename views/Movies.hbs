@@ -41,7 +41,6 @@
                         <td>{{this.Rotten_Tomatoes_Rating}}</td>
                         <td>{{this.num_times_rented}}</td>
                         <td>{{this.Sub_Genre}}</td>
-                        {{!-- <td>{{this.sub_genre_ID}}</td> --}}
                         <td><button onclick="deleteMovies({{this.movie_ID}})">Delete</button></td>
                     </tr>
                     {{/each}}
@@ -51,8 +50,6 @@
                 <section />
 
                 <h2>Adding A New Movie</h2>
-
-                <p>Enter the information about the new movie and hit 'Submit'.</p>
                 <form id="add-movie-form" method="POST" action="/add-movie-form">
 
                     <label for="input_movie_name" id="input_movie_name" autofocus Placeholder="Enter Movie Name"> Movie
@@ -66,7 +63,8 @@
                             <option value="PG">PG</option>
                             <option value="PG-13">PG-13</option>
                             <option value="R">R</option>
-                        </select></label>
+                        </select>
+                    </label>
 
                     <label for="input_release_year" id="input_release_year">Release Date
                         <input type="number" name="input_release_year" placeholder="yyyy">
@@ -94,7 +92,6 @@
 
                 <section>
                     <h2>Updating A Movie's Information</h2>
-                    <p>To update a specific movie, click on the edit button and change the relevant info.</p>
                     <form id="update-movie-form">
                         <label for="update-movie_name">Movie name: </label>
                         <select name="update-movie_name" id="update-movie-name">
@@ -114,9 +111,6 @@
                         <input type="submit">
                     </form>
                 </section>
-
-                {{!--
-                <script src="../js_folder/update_movie.js"></script> --}}
 
                 <script src="../js_folder/update_movie.js"></script>
 
