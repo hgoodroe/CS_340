@@ -103,8 +103,8 @@ CREATE TABLE IF NOT EXISTS `Movies_has_Awards` (
   `award_ID` INT NOT NULL,
    PRIMARY KEY (`movie_ID`, `award_ID`),
    FOREIGN KEY (`award_ID`) REFERENCES `Awards` (`award_ID`) 
-   ON DELETE CASCADE,
-   ON UPDATE CASCADE
+   ON DELETE CASCADE
+   ON UPDATE CASCADE,
    FOREIGN KEY (`movie_ID`) REFERENCES `Movies` (`movie_ID`)
    ON DELETE CASCADE
    ON UPDATE CASCADE

@@ -380,7 +380,7 @@ app.post('/add-movie-rental-form', function (req, res) {
     let movie_ID = parseInt(data.input_movie);
 
 
-    query1 = `INSERT INTO Members_has_Movies (member_ID, movie_ID) VALUES (${member_ID}, ${movie_ID})`;
+    query1 = `INSERT INTO Members_has_Movies (member_ID, movie_ID, checked_out) VALUES (${member_ID}, ${movie_ID}, NOW())`;
     db.pool.query(query1, function (error, rows, fields) {
 
         // Check to see if there was an error
