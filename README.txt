@@ -10,5 +10,5 @@ Access SCI-FLIX Database web-page can be found
 URL: 
 Created by Samantha Affarano & Hunter Goodroe
 
-Please reference Project Step 5 (Portfolio Assignment) for summary information, schema, ERD, and other important information.
+Please reference Project Step 5 (Portfolio Assignment) for summary information, schema, ERD, and other important information.  This application was created using node.js, so take the appropriate steps to install standar packages & modules.
 
