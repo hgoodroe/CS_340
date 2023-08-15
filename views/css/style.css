@@ -9,6 +9,13 @@ p {
     margin: 3%;
 }
 
+detail {
+    color: white;
+    font-size: 15pt;
+    font-family: 'Kievit';
+    font-style: italic;
+}
+
 legend {
     color: white;
 }
@@ -142,8 +149,6 @@ table {
     border-spacing: 5px 0;
     max-width: fit-content;
     margin: 0 auto;
-
-
 }
 
 
@@ -165,8 +170,6 @@ form {
     /* padding: 50px; */
     margin-right: 0 auto 50px;
     display: block;
-
-
 }
 
 label {
@@ -175,10 +178,10 @@ label {
     text-align: center;
     margin-right: auto;
     margin-left: auto;
-    padding: 50px;
+    padding-top: 50 px;
+    padding-bottom: 50px;
+    padding-left: 50px;
     margin-right: 0 auto 50px;
-
-
 }
 
 
