@@ -46,7 +46,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static('views'))  //if doesnt work change to views
 
-PORT = 23401;
+PORT = 23399;
 
 var db = require('./database/database_connector');
 
@@ -251,7 +251,7 @@ app.post('/add-movie-form', async (req, res) => {
 
 app.delete('/delete-movie-ajax/', function (req, res, next) {
     let data = req.body;
-    let movie_ID = parseInt(data.id);
+    let movie_ID = parseInt(data.movie_id);
     //let deleteMembers_Has_Movies = `DELETE FROM Members_has_Movies WHERE movie_ID = ?`;
     let deleteMovies = `DELETE FROM Movies WHERE movie_ID = ?`;
 
