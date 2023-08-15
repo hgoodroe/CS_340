@@ -46,7 +46,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static('views'))  //if doesnt work change to views
 
-PORT = 23400;
+PORT = 23401;
 
 var db = require('./database/database_connector');
 
@@ -160,8 +160,8 @@ app.delete('/delete-member-ajax/', function (req, res, next) {
 app.put('/put-email-ajax', async (req, res, next) => {
     let data = req.body;
 
-    let name = parseInt(data.mySelect);
-    let email = data.input_email_update;
+    let name = parseInt(data.name);
+    let email = data.email;
 
     queryUpdateEmail = `UPDATE Members SET email = ? WHERE member_id = ?`;
 
@@ -477,7 +477,7 @@ app.get('/Movies_Has_Awards', function (req, res) {
                     return Object.assign(hasAward, {
                         Movie: movies_map[hasAward.Movie],
                         Award: awards_map[hasAward.Award],
-                       // Movie_ID: movies_id_map[hasAward.Movie_ID]
+                        // Movie_ID: movies_id_map[hasAward.Movie_ID]
                     })
                 })
 
@@ -487,7 +487,7 @@ app.get('/Movies_Has_Awards', function (req, res) {
                         movies: movies,
                         awards: awards,
                         // movie_id: movie_id
-                       // movie_id: movie_id
+                        // movie_id: movie_id
                     });
             })
         })
