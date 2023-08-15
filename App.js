@@ -121,8 +121,8 @@ app.delete('/delete-member-ajax/', function (req, res, next) {
 app.put('/put-email-ajax', async (req, res, next) => {
     let data = req.body;
 
-    let name = parseInt(data.name);
-    let email = data.email;
+    let name = parseInt(data.mySelect);
+    let email = data.input_email_update;
 
     queryUpdateEmail = `UPDATE Members SET email = ? WHERE member_id = ?`;
 
