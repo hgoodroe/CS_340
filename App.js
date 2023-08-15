@@ -13,7 +13,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static('views'))  //if doesnt work change to views
 
-PORT = 23399;
+PORT = 23400;
 
 var db = require('./database/database_connector');
 
@@ -420,11 +420,11 @@ app.get('/Movies_Has_Awards', function (req, res) {
                 movies_map[Movie.movie_ID] = Movie.movie_name;
             })
 
-            let movie_id = rows;
-            let movies_id_map = {}
-            movies.forEach(Movie_ID => {
-                movies_id_map[Movie_ID.movie_ID] = Movie_ID.movie_ID;
-            })
+            // let movie_id = rows;
+            // let movies_id_map = {}
+            // movies.forEach(Movie_ID => {
+            //     movies_id_map[Movie_ID.movie_ID] = Movie_ID.movie_ID;
+            // })
 
             db.pool.query(query3, (error, rows, fields) => {
 
@@ -438,7 +438,7 @@ app.get('/Movies_Has_Awards', function (req, res) {
                     return Object.assign(hasAward, {
                         Movie: movies_map[hasAward.Movie],
                         Award: awards_map[hasAward.Award],
-                        Movie_ID: movies_id_map[hasAward.Movie_ID]
+                        // Movie_ID: movies_id_map[hasAward.Movie_ID]
                     })
                 })
 
@@ -447,7 +447,7 @@ app.get('/Movies_Has_Awards', function (req, res) {
                         movies_awards: movies_awards,
                         movies: movies,
                         awards: awards,
-                        movie_id: movie_id
+                        // movie_id: movie_id
                     });
             })
         })
