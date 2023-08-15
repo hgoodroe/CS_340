@@ -56,7 +56,6 @@
                 </tbody>
                 <table />
                 <script src="./js_folder/delete_movie.js"></script>
-                <section />
 
 
                 <!-- Code for the INSERT function (add a movie)
@@ -65,7 +64,7 @@
                     Date: 8/14/2023
                     URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%205%20-%20Adding%20New%20Data
                     -->
-                <h2>Adding A New Movie</h2>
+                <h2>Adding A new Movie</h2>
                 <form id="add-movie-form" method="POST" action="/add-movie-form">
 
                     <label for="input_movie_name" id="input_movie_name" autofocus Placeholder="Enter Movie Name"> Movie
@@ -113,38 +112,36 @@
                     Date: 8/14/2023
                     URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%208%20-%20Dynamically%20Updating%20Data
                     -->
-                <section>
-                    <h2>Updating A Movie's Information</h2>
-                    <form id="update-movie-form">
-                        <label for="update-movie_name">Movie name: </label>
+                <h2>Updating A Movie's Information</h2>
+                <form id="update-movie-form">
+                    <label for="update-movie_name">Movie name: </label>
 
-                        <!-- Code to dynamically fill the drop downs for movies & sub-genres
+                    <!-- Code to dynamically fill the drop downs for movies & sub-genres
                         Copied from/ modified from the nodejs-start-app
                         from osu-cs340-campus git account- Step 6 -
                         Dynamically Filling Dropdowns and Adding a Search Box
                         Date: 8/14/2023
                         URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%206%20-%20Dynamically%20Filling%20Dropdowns%20and%20Adding%20a%20Search%20Box
                         -->
-                        <select name="update-movie_name" id="update-movie-name">
-                            <option value="test">Select a Movie</option>
-                            {{#each data}}
-                            <option value="{{this.movie_ID}}">{{this.Title}}</option>
-                            {{/each}}
-                        </select>
+                    <select name="update-movie_name" id="update-movie-name">
+                        <option value="test">Select a Movie</option>
+                        {{#each data}}
+                        <option value="{{this.movie_ID}}">{{this.Title}}</option>
+                        {{/each}}
+                    </select>
 
-                        <label for="input-sub_genre">Sub-Genre: </label>
-                        <select name="input-sub_genre" id="input-sub_genre-update">
-                            <option>Select a Sub-Genre</option>
-                            {{#each sub_genres}}
-                            <option value="{{this.sub_genre_ID}}">{{this.sub_genre}}</option>
-                            {{/each}}
-                        </select>
-                        <input type="submit">
-                    </form>
-                </section>
-
-                <script src="../js_folder/update_movie.js"></script>
+                    <label for="input-sub_genre">Sub-Genre: </label>
+                    <select name="input-sub_genre" id="input-sub_genre-update">
+                        <option>Select a Sub-Genre</option>
+                        {{#each sub_genres}}
+                        <option value="{{this.sub_genre_ID}}">{{this.sub_genre}}</option>
+                        {{/each}}
+                    </select>
+                    <input type="submit">
+                </form>
+        </section>
     </main>
+    <script src="../js_folder/update_movie.js"></script>
     <br>
     <detail>If the update does not reflect on the table immediately, please manually refresh your browser.</detail>
 

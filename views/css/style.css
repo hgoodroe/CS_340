@@ -165,9 +165,9 @@ form {
     color: white;
     font-size: 20pt;
     text-align: center;
+    align-items: center;
     margin-right: auto;
     margin-left: auto;
-    /* padding: 50px; */
     margin-right: 0 auto 50px;
     display: block;
 }
@@ -176,6 +176,7 @@ label {
     color: white;
     font-size: 20pt;
     text-align: center;
+    align-items: center;
     margin-right: auto;
     margin-left: auto;
     padding-top: 50px;
