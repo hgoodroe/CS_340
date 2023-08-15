@@ -6,11 +6,14 @@
 SET FOREIGN_KEY_CHECKS=0;
 SET AUTOCOMMIT = 0;
 
+<<<<<<< HEAD
 -- SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 -- SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 -- SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 
+=======
+>>>>>>> 945c7d9596adefddead8ba5811260ead85007e9a
 -- -----------------------------------------------------
 -- Table `Awards`
 -- -----------------------------------------------------
@@ -158,13 +161,11 @@ values
 (4, "Best Sound", "BAFTA Film Award: 1979"),
 (5, "Special Award Winner","Science Fiction and Fantasy Writers of America: 1978");
 
-
---- Report for Normalization:
--- SELECT member_ID,count(member_ID), Movies.movie_name AS "Checked-out Movies per Member" FROM Members_has_Movies INNER JOIN Movies ON Members_has_Movies.movie_ID = Movies.movie_ID GROUP BY member_ID;
--- SELECT * from Movies CROSS JOIN Members_has_Movies CROSS JOIN Movies_has_Awards CROSS JOIN Sub_Genres;
-
 SET FOREIGN_KEY_CHECKS=1;
 COMMIT;
+<<<<<<< HEAD
 -- SET SQL_MODE=@OLD_SQL_MODE;
 -- SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 -- SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+=======
+>>>>>>> 945c7d9596adefddead8ba5811260ead85007e9a
