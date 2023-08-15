@@ -33,15 +33,15 @@ function deleteMovies(movie_ID) {
 }
 
 
-function deleteRow(movie_ID){
+function deleteRow(movie_ID) {
 
     let table = document.getElementById("movieTable");
     for (let i = 0, row; row = table.rows[i]; i++) {
-       //iterate through rows
-       //rows would be accessed using the "row" variable assigned in the for loop
-       if (table.rows[i].getAttribute("data-value") == movie_ID) {
+        //iterate through rows
+        //rows would be accessed using the "row" variable assigned in the for loop
+        if (table.rows[i].getAttribute("data-value") == movie_ID) {
             table.deleteRow(i);
             break;
-       }
+        }
     }
 }
