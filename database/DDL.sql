@@ -6,9 +6,9 @@
 SET FOREIGN_KEY_CHECKS=0;
 SET AUTOCOMMIT = 0;
 
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+-- SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+-- SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+-- SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 
 -- -----------------------------------------------------
@@ -107,8 +107,8 @@ CREATE TABLE IF NOT EXISTS `Movies_has_Awards` (
 -- -----------------------------------------------------
 
     
-insert into Members (member_ID, name, email, address, months_a_member)
-values (1, 'Philip K. Dick', 'philip@gmail.com', '87569 Ubik Ave. Berkeley, CA 94701', 8),
+INSERT  INTO Members (member_ID, name, email, address, months_a_member)
+VALUES (1, 'Philip K. Dick', 'philip@gmail.com', '87569 Ubik Ave. Berkeley, CA 94701', 8),
 (2, 'Jules Verne', 'julesV@yahoo.com', '908 Roles Rd. Paris, IL 61944 Apt. B', 2),
 (3, 'Bray Madbury', 'iluvlibraries@gmail.com', '111 Fireplace Ln. Los Angeles, CA 90001', 25);
 
@@ -165,6 +165,6 @@ values
 
 SET FOREIGN_KEY_CHECKS=1;
 COMMIT;
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+-- SET SQL_MODE=@OLD_SQL_MODE;
+-- SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+-- SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
