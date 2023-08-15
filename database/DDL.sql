@@ -6,11 +6,6 @@
 SET FOREIGN_KEY_CHECKS=0;
 SET AUTOCOMMIT = 0;
 
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
-
-
 -- -----------------------------------------------------
 -- Table `Awards`
 -- -----------------------------------------------------
@@ -107,8 +102,8 @@ CREATE TABLE IF NOT EXISTS `Movies_has_Awards` (
 -- -----------------------------------------------------
 
     
-insert into Members (member_ID, name, email, address, months_a_member)
-values (1, 'Philip K. Dick', 'philip@gmail.com', '87569 Ubik Ave. Berkeley, CA 94701', 8),
+INSERT  INTO Members (member_ID, name, email, address, months_a_member)
+VALUES (1, 'Philip K. Dick', 'philip@gmail.com', '87569 Ubik Ave. Berkeley, CA 94701', 8),
 (2, 'Jules Verne', 'julesV@yahoo.com', '908 Roles Rd. Paris, IL 61944 Apt. B', 2),
 (3, 'Bray Madbury', 'iluvlibraries@gmail.com', '111 Fireplace Ln. Los Angeles, CA 90001', 25);
 
@@ -158,13 +153,5 @@ values
 (4, "Best Sound", "BAFTA Film Award: 1979"),
 (5, "Special Award Winner","Science Fiction and Fantasy Writers of America: 1978");
 
-
---- Report for Normalization:
--- SELECT member_ID,count(member_ID), Movies.movie_name AS "Checked-out Movies per Member" FROM Members_has_Movies INNER JOIN Movies ON Members_has_Movies.movie_ID = Movies.movie_ID GROUP BY member_ID;
--- SELECT * from Movies CROSS JOIN Members_has_Movies CROSS JOIN Movies_has_Awards CROSS JOIN Sub_Genres;
-
 SET FOREIGN_KEY_CHECKS=1;
 COMMIT;
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
