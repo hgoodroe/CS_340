@@ -1,4 +1,6 @@
-<!-- Refer to README for reference -->
+<!-- Code for head portion based on SA CS290 Web Dev Project
+    index.html page header
+    Date: 8/14/2023 -->
 
 <head>
     <meta charset="utf-8" />
@@ -7,7 +9,12 @@
 </head>
 
 
-
+<!-- Code for the READ function (table)
+    Copied from/ modified from the nodejs-start-app
+    from osu-cs340-campus git account- Step 4 - Dynamically Displaying Data
+    Date: 8/14/2023
+    URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%204%20-%20Dynamically%20Displaying%20Data
+    -->
 <body>
     <header>
         <h1>CREATE / READ Awards for Movies</h1>
@@ -29,8 +36,7 @@
 
                 {{!-- Body section --}}
                 <tbody>
-                    {{!-- For each row, print each ID, movie name, age rating, release date, IMDB rating,
-                    Rottent tomatoes rating, # of times rented, sub-genre --}}
+                    
                     {{#each movies_awards}}
                     <tr>
                         <td>{{this.Movie}}</td>
@@ -40,10 +46,24 @@
                 </tbody>
                 <table />
 
-                <h2>Add a new Award to a Movie</h2>
 
+                <!-- Code for the INSERT function (checkout a movie)
+                    Copied from/ modified from the nodejs-start-app
+                    from osu-cs340-campus git account- Step 5 - Adding New Data
+                    Date: 8/14/2023
+                    URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%205%20-%20Adding%20New%20Data
+                    -->
+                <h2>Add a new Award to a Movie</h2>
                 <form id="add-movie-award-form" method="POST" action="/add-movie-award-form">
 
+
+                    <!-- Code to dynamically fill the drop downs for movies & awards
+                    Copied from/ modified from the nodejs-start-app
+                    from osu-cs340-campus git account- Step 6 -
+                    Dynamically Filling Dropdowns and Adding a Search Box
+                    Date: 8/14/2023
+                    URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%206%20-%20Dynamically%20Filling%20Dropdowns%20and%20Adding%20a%20Search%20Box
+                    -->
                     <label for="input_movie">Movie: </label>
                     <select name="input_movie" id="input_movie">
                         <option>Select Movie</option>

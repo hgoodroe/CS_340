@@ -1,3 +1,12 @@
+//Code for the functions updateMovieForm & updateRow
+//Copied from/ modified from the nodejs-start-app
+//from osu-cs340-campus git account- Step 8 - Dynamically Updating Data
+//Date: 8/14/2023
+//URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%208%20-%20Dynamically%20Updating%20Data
+
+
+
+
 // // Get the objects we need to modify
 // let updateMovieForm = document.getElementById('update-movie-form');
 

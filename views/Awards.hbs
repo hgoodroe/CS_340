@@ -1,3 +1,8 @@
+<!-- Code for head portion based on SA CS290 Web Dev Project
+    index.html page header
+    Date: 8/14/2023 -->
+
+
 <head>
     <meta charset="utf-8" />
     <title>Awards Sub-page</title>
@@ -8,6 +13,12 @@
 
 </headers>
 
+<!-- Code for the READ function (table)
+    Copied from/ modified from the nodejs-start-app
+    from osu-cs340-campus git account- Step 4 - Dynamically Displaying Data
+    Date: 8/14/2023
+    URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%204%20-%20Dynamically%20Displaying%20Data
+    -->
 <body>
     <header>
         <h1>CREATE / READ Awards</h1>
@@ -29,8 +40,6 @@
 
                 {{!-- Body section --}}
                 <tbody>
-                    {{!-- For each row, print each ID, movie name, age rating, release date, IMDB rating,
-                    Rottent tomatoes rating, # of times rented, sub-genre --}}
                     {{#each data}}
                     <tr data-value="{{this.award_ID}}">
                         <td>{{this.award_ID}}</td>
@@ -41,6 +50,12 @@
                 </tbody>
                 <table />
 
+                <!-- Code for the INSERT function (add new award)
+                    Copied from/ modified from the nodejs-start-app
+                    from osu-cs340-campus git account- Step 5 - Adding New Data
+                    Date: 8/14/2023
+                    URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%205%20-%20Adding%20New%20Data
+                    -->
                 <h2>Add a new award</h2>
                 <form id="add-award-form" method="POST" action="/add-award-form">
 
@@ -56,15 +71,5 @@
 
         </section>
     </main>
-    <script>
-        function editMember(member) {
-            alert('Future edits coming!');
-        }
-    </script>
-    <script>
-        function deleteMember(member) {
-            alert('Future deletion coming!');
-        }
-    </script>
 
 </body>

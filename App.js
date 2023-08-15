@@ -1,3 +1,29 @@
+//app.get functions copied from/based on 
+//nodejs-starter-app from osu-cs340-ecampus github account
+//Step-4- Dynamically Displaying Data AND
+//Step-6- Dynamically Filling Dropdowns and Adding a Search Box
+//Date: 8/14/2023
+//Step 4 URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%204%20-%20Dynamically%20Displaying%20Data
+//Step 6 URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%206%20-%20Dynamically%20Filling%20Dropdowns%20and%20Adding%20a%20Search%20Box
+
+//app.post functions copied from/based on
+//nodejs-starter-app from osu-cs340-ecampus github account
+//Step-5- Adding New Data
+//Date: 8/14/2023
+//URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%205%20-%20Adding%20New%20Data
+
+//app.delete functions copied from/based on
+//nodejs-starter-app from osu-cs340-ecampus github account
+//Step-7- Dynamically Deleting Data
+//Date: 8/14/2023
+//URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%207%20-%20Dynamically%20Deleting%20Data
+
+//app.put functions copied from/based on
+//nodejs-starter-app from osu-cs340-ecampus github account
+//Step-8- Dynamically Updating Data
+//Date: 8/14/2023
+//URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step 8 - Dynamically Updating Data
+
 // import express from 'express';
 // import fetch from 'node-fetch';
 // import 'dotenv/config';
@@ -7,6 +33,13 @@
 
 
 // Setup section- contains variables
+
+//Setup Code copied from nodejs-starter-app 
+//from osu - cs340 - ecampus github account
+//Step 0- Setting up Node.js
+//Date: 8/14/23
+//URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%200%20-%20Setting%20Up%20Node.js
+
 var express = require('express');
 var app = express();
 app.use(express.json())
@@ -16,6 +49,12 @@ app.use(express.static('views'))  //if doesnt work change to views
 PORT = 23400;
 
 var db = require('./database/database_connector');
+
+//Handlebar Setup Code copied from nodejs-starter-app 
+//from osu - cs340 - ecampus github account
+//Step 3- Integrating a Templating Engine (Handlebars)
+//Date: 8/14/23
+//URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%203%20-%20Integrating%20a%20Templating%20Engine%20(Handlebars)
 
 const { engine } = require('express-handlebars');
 var exphbs = require('express-handlebars');
@@ -420,11 +459,11 @@ app.get('/Movies_Has_Awards', function (req, res) {
                 movies_map[Movie.movie_ID] = Movie.movie_name;
             })
 
-            // let movie_id = rows;
-            // let movies_id_map = {}
-            // movies.forEach(Movie_ID => {
-            //     movies_id_map[Movie_ID.movie_ID] = Movie_ID.movie_ID;
-            // })
+            //let movie_id = rows;
+            //let movies_id_map = {}
+            //movies.forEach(Movie_ID => {
+            //    movies_id_map[Movie_ID.movie_ID] = Movie_ID.movie_ID;
+            //})
 
             db.pool.query(query3, (error, rows, fields) => {
 
@@ -438,7 +477,7 @@ app.get('/Movies_Has_Awards', function (req, res) {
                     return Object.assign(hasAward, {
                         Movie: movies_map[hasAward.Movie],
                         Award: awards_map[hasAward.Award],
-                        // Movie_ID: movies_id_map[hasAward.Movie_ID]
+                       // Movie_ID: movies_id_map[hasAward.Movie_ID]
                     })
                 })
 
@@ -448,6 +487,7 @@ app.get('/Movies_Has_Awards', function (req, res) {
                         movies: movies,
                         awards: awards,
                         // movie_id: movie_id
+                       // movie_id: movie_id
                     });
             })
         })
