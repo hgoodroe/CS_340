@@ -6,10 +6,6 @@
 SET FOREIGN_KEY_CHECKS=0;
 SET AUTOCOMMIT = 0;
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 945c7d9596adefddead8ba5811260ead85007e9a
 -- -----------------------------------------------------
 -- Table `Awards`
 -- -----------------------------------------------------
@@ -159,8 +155,4 @@ values
 
 SET FOREIGN_KEY_CHECKS=1;
 COMMIT;
-<<<<<<< HEAD
-CHECKS;
 
-=======
->>>>>>> 945c7d9596adefddead8ba5811260ead85007e9a
