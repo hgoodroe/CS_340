@@ -92,7 +92,7 @@ app.post('/add-member-form', function (req, res) {
     let data = req.body;
 
 
-    query1 = `INSERT INTO Members (name, email, address) VALUES ('${data['input_name']}', '${data['input_email']}', '${data['input_address']}')`;
+    query1 = `INSERT INTO Members (name, email, address,months_a_member) VALUES ('${data['input_name']}', '${data['input_email']}', '${data['input_address']}',0)`;
     db.pool.query(query1, function (error, rows, fields) {
 
         // Check to see if there was an error
