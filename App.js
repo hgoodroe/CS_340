@@ -539,19 +539,6 @@ app.put('/put-movie_awards-ajax', async (req, res) => {
     })
 });
 
-//Sub-Genre Routes
-app.get('/Sub_Genres', function (req, res) {
-    // Declare Query 1
-    query1 = "SELECT * FROM Sub_Genres;";
-
-    // Run the 1st query
-    db.pool.query(query1, function (error, rows, fields) {
-        // Save the customers
-        let sub_genres = rows;
-        return res.render('Sub_Genres', { data: sub_genres });
-    })
-});
-
 
 //Members_Fave_Sub_Genres Routes
 app.get('/Members_Fave_Sub_Genres', function (req, res) {
