@@ -113,13 +113,13 @@ values (1, 1, 0, 0,'2023-7-23 17:30:00', NULL),
 (2, 2, 0, 0,'2023-7-23 13:30:00', NULL),
 (3, 5, 0, 0,'2023-7-23 03:30:00', NULL);
 
-insert into Movies (movie_name, age_rating, release_year, imdb_rating, rotten_rating, num_times_rented, sub_genre_ID)
-values ("The 5th Element", "PG-13", 1997, 7.6, 71, 15, 2), 
-("Star Wars: A New Hope", "PG", 1977, 8.6, 93, 76, 2), 
-("Johnny Mnemonic", "R", 1995, 5.6, 18, 2, 3), 
-("Mad Max", "R", 1980, 6.8, 91, 20, 6),
-("Planet of the Apes", "G", 1968, 8.0, 87, 46, 6),
-("Serenity", "PG-13", 2005, 7.8, 82, 35, 4);
+insert into Movies (movie_ID, movie_name, age_rating, release_year, imdb_rating, rotten_rating, num_times_rented, sub_genre_ID)
+values (1, "The 5th Element", "PG-13", 1997, 7.6, 71, 15, 2), 
+(2, "Star Wars: A New Hope", "PG", 1977, 8.6, 93, 76, 2), 
+(3, "Johnny Mnemonic", "R", 1995, 5.6, 18, 2, 3), 
+(4, "Mad Max", "R", 1980, 6.8, 91, 20, 6),
+(5, "Planet of the Apes", "G", 1968, 8.0, 87, 46, 6),
+(6, "Serenity", "PG-13", 2005, 7.8, 82, 35, 4);
 
 insert into Movies_has_Awards (movie_ID, award_ID)
 values (5,1), 
