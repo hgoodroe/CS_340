@@ -86,12 +86,8 @@ CREATE TABLE IF NOT EXISTS `Members_has_Movies` (
   `checked_out` DATETIME NOT NULL,
   `return_date` DATETIME NULL DEFAULT NULL,
    PRIMARY KEY (`member_ID`, `movie_ID`),
-   FOREIGN KEY (`member_ID`) REFERENCES `Members` (`member_ID`)
-   ON UPDATE CASCADE
-   ON DELETE CASCADE,
-   FOREIGN KEY (`movie_ID`) REFERENCES `Movies` (`movie_ID`)   
-   ON UPDATE CASCADE
-   ON DELETE CASCADE
+   FOREIGN KEY (`member_ID`) REFERENCES `Members` (`member_ID`) ON UPDATE CASCADE ON DELETE CASCADE,
+   FOREIGN KEY (`movie_ID`) REFERENCES `Movies` (`movie_ID`) ON UPDATE CASCADE ON DELETE CASCADE
     );
 
 
@@ -102,12 +98,8 @@ CREATE TABLE IF NOT EXISTS `Movies_has_Awards` (
   `movie_ID` INT NOT NULL,
   `award_ID` INT NOT NULL,
    PRIMARY KEY (`movie_ID`, `award_ID`),
-   FOREIGN KEY (`award_ID`) REFERENCES `Awards` (`award_ID`) 
-   ON DELETE CASCADE
-   ON UPDATE CASCADE,
-   FOREIGN KEY (`movie_ID`) REFERENCES `Movies` (`movie_ID`)
-   ON DELETE CASCADE
-   ON UPDATE CASCADE
+   FOREIGN KEY (`award_ID`) REFERENCES `Awards` (`award_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+   FOREIGN KEY (`movie_ID`) REFERENCES `Movies` (`movie_ID`) ON DELETE CASCADE ON UPDATE CASCADE
     );
 
 -- -----------------------------------------------------
